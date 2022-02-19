@@ -52,7 +52,7 @@ export default function LoginPage(props) {
       >
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="yellow" textAlign="center">
-            <Icon name="login" />
+            <Icon name="sign-in" />
             Log-in to your
             account
           </Header>

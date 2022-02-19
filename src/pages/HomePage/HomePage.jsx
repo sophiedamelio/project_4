@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Composition from "../../components/Composition/Composition"
-import Header from "../../components/Header/Header"
+import PageHeader from "../../components/Header/Header"
+import Menu from "../../components/Menu/Menu"
 import userService from "../../utils/userService";
 import { useNavigate, Link } from "react-router-dom";
 
 import * as compositionApi from "../../utils/compositionApi";
+import { Grid } from "semantic-ui-react";
 
 
 export default function HomePage({ user, handleLogout }) {
@@ -62,9 +64,19 @@ export default function HomePage({ user, handleLogout }) {
 
 	return (
 		<>
-			<Header handleLogout={handleLogout} user={user} />
-			<Composition />
-			<h1>hello?</h1>
+			<Grid centered>
+				<Grid.Row>
+					<Grid.Column>
+						<PageHeader handleLogout={handleLogout} user={user} />
+					</Grid.Column>
+				</Grid.Row>
+				<Grid.Row>
+					<Grid.Column>
+						<Composition />
+						<Menu user={user} />
+					</Grid.Column>
+				</Grid.Row>
+			</Grid>
 		</>
 	)
 }

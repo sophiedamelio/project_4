@@ -12,17 +12,19 @@ import { Grid } from "semantic-ui-react";
 
 export default function HomePage({ user, handleLogout }) {
 	const [compositions, setCompositions] = useState([])
-	const [loading, setLoading] = useState(true);
+	//const [loading, setLoading] = useState(true);
 	const [error, setError] = useState('')
 
 	//async function addFavorite - icebox
 
 	async function handleAddComposition(composition) {
 		try {
-			setLoading(true)
+			//setLoading(true)
 			const data = await compositionApi.create(composition);
+			console.log(data, "<--- this is the res form the server, in handle add comp")
+
 			setCompositions([data.composition, ...compositions]);
-			setLoading(false)
+			//setLoading(false)
 		} catch (err) {
 			setError(err.messgae);
 		}
@@ -33,7 +35,7 @@ export default function HomePage({ user, handleLogout }) {
 			const data = await compositionApi.getAll()
 			console.log(data, "<--- this is the data")
 			setCompositions([...data.compositions])
-			setLoading(false)
+			//setLoading(false)
 		} catch (err) {
 			console.log(err.message, "<-- this is the error")
 			setError(err.message)

@@ -17,6 +17,8 @@ export default function AddCompositionForm(props) {
 		setSelectedFile(e.target.files[0])
 	}
 
+	//console.log(selectedFile, "<---- sleected file")
+
 	function handleChange(e) {
 		setState({
 			...state,
@@ -28,10 +30,11 @@ export default function AddCompositionForm(props) {
 		e.preventDefault()
 
 		const formData = new FormData()
-		formData.append('photo', selectedFile)
-		formData.append('title', state.title)
-		formData.append('text', state.text)
-		formData.append('notes', state.notes)
+
+		formData.append('photo', selectedFile);
+		formData.append('title', state.title);
+		formData.append('text', state.text);
+		formData.append('notes', state.notes);
 
 		//console.log(formData, "<--- formdata in comp form")
 

@@ -1,20 +1,21 @@
 const Composition = require('../models/composition');
 
-const {v4: uuid4} = require('uuid')
-const S3 = require("aws-sdk/clients/s3")
-const s3 = new S3()
+const { v4: uuidv4 } = require("uuid");
+const S3 = require("aws-sdk/clients/s3");
+const s3 = new S3(); // initialize the S3 constructor
 
 const BUCKET = process.env.BUCKET;
 
 module.exports = {
-	create, 
-	index
+    create,
+    index
 }
 
 function create(req, res) {
+	console.log(req, "<--- req in comp ctrl")
 	console.log(req.body, "<---- req.body (ctrl create)", req.file, "<----- req.file (ctrl create)")
 
-	const filePath = `${uuid4()}${req.file.originalname}`;
+	const filePath = `${uuidv4()}${req.file.originalname}`;
 	const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
 
 	s3.upload(params, async function(err, data) {

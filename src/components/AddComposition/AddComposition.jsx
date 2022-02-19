@@ -10,11 +10,8 @@ export default function AddComposition(props) {
 
 
 	return (
-		<Link to="/addComposition">
-			<CompositionForm {...props}>
-				<h1>Add compositon!</h1>
-			</CompositionForm>
-		</Link>
-
+		<CompositionForm {...props}>
+			<h1>Add compositon!</h1>
+		</CompositionForm>
 	)
 }

@@ -11,12 +11,10 @@ export default function Menu({ user, handleAddComposition, getComposition, compo
 	return (
 		<>
 			<h1>menu!</h1>
-			<Link to="/addComposition">
-				<AddComposition user={user} handleAddComposition={handleAddComposition}>
-					Add Composition
-				</AddComposition>
-				<Composition getComposition={getComposition} compositions={compositions}></Composition>
-			</Link>
+			<AddComposition user={user} handleAddComposition={handleAddComposition}>
+				Add Composition
+			</AddComposition>
+			<Composition getComposition={getComposition} compositions={compositions}></Composition>
 		</>
 	)
 }

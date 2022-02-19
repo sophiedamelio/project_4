@@ -6,13 +6,15 @@ const S3 = require('aws-sdk/clients/s3');
 const s3 = new S3(); // initialize the construcotr
 // now s3 can crud on our s3 buckets
 
+const BUCKET = process.env.BUCKET;
+
 module.exports = {
   signup,
   login
 };
 
-function signup(req, res) {
-  console.log(req.body, req.file)
+async function signup(req, res) {
+  console.log(req.body, req.file, "<---- req.body and req.file")
 
   //////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////////
@@ -20,7 +22,7 @@ function signup(req, res) {
 
   // FilePath unique name to be saved to our butckt
   const filePath = `${uuidv4()}/${req.file.originalname}`
-  const params = {Bucket: process.env.BUCKET_NAME, Key: filePath, Body: req.file.buffer};
+  const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer};
   //your bucket name goes where collectorcat is 
   //////////////////////////////////////////////////////////////////////////////////
   s3.upload(params, async function(err, data){
@@ -34,7 +36,6 @@ function signup(req, res) {
       // Probably a duplicate email
       res.status(400).json(err);
     }
-
 
 
   })

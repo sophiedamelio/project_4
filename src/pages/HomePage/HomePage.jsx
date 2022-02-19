@@ -42,23 +42,23 @@ export default function HomePage({ user, handleLogout }) {
 		getCompositions();
 	}, [])
 
-	if (loading) {
-		return (
-			<>
-				<Header handleLogout={handleLogout} user={user} />
-				{/*<Loading />  fix this, loading*/}
-			</>
-		);
-	}
+	//if (loading) {
+	//	return (
+	//		<>
+	//			<Header handleLogout={handleLogout} user={user} />
+	//			{/*<Loading />  fix this, loading*/}
+	//		</>
+	//	);
+	//}
 
-	if (error) {
-		return (
-			<>
-				<Header handleLogout={handleLogout} user={user} />
-				<ErrorMessage error={error} />
-			</>
-		)
-	}
+	//if (error) {
+	//	return (
+	//		<>
+	//			<Header handleLogout={handleLogout} user={user} />
+	//			<ErrorMessage error={error} />
+	//		</>
+	//	)
+	//}
 
 	return (
 		<>

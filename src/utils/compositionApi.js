@@ -20,7 +20,7 @@ export function getAll(){
 		headers: {
 			'Authorization': 'Bearer ' + tokenService.getToken()
 		}
-	}).then(res=>{
+	}).then(res => {
 		if(res.ok) return res.json()
 		throw new Error('Problem fetching Get All')
 	})

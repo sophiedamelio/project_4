@@ -4,14 +4,16 @@ import CompositionForm from "../CompositionForm/CompositionForm"
 //import CompositionMiddle from "../CompositionMiddle/CompositionMiddle"
 import { Link } from 'react-router-dom'
 
+import AddCompositionPage from "../../pages/AddCompositionPage/AddCompositionPage"
+
 export default function AddComposition(props) {
 
-	console.log(props, "<---- props on addcomp")
+	//console.log(props, "<---- props on addcomp")
 
 
 	return (
-		<CompositionForm {...props}>
+		<AddCompositionPage {...props}>
 			<h1>Add compositon!</h1>
-		</CompositionForm>
+		</AddCompositionPage>
 	)
 }

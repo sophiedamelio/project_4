@@ -10,11 +10,12 @@ import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
 import AddCompositionForm from "../../components/CompositionForm/CompositionForm";
 import AddComposition from "../../components/AddComposition/AddComposition";
+//import AddCompositionForm from "../../components/CompositionForm/CompositionForm";
 
 
-export default function AddCompositionPage(props) {
+export default function AddCompositionPage({ user, handleAddComposition }) {
 
-	console.log(props, "<-- props on addComp page")
+	console.log(handleAddComposition, "<-- props on addComp page")
 
 	//const [compositions, setCompositions] = useState([])
 	//const [error, setError] = useState('');
@@ -34,7 +35,7 @@ export default function AddCompositionPage(props) {
 
 	return (
 		<>
-			<PageHeader {...props}></PageHeader>
-			<AddComposition {...props}></AddComposition>
+			<PageHeader user={user}></PageHeader>
+			<AddCompositionForm user={user} handleAddComposition={handleAddComposition}></AddCompositionForm>
 		</>)
 }

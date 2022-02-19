@@ -37,6 +37,7 @@ function App() {
           path="/signup"
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
+        <Route path="/addComposition" element={<AddCompositionPage user={user} handleLogout={handleLogout} />} />
       </Routes>
     );
   }

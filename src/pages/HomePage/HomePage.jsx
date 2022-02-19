@@ -76,7 +76,7 @@ export default function HomePage({ user, handleLogout }) {
 				</Grid.Row>
 				<Grid.Row>
 					<Grid.Column>
-						<Composition compositions={compositions} />
+						<Composition />
 						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} />
 					</Grid.Column>
 				</Grid.Row>

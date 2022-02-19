@@ -12,8 +12,8 @@ export default function AddComposition(props) {
 
 
 	return (
-		<AddCompositionPage {...props}>
+		<CompositionForm {...props}>
 			<h1>Add compositon!</h1>
-		</AddCompositionPage>
+		</CompositionForm>
 	)
 }

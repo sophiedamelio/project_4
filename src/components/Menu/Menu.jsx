@@ -3,7 +3,6 @@ import { Button, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 import AddComposition from '../AddComposition/AddComposition';
 import Composition from '../Composition/Composition';
-import AddCompositionPage from '../../pages/AddCompositionPage/AddCompositionPage';
 
 
 export default function Menu({ user, handleAddComposition, getComposition, compositions }) {
@@ -12,11 +11,9 @@ export default function Menu({ user, handleAddComposition, getComposition, compo
 	return (
 		<>
 			<h1>menu!</h1>
-			<Link to="/addComposition">
-				<AddCompositionPage user={user} handleAddComposition={handleAddComposition}>
-					Add Composition
-				</AddCompositionPage>
-			</Link>
+			<AddComposition user={user} handleAddComposition={handleAddComposition}>
+				Add Composition
+			</AddComposition>
 			<Composition getComposition={getComposition} compositions={compositions}></Composition>
 		</>
 	)

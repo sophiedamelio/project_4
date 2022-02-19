@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import Header from "../Header/Header"
 import { Button, Form, Grid, GridColumn, Segment } from 'semantic-ui-react';
 
-export default function AddCompositionForm({ user, handleAddComposition, handleLogout }) {
+export default function AddCompositionForm(props) {
 
-	console.log(handleAddComposition, "<=== props on addcomp form")
+	console.log(props, "<=== props on addcomp form")
 
 	const [selectedFile, setSelectedFile] = useState('')
 	const [state, setState] = useState({
@@ -38,7 +38,7 @@ export default function AddCompositionForm({ user, handleAddComposition, handleL
 
 		//console.log(formData, "<--- formdata in comp form")
 
-		handleAddComposition(formData)
+		props.handleAddComposition(formData)
 
 	}
 	console.log(state, "<-- state in comp form")

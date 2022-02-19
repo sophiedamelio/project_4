@@ -5,6 +5,8 @@ const compositionSchema = new mongoose.Schema({
 	title: String,
 	text: String,
 	photoUrl: String,
+	notes: String
+	
 }, {
 	timestamps: true
 });

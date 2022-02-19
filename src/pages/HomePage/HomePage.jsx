@@ -62,6 +62,8 @@ export default function HomePage({ user, handleLogout }) {
 	//	)
 	//}
 
+	console.log(compositions, "<-- compositions")
+
 	return (
 		<>
 			<Grid centered>
@@ -73,7 +75,7 @@ export default function HomePage({ user, handleLogout }) {
 				<Grid.Row>
 					<Grid.Column>
 						<Composition />
-						<Menu user={user} />
+						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

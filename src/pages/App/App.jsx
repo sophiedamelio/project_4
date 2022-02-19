@@ -5,6 +5,11 @@ import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
+import AddComposition from "../../components/AddComposition/AddComposition";
+import AddCompositionForm from "../../components/CompositionForm/CompositionForm"
+//import CompositionMiddle from "../../components/CompositionMiddle/CompositionMiddle"
+
+import AddCompositionPage from "../AddCompositionPage/AddCompositionPage"
 
 function App() {
   const [user, setUser] = useState(userService.getUser()); // getUser decodes our JWT token, into a javascript object
@@ -32,6 +37,7 @@ function App() {
           path="/signup"
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
         />
+        <Route path="/addComposition" element={<AddCompositionPage user={user} handleLogout={handleLogout} />} />
       </Routes>
     );
   }

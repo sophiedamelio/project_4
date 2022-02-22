@@ -16,7 +16,7 @@ import AddComposition from "../../components/AddComposition/AddComposition";
 export default function AddCompositionPage({ user, handleAddComposition }) {
 
 
-	console.log(handleAddComposition, "<-- props on addComp page")
+	//console.log(user, "<-- props on addComp page")
 
 	//const [compositions, setCompositions] = useState([])
 	//const [error, setError] = useState('');

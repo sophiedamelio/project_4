@@ -11,9 +11,9 @@ export default function AddComposition(props) {
 	//console.log(props, "<---- props on addcomp")
 
 
-	return (
-		<CompositionForm {...props}>
-			<h1>Add compositon!</h1>
-		</CompositionForm>
-	)
+	//return (
+	//	<CompositionForm {...props}>
+	//		<h1>Add compositon!</h1>
+	//	</CompositionForm>
+	//)
 }

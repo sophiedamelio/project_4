@@ -8,6 +8,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
+//import composition from "../../../models/composition";
 
 
 export default function HomePage({ user, handleLogout }) {
@@ -17,18 +18,18 @@ export default function HomePage({ user, handleLogout }) {
 
 	//async function addFavorite - icebox
 
-	async function handleAddComposition(composition) {
-		try {
-			//setLoading(true)
-			const data = await compositionApi.create(composition);
-			console.log(data, "<--- this is the res form the server, in handle add comp")
+	//async function handleAddComposition(composition) {
+	//	try {
+	//		//setLoading(true)
+	//		const data = await compositionApi.create(composition);
+	//		console.log(data, "<--- this is the res form the server, in handle add comp")
 
-			setCompositions([data.composition, ...compositions]);
-			//setLoading(false)
-		} catch (err) {
-			setError(err.messgae);
-		}
-	}
+	//		setCompositions([data.composition, ...compositions]);
+	//		//setLoading(false)
+	//	} catch (err) {
+	//		setError(err.messgae);
+	//	}
+	//}
 
 	async function getCompositions() {
 		try {
@@ -64,21 +65,25 @@ export default function HomePage({ user, handleLogout }) {
 	//	)
 	//}
 
+
+
 	console.log(compositions, "<-- compositions")
 
 	return (
 		<>
-			<Grid centered>
+			<Grid columns="two" divided>
 				<Grid.Row>
-					<Grid.Column>
+					<Grid.Column width="16">
 						<PageHeader handleLogout={handleLogout} user={user} />
 					</Grid.Column>
 				</Grid.Row>
 				<Grid.Row>
-					<Grid.Column>
-						<Composition />
-						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} />
+					<Grid.Column width="16">
+						<Menu compositions={compositions} user={user} getCompositions={getCompositions} />
 					</Grid.Column>
+					{/*<Grid.Column>
+						<Composition compositions={compositions} user={user} getCompositions={getCompositions} handleCompositionSelection={handleCompositionSelection} />
+					</Grid.Column>*/}
 				</Grid.Row>
 			</Grid>
 		</>

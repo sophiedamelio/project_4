@@ -1,35 +1,46 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { Header, Segment, Image, Icon } from "semantic-ui-react";
+import { Header, Segment, Image, Icon, Grid } from "semantic-ui-react";
 
 export default function PageHeader({ user, handleLogout }) {
 
 	return (
-		<Segment clearing>
-			<Header as="h2" floated="right">
-				<Link to="/">
-					<Icon color="yellow" name="home"></Icon>
-				</Link>
-				<Link to="" onClick={handleLogout}>
-					Logout
-				</Link>
-			</Header>
-			<Header as="h2" textAlign='center'>
-				Hello {user.username}!
-			</Header>
-			<Header as="h2" floated="left">
-				<Link to="/">
-					logo here
-				</Link>
-				<Image
-					src={
-						user?.photoUrl
-							? user?.photoUrl
-							: "https://react.semantic-ui.com/images/wireframe/square-image.png"
-					}
-					avatar
-				></Image>
-			</Header>
-		</Segment>
+		<Header>
+			<Grid columns="three">
+				<Grid.Row>
+					{/*<Header as="h2">*/}
+					<Grid.Column>
+						<Link to="/">
+							logo here
+						</Link>
+						<Image
+							src={
+								user?.photoUrl
+									? user?.photoUrl
+									: "https://react.semantic-ui.com/images/wireframe/square-image.png"
+							}
+							avatar
+						></Image>
+					</Grid.Column>
+					{/*</Header>*/}
+
+					{/*<Header as="h2">*/}
+					<Grid.Column>
+						Hello {user.username}!
+					</Grid.Column>
+					{/*</Header>*/}
+					{/*<Header as="h2" >*/}
+					<Grid.Column>
+						<Link to="/">
+							<Icon color="yellow" name="home"></Icon>
+						</Link>
+						<Link to="" onClick={handleLogout}>
+							Logout
+						</Link>
+					</Grid.Column>
+					{/*</Header>*/}
+				</Grid.Row>
+			</Grid>
+		</Header>
 	)
 }

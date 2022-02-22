@@ -1,27 +1,21 @@
 import React from 'react';
 import { Segment } from 'semantic-ui-react';
 
-export default function Composition({ getComposition, compositions }) {
+export default function Composition({ getComposition, compositions, handleCompositionSelection, selectedComposition }) {
 	//console.log("<--- props on composition")
+	//console.log(handleCompositionSelection, "<---- handle comp selectionn")
 
 
-	console.log(compositions, "<--- compositions")
+	//console.log(compositions, "<--- compositions")
+	console.log(selectedComposition, "<--- selected comp in comp")
 
-	if (compositions) {
-		return (
-			<>
-				{compositions.map((composition) => {
-					return (
-						<h1 key={composition._id}>{composition.title}</h1>
-					)
-				})}
-			</>
-		)
-	}
 
-	return null;
-	//return (
-	//	<h1>no compositions yet</h1>
-	//)
+	return (
+		<>
+			{/*<h1>{compositions[0].title}</h1>*/}
+			<p>composition</p>
+		</>
+	)
+
 
 }

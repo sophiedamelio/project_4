@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Header from "../Header/Header"
 import { Button, Form, Grid, GridColumn, Segment } from 'semantic-ui-react';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function AddCompositionForm(props) {
 
@@ -12,6 +14,8 @@ export default function AddCompositionForm(props) {
 		text: '',
 		notes: ''
 	})
+
+	const navigate = useNavigate()
 
 	function handleFileInput(e) {
 		setSelectedFile(e.target.files[0])
@@ -39,6 +43,7 @@ export default function AddCompositionForm(props) {
 		//console.log(formData, "<--- formdata in comp form")
 
 		props.handleAddComposition(formData)
+		navigate('/')
 
 	}
 	console.log(state, "<-- state in comp form")

@@ -7,7 +7,8 @@ import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
 import AddComposition from "../../components/AddComposition/AddComposition";
 import AddCompositionForm from "../../components/CompositionForm/CompositionForm"
-//import CompositionMiddle from "../../components/CompositionMiddle/CompositionMiddle"
+
+import * as compositionApi from "../../utils/compositionApi";
 
 import AddCompositionPage from "../AddCompositionPage/AddCompositionPage"
 
@@ -25,10 +26,28 @@ function App() {
     setUser(null);
   }
 
+  const [compositions, setCompositions] = useState([])
+  const [error, setError] = useState('')
+
+  async function handleAddComposition(composition) {
+    try {
+      //setLoading(true)
+      const data = await compositionApi.create(composition);
+      console.log(data, "<--- this is the res form the server, in handle add comp")
+
+      setCompositions([data.composition, ...compositions]);
+      //setLoading(false)
+    } catch (err) {
+      setError(err.messgae);
+    }
+  }
+
+
   if (user) {
     return (
       <Routes>
         <Route path="/" element={<HomePage user={user} handleLogout={handleLogout} />} />
+        <Route path="/addComposition" element={<AddCompositionPage user={user} handleAddComposition={handleAddComposition} />} />
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

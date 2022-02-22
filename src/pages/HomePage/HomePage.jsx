@@ -34,11 +34,11 @@ export default function HomePage({ user, handleLogout }) {
 	async function getCompositions() {
 		try {
 			const data = await compositionApi.getAll()
-			console.log(data, "<--- this is the data")
+			//console.log(data, "<--- this is the data")
 			setCompositions([...data.compositions])
 			//setLoading(false)
 		} catch (err) {
-			console.log(err.message, "<-- this is the error")
+			//console.log(err.message, "<-- this is the error")
 			setError(err.message)
 		}
 	}

@@ -8,7 +8,8 @@ const BUCKET = process.env.BUCKET;
 
 module.exports = {
     create,
-    index
+    index,
+	setComposition
 }
 
 function create(req, res) {
@@ -45,6 +46,19 @@ async function index(req, res) {
 		const compositions = await Composition.find({}).populate('user').exec();
 		res.status(200).json({compositions: compositions});
 	} catch(err) {
+		res.status(400).json({err})
+	}
+}
+
+async function setComposition(req, res) {
+	try {
+		console.log(req.params.compId, "<--- req") // this is currently undefined
+
+		const composition = await Composition.findById(req.params.id);
+		composition.push({composition: composition})
+		await composition.save()
+		res.status(201).json({data: 'composition selected'})
+	}catch (err){
 		res.status(400).json({err})
 	}
 }

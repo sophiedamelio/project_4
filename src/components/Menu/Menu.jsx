@@ -6,10 +6,11 @@ import AddComposition from '../AddComposition/AddComposition';
 import AddCompositionPage from "../../pages/AddCompositionPage/AddCompositionPage"
 import Composition from '../Composition/Composition';
 import CompositionButton from "../CompositionButton/CompositionButton"
+import * as compositionApi from "../../utils/compositionApi"
 import { Route, Routes } from 'react-router-dom';
 
 
-export default function Menu({ user, handleAddComposition, getComposition, compositions }) {
+export default function Menu({ user, handleAddComposition, getCompositions, compositions }) {
 	//console.log(user, handleAddComposition, "<--- props on menu")
 	//console.log(compositions, "<--- compositions on menu")
 	//console.log(handleCompositionSelection, "<--- handle com selection")
@@ -18,17 +19,29 @@ export default function Menu({ user, handleAddComposition, getComposition, compo
 	const [error, setError] = useState('')
 	// set selected composition state here, then send to composition component
 
-	function handleCompositionSelection(e) {
+	//toggle feature, boolean if else (render based on true or false) <-- from arthur
+	//function handleChange(e) {
+	//	setSelectedComposition({
+	//		...selectedComposition,
+	//		[e.target.name]: e.target.value
+	//	})
+	//}
+
+	async function handleCompositionSelection(compId) {
 		try {
-			e.preventDefault()
-			console.log(e.currentTarget, "<--- e.ytarget in handle funct")
+			//e.preventDefault()
+			//console.log(e.currentTarget, "<--- e.ytarget in handle funct")
 			//const data = e.target.value
 			//console.log(data, "<--- composition in handle func")
-			setSelectedComposition({
-				//...selectedComposition,
-				[e.currentTarget.name]: e.currentTarget.value
-			})
-
+			//const composition = new FormData()
+			//composition.append('composition', selectedComposition);
+			//for (let key in selectedComposition) {
+			//	composition.append(key, selectedComposition[key])
+			//}
+			//console.log(composition.forEach((item) => console.log(item)), "<--- form data, composition")
+			const data = await compositionApi.setComposition(compId)
+			console.log(data, "<-- data from the handlecompositionselection")
+			getCompositions()
 		} catch (err) {
 			setError(err.message)
 		}
@@ -38,7 +51,7 @@ export default function Menu({ user, handleAddComposition, getComposition, compo
 	}
 
 	useEffect(() => {
-		handleCompositionSelection()
+		getCompositions()
 	}, [])
 
 

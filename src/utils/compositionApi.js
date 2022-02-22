@@ -31,3 +31,16 @@ export function getAll() {
 		throw new Error('Problem Fetching Gett All')
 	})	
 }
+
+export function setComposition(composition){
+	return fetch(BASE_URL, {
+		method: 'POST',
+		body: composition, // <-- this should be a composition object
+		headers: {
+			'Authorization': 'Bearer ' + tokenService.getToken()
+		}
+	}).then(res => {
+		if(res.ok) return res.json()
+		throw new Error ('problem setting the composition!')
+	})
+}

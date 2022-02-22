@@ -5,7 +5,6 @@ import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
-import AddComposition from "../../components/AddComposition/AddComposition";
 import AddCompositionForm from "../../components/CompositionForm/CompositionForm"
 
 import * as compositionApi from "../../utils/compositionApi";

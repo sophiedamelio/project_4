@@ -1,14 +1,10 @@
 import { useState } from "react"
+import Composition from "../Composition/Composition"
 
 
 export default function CompositionButton(props) {
 	// props.handleCompositionSelection
-	const [selectedComposition, setSelectedComposition] = useState('')
+	console.log(props.composition, "<--- props")
 
-
-	function selectComposition(e) {
-		console.log(e, "<-- e in select comp, in comp button")
-		setSelectedComposition(e.target) // comp that was clicked on
-	}
-	return <button key={props.composition._id} onClick={selectComposition}>{props.composition.title}</button>
+	return <button key={props.composition._id} onClick={props.selectComposition} title={props.composition.title} text={props.composition.text} photoUrl={props.composition.photoUrl} notes={props.composition.notes}>{props.composition.title}</button>
 }

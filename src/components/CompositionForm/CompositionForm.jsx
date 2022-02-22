@@ -57,7 +57,7 @@ export default function AddCompositionForm(props) {
 					<Segment>
 						<Form autoComplete="off" onSubmit={handleSubmit}>
 							<Form.Input placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
-							<Form.Input placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} />
+							<Form.TextArea placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} />
 							<Form.Input placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} />
 							<Form.Input placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
 							<Button type="submit" className="btn">

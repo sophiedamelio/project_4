@@ -9,7 +9,6 @@ import { useNavigate, Link } from "react-router-dom";
 import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
 import AddCompositionForm from "../../components/CompositionForm/CompositionForm";
-import AddComposition from "../../components/AddComposition/AddComposition";
 //import AddCompositionForm from "../../components/CompositionForm/CompositionForm";
 
 

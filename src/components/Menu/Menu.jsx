@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react"
 import { Button, Grid, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
-import AddComposition from '../AddComposition/AddComposition';
 import AddCompositionPage from "../../pages/AddCompositionPage/AddCompositionPage"
 import Composition from '../Composition/Composition';
 import CompositionButton from "../CompositionButton/CompositionButton"
@@ -15,7 +14,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 	//console.log(compositions, "<--- compositions on menu")
 	//console.log(handleCompositionSelection, "<--- handle com selection")
 
-	const [selectedComposition, setSelectedComposition] = useState('')
+	//const [selectedComposition, setSelectedComposition] = useState('')
 	const [error, setError] = useState('')
 	// set selected composition state here, then send to composition component
 
@@ -55,7 +54,14 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 	//useEffect(() => {
 	//	handleCompositionSelection()
 	//}, [])
+	const [selectedComposition, setSelectedComposition] = useState('')
 
+
+	function selectComposition(e) {
+		e.preventDefault()
+		console.log(e.target, "<-- e in select comp, in comp button")
+		setSelectedComposition(e.target) // comp that was clicked on
+	}
 
 
 	return (
@@ -73,7 +79,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 											{/*//<Link to="/:comp_id">*/}
 											{/*// when you click on one of these, it should display in full in the composition component (update the composition component)
 							// onclick of a sem UI (like Card,content) could be a function that updates the composition comp?*/}
-											<li key={composition._id}><CompositionButton composition={composition} key={composition._id} /></li>
+											<li key={composition._id}><CompositionButton composition={composition} key={composition._id} selectComposition={selectComposition} /></li>
 											{/*//</Link>*/}
 										</ul>
 									)
@@ -85,7 +91,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 						</Link>
 					</Grid.Column>
 					<Grid.Column>
-						<Composition selectedComposition={selectedComposition} />
+						<Composition selectedComposition={selectedComposition} selectComposition={selectComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

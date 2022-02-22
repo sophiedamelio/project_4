@@ -13,7 +13,10 @@ export default function Composition({ getComposition, compositions, handleCompos
 	return (
 		<>
 			{/*<h1>{compositions[0].title}</h1>*/}
-			{/*<p>{selectedComposition}</p>*/}
+			<h3>{selectedComposition.getAttribute('title')}</h3>
+			<h3>{selectedComposition.getAttribute('text')}</h3>
+			<img src={selectedComposition.getAttribute('photoUrl')} alt="photo of selected composition" />
+			<h3>{selectedComposition.getAttribute('notes')}</h3>
 		</>
 	)
 }

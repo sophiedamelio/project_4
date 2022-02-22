@@ -15,7 +15,8 @@ module.exports = {
 function create(req, res) {
 	//console.log(req, "<--- req in comp ctrl")
 	//console.log(req.body, "<---- req.body (ctrl create)", req.file, "<----- req.file (ctrl create)")
-
+	console.log(req.file, "<--- req.file")
+	
 	const filePath = `${uuidv4()}${req.file.originalname}`;
 	const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
 

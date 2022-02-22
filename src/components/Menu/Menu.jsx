@@ -27,32 +27,34 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 	//	})
 	//}
 
-	async function handleCompositionSelection(compId) {
-		try {
-			//e.preventDefault()
-			//console.log(e.currentTarget, "<--- e.ytarget in handle funct")
-			//const data = e.target.value
-			//console.log(data, "<--- composition in handle func")
-			//const composition = new FormData()
-			//composition.append('composition', selectedComposition);
-			//for (let key in selectedComposition) {
-			//	composition.append(key, selectedComposition[key])
-			//}
-			//console.log(composition.forEach((item) => console.log(item)), "<--- form data, composition")
-			const data = await compositionApi.setComposition(compId)
-			console.log(data, "<-- data from the handlecompositionselection")
-			getCompositions()
-		} catch (err) {
-			setError(err.message)
-		}
-		//return (
-		//	<Composition composition={composition} />
-		//)
-	}
+	//async function handleCompositionSelection(composition) {
+	//	try {
+	//		//e.preventDefault()
+	//		//console.log(e.currentTarget, "<--- e.ytarget in handle funct")
+	//		//const data = e.target.value
+	//		//console.log(data, "<--- composition in handle func")
+	//		//const composition = new FormData()
+	//		//composition.append('composition', selectedComposition);
+	//		//for (let key in selectedComposition) {
+	//		//	composition.append(key, selectedComposition[key])
+	//		//}
+	//		//console.log(composition.forEach((item) => console.log(item)), "<--- form data, composition")
+	//		//const data = await compositionApi.setComposition(composition)
+	//		//console.log(data, "<-- data from the handlecompositionselection")
+	//		//getCompositions()
+	//		//setSelectedComposition(composition)
+	//		alert('Hello!')
+	//	} catch (err) {
+	//		setError(err.message)
+	//	}
+	//	//return (
+	//	//	<Composition composition={composition} />
+	//	//)
+	//}
 
-	useEffect(() => {
-		getCompositions()
-	}, [])
+	//useEffect(() => {
+	//	handleCompositionSelection()
+	//}, [])
 
 
 
@@ -71,7 +73,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 											{/*//<Link to="/:comp_id">*/}
 											{/*// when you click on one of these, it should display in full in the composition component (update the composition component)
 							// onclick of a sem UI (like Card,content) could be a function that updates the composition comp?*/}
-											<li><CompositionButton composition={composition} handleCompositionSelection={handleCompositionSelection} /></li>
+											<li key={composition._id}><CompositionButton composition={composition} key={composition._id} /></li>
 											{/*//</Link>*/}
 										</ul>
 									)
@@ -83,7 +85,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 						</Link>
 					</Grid.Column>
 					<Grid.Column>
-						<Composition selectedComposition={selectedComposition} handleCompositionSelection={handleCompositionSelection} />
+						<Composition selectedComposition={selectedComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

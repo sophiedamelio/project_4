@@ -13,9 +13,7 @@ export default function Composition({ getComposition, compositions, handleCompos
 	return (
 		<>
 			{/*<h1>{compositions[0].title}</h1>*/}
-			<p>composition</p>
+			{/*<p>{selectedComposition}</p>*/}
 		</>
 	)
-
-
 }

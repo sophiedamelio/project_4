@@ -21,7 +21,7 @@ export function create(infoFromTheForm){
 
 export function update(compId){
 	return fetch(`${BASE_URL}/update/${compId}`, {
-		method: 'PUT',
+		method: 'POST',
 		body: compId,
 		headers: {
 			'Authorization': 'Bearer ' + tokenService.getToken()

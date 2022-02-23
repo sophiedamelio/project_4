@@ -80,7 +80,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage user={user} handleLogout={handleLogout} getCompositions={getCompositions} compositions={compositions} />} />
         <Route path="/addComposition" element={<AddCompositionPage user={user} handleAddComposition={handleAddComposition} />} />
-        <Route path="/update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} compositions={compositions} />} />
+        <Route path="update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} compositions={compositions} />} />
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

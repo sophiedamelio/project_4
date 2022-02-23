@@ -6,6 +6,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
 import AddCompositionForm from "../../components/CompositionForm/CompositionForm"
+import UpdateCompositionPage from "../UpdateCompositionPage/UpdateCompositionPage";
 
 import * as compositionApi from "../../utils/compositionApi";
 
@@ -17,6 +18,10 @@ function App() {
   // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like
   // this  const token = createJWT(user); // where user was the document we created from mongo
 
+  const [compositions, setCompositions] = useState([])
+  //const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('')
+
   function handleSignUpOrLogin() {
     setUser(userService.getUser()); // getting the user from localstorage decoding the jwt
   }
@@ -25,9 +30,6 @@ function App() {
     userService.logout();
     setUser(null);
   }
-
-  const [compositions, setCompositions] = useState([])
-  const [error, setError] = useState('')
 
   async function handleAddComposition(composition) {
     try {
@@ -42,13 +44,43 @@ function App() {
     }
   }
 
+  async function getCompositions() {
+    try {
+      const data = await compositionApi.getAll()
+      //console.log(data, "<--- this is the data")
+      setCompositions([...data.compositions])
+      //setLoading(false)
+    } catch (err) {
+      //console.log(err.message, "<-- this is the error")
+      setError(err.message)
+    }
+  }
+
+  useEffect(() => {
+    getCompositions();
+  }, [])
+
+
+  async function handleUpdateComposition(composition) {
+    try {
+      //setLoading(true)
+      const data = await compositionApi.update(composition);
+      console.log(data, "<--- this is the res form the server, in handle add comp")
+
+      setCompositions([data.composition, ...compositions]);
+      //setLoading(false)
+    } catch (err) {
+      setError(err.messgae);
+    }
+  }
+
 
   if (user) {
     return (
       <Routes>
-        <Route path="*" element={<HomePage user={user} handleLogout={handleLogout} />} />
+        <Route path="/" element={<HomePage user={user} handleLogout={handleLogout} getCompositions={getCompositions} compositions={compositions} />} />
         <Route path="/addComposition" element={<AddCompositionPage user={user} handleAddComposition={handleAddComposition} />} />
-        {/*<Route path="/update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} />} />*/}
+        <Route path="/update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} compositions={compositions} />} />
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

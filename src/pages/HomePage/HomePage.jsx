@@ -13,10 +13,10 @@ import { Grid } from "semantic-ui-react";
 //import composition from "../../../models/composition";
 
 
-export default function HomePage({ user, handleLogout }) {
-	const [compositions, setCompositions] = useState([])
-	//const [loading, setLoading] = useState(true);
-	const [error, setError] = useState('')
+export default function HomePage({ user, handleLogout, getCompositions, compositions }) {
+	//const [compositions, setCompositions] = useState([])
+	////const [loading, setLoading] = useState(true);
+	//const [error, setError] = useState('')
 
 	//async function addFavorite - icebox
 
@@ -33,21 +33,21 @@ export default function HomePage({ user, handleLogout }) {
 	//	}
 	//}
 
-	async function getCompositions() {
-		try {
-			const data = await compositionApi.getAll()
-			//console.log(data, "<--- this is the data")
-			setCompositions([...data.compositions])
-			//setLoading(false)
-		} catch (err) {
-			//console.log(err.message, "<-- this is the error")
-			setError(err.message)
-		}
-	}
+	//async function getCompositions() {
+	//	try {
+	//		const data = await compositionApi.getAll()
+	//		//console.log(data, "<--- this is the data")
+	//		setCompositions([...data.compositions])
+	//		//setLoading(false)
+	//	} catch (err) {
+	//		//console.log(err.message, "<-- this is the error")
+	//		setError(err.message)
+	//	}
+	//}
 
-	useEffect(() => {
-		getCompositions();
-	}, [])
+	//useEffect(() => {
+	//	getCompositions();
+	//}, [])
 
 	//if (loading) {
 	//	return (
@@ -67,27 +67,27 @@ export default function HomePage({ user, handleLogout }) {
 	//	)
 	//}
 
-	async function handleUpdateComposition(composition) {
-		try {
-			//setLoading(true)
-			const data = await compositionApi.update(composition);
-			console.log(data, "<--- this is the res form the server, in handle add comp")
+	//async function handleUpdateComposition(composition) {
+	//	try {
+	//		//setLoading(true)
+	//		const data = await compositionApi.update(composition);
+	//		console.log(data, "<--- this is the res form the server, in handle add comp")
 
-			setCompositions([data.composition, ...compositions]);
-			//setLoading(false)
-		} catch (err) {
-			setError(err.messgae);
-		}
-	}
+	//		setCompositions([data.composition, ...compositions]);
+	//		//setLoading(false)
+	//	} catch (err) {
+	//		setError(err.messgae);
+	//	}
+	//}
 
 
-	console.log(compositions, "<-- compositions")
+	//console.log(compositions, "<-- compositions")
 
 	return (
 		<>
-			<Routes>
+			{/*<Routes>
 				<Route path="/update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} compositions={compositions} />} />
-			</Routes>
+			</Routes>*/}
 			<Grid columns="two" divided>
 				<Grid.Row>
 					<Grid.Column width="16">

@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
-import Header from "../Header/Header"
+//import Header from "../Header/Header"
 import { Button, Form, Grid, GridColumn, Segment } from 'semantic-ui-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
+import { useForm } from "react-hook-form"
+
+//import { yupResolver } from "@hookform/resolvers/yup"
+//import * as Yup from "yup";
+//import { userService, alertService } from '@/_services'
 
 export default function AddCompositionForm(props) {
 
@@ -57,7 +62,7 @@ export default function AddCompositionForm(props) {
 					<Segment>
 						<Form autoComplete="off" onSubmit={handleSubmit}>
 							<Form.Input placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
-							<Form.TextArea placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} />
+							<Form.TextArea rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} />
 							<Form.Input placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} />
 							<Form.Input placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
 							<Button type="submit" className="btn">

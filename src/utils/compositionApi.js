@@ -19,6 +19,10 @@ export function create(infoFromTheForm){
 	})
 }
 
+//export function update(infoFromTheForm){
+
+//}
+
 
 export function getAll() {
 	return fetch(BASE_URL, {

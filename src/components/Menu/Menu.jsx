@@ -70,7 +70,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 			<h1>menu!</h1>
 			<Grid columns="two" divided>
 				<Grid.Row>
-					<Grid.Column>
+					<Grid.Column width="4">
 
 						{compositions ?
 							<>
@@ -91,7 +91,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 							Add Composition
 						</Link>
 					</Grid.Column>
-					<Grid.Column>
+					<Grid.Column width="12">
 						<Composition selectedComposition={selectedComposition} selectComposition={selectComposition} />
 					</Grid.Column>
 				</Grid.Row>

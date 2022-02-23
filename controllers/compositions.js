@@ -54,7 +54,7 @@ async function update(req, res, next){
 		if(err) return res.status(400).json({err})
 
 		try {
-			let composition = await Composition.findByIdAndUpdate({
+			let composition = await Composition.create({
 				title: req.body.title,
 				user: req.user,
 				text: req.body.text,

@@ -19,10 +19,10 @@ export function create(infoFromTheForm){
 	})
 }
 
-export function update(compId){
+export function update(compId, infoFromTheForm){
 	return fetch(`${BASE_URL}/update/${compId}`, {
 		method: 'POST',
-		body: compId,
+		body: infoFromTheForm,
 		headers: {
 			'Authorization': 'Bearer ' + tokenService.getToken()
 		}

@@ -11,29 +11,29 @@ import { useForm } from "react-hook-form"
 
 
 export default function UpdateCompositionForm(props) {
-	console.log(props.compositions, "<=== props on addcomp form")
+	//console.log(props.compositions, "<=== props on addcomp form")
 	//get the value of the selected form from a query using the compId in the url?
 	const compId = useParams().compId
 	console.log(compId, "<--- id from params?") // this successfully gets the id of the comp from the url
-	console.log(props.compositions, "<--- composition?")
+	//console.log(props.compositions, "<--- composition?")
 
 	// this should use the 'id' var on line 16 to query all compositions, find the one where composition.id === id
 	const selectCompositionData = props.compositions.filter(composition => composition._id === compId)
 
-	console.log(selectCompositionData[0].title, "<-- selected comp data") // this data now needs to fill in to the form, the data is correct
-
+	//console.log(selectCompositionData[0].title, "<-- selected comp data") // this data now needs to fill in to the form, the data is correct
 	const [selectedFile, setSelectedFile] = useState('')
-	//const [state, setState] = useState({
-	//	title: '',
-	//	text: '',
-	//	notes: ''
-	//})
 
 	const [state, setState] = useState({
-		title: selectCompositionData[0].title,
-		text: selectCompositionData[0].text,
-		notes: selectCompositionData[0].notes
+		title: '',
+		text: '',
+		notes: ''
 	})
+	//const [state, setState] = useState({
+	//	title: selectCompositionData[0].title,
+	//	text: selectCompositionData[0].text,
+	//	notes: selectCompositionData[0].notes
+	//})
+
 
 
 	const navigate = useNavigate()
@@ -65,9 +65,8 @@ export default function UpdateCompositionForm(props) {
 
 		props.handleUpdateComposition(formData)
 		navigate('/')
-
 	}
-	console.log(state, "<-- state in comp form")
+	//console.log(state, "<-- state in comp form")
 
 
 

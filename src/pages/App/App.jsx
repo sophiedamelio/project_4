@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SignupPage from "../SignupPage/SignupPage";
@@ -10,7 +10,7 @@ import AddCompositionForm from "../../components/CompositionForm/CompositionForm
 import * as compositionApi from "../../utils/compositionApi";
 
 import AddCompositionPage from "../AddCompositionPage/AddCompositionPage"
-import UpdateCompositionPage from "../UpdateCompositionPage/UpdateCompositionPage"
+
 
 function App() {
   const [user, setUser] = useState(userService.getUser()); // getUser decodes our JWT token, into a javascript object
@@ -42,26 +42,13 @@ function App() {
     }
   }
 
-  async function handleUpdateComposition(composition) {
-    try {
-      //setLoading(true)
-      const data = await compositionApi.update(composition);
-      console.log(data, "<--- this is the res form the server, in handle add comp")
-
-      setCompositions([data.composition, ...compositions]);
-      //setLoading(false)
-    } catch (err) {
-      setError(err.messgae);
-    }
-  }
-
 
   if (user) {
     return (
       <Routes>
-        <Route path="/" element={<HomePage user={user} handleLogout={handleLogout} />} />
+        <Route path="*" element={<HomePage user={user} handleLogout={handleLogout} />} />
         <Route path="/addComposition" element={<AddCompositionPage user={user} handleAddComposition={handleAddComposition} />} />
-        <Route path="/update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} />} />
+        {/*<Route path="/update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} />} />*/}
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

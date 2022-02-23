@@ -13,14 +13,26 @@ import { useForm } from "react-hook-form"
 export default function UpdateCompositionForm(props) {
 	console.log(props, "<=== props on addcomp form")
 	//get the value of the selected form from a query using the compId in the url?
-	const id = useParams().compId
-	console.log(id, "<--- id from params?") // this successfully gets the id of the comp from the url
+	const compId = useParams().compId
+	console.log(compId, "<--- id from params?") // this successfully gets the id of the comp from the url
+	console.log(props.compositions, "<--- composition?")
+
+	// this should use the 'id' var on line 16 to query all compositions, find the one where composition.id === id
+	const selectCompositionData = props.compositions.find(composition => composition._id === compId)
+
+	console.log(selectCompositionData, "<-- selected comp data") // this data now needs to fill in to the form, the data is correct
 
 	const [selectedFile, setSelectedFile] = useState('')
+	//const [state, setState] = useState({
+	//	title: '',
+	//	text: '',
+	//	notes: ''
+	//})
+
 	const [state, setState] = useState({
-		title: '',
-		text: '',
-		notes: ''
+		title: selectCompositionData.title,
+		text: selectCompositionData.text,
+		notes: selectCompositionData.notes
 	})
 
 	const navigate = useNavigate()
@@ -50,7 +62,7 @@ export default function UpdateCompositionForm(props) {
 
 		//console.log(formData, "<--- formdata in comp form")
 
-		props.handleAddComposition(formData)
+		props.handleUpdateComposition(formData)
 		navigate('/')
 
 	}
@@ -69,7 +81,7 @@ export default function UpdateCompositionForm(props) {
 							<Form.Input placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />
 							<Form.Input placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
 							<Button type="submit" className="btn">
-								Add composition
+								Update Composition
 							</Button>
 						</Form>
 					</Segment>

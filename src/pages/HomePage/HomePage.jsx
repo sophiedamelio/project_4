@@ -4,7 +4,9 @@ import Composition from "../../components/Composition/Composition"
 import PageHeader from "../../components/Header/Header"
 import Menu from "../../components/Menu/Menu"
 import userService from "../../utils/userService";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, Route, Routes } from "react-router-dom";
+import UpdateCompositionPage from "../UpdateCompositionPage/UpdateCompositionPage"
+
 
 import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
@@ -65,12 +67,27 @@ export default function HomePage({ user, handleLogout }) {
 	//	)
 	//}
 
+	async function handleUpdateComposition(composition) {
+		try {
+			//setLoading(true)
+			const data = await compositionApi.update(composition);
+			console.log(data, "<--- this is the res form the server, in handle add comp")
+
+			setCompositions([data.composition, ...compositions]);
+			//setLoading(false)
+		} catch (err) {
+			setError(err.messgae);
+		}
+	}
 
 
 	console.log(compositions, "<-- compositions")
 
 	return (
 		<>
+			<Routes>
+				<Route path="/update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} compositions={compositions} />} />
+			</Routes>
 			<Grid columns="two" divided>
 				<Grid.Row>
 					<Grid.Column width="16">

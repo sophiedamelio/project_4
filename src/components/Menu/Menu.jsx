@@ -116,7 +116,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 						</Link>
 					</Grid.Column>
 					<Grid.Column width="12">
-						<Composition key={user.username} selectedComposition={selectedComposition} user={user} />
+						<Composition key={user.username} selectedComposition={selectedComposition} user={user} compositions={compositions} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

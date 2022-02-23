@@ -10,7 +10,7 @@ export default function Composition({ getComposition, compositions, handleCompos
 	//console.log(compositions, "<--- compositions")
 	//console.log(selectedComposition.attributes.getNamedItem('text').value, "<--- selected comp in comp")
 
-	//console.log(selectedComposition.attributes.getNamedItem('username').value, "<-- -user in composition")
+	//console.log(selectedComposition.attributes.getNamedItem('id').value, "<-- -user in composition")
 
 	if (selectedComposition) {
 		return (
@@ -21,7 +21,7 @@ export default function Composition({ getComposition, compositions, handleCompos
 				<Image src={selectedComposition.attributes.getNamedItem('photourl').value} avatar />
 				<p>{selectedComposition.attributes.getNamedItem('text').value}</p>
 				<p>Notes: {selectedComposition.attributes.getNamedItem('notes').value}</p>
-				<a href="/addComposition"><Button>Edit Composition</Button></a>
+				<a href={"update/" + selectedComposition.attributes.getNamedItem('id').value} id={selectedComposition.attributes.getNamedItem('id').value} ><Button>Edit Composition</Button></a>
 			</div >
 		)
 	}

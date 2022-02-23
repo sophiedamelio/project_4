@@ -19,9 +19,18 @@ export function create(infoFromTheForm){
 	})
 }
 
-//export function update(infoFromTheForm){
-
-//}
+export function update(compId){
+	return fetch(`${BASE_URL}/update/${compId}`, {
+		method: 'PUT',
+		body: compId,
+		headers: {
+			'Authorization': 'Bearer ' + tokenService.getToken()
+		}
+	}).then(res => {
+		if (res.ok) return res.json()
+		throw new Error('Error updating the form! Check the express terminal')
+	})
+}
 
 
 export function getAll() {

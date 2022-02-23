@@ -80,7 +80,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 	//	return compUserId;
 	//}
 
-	console.log(compositions, "<-- user in menu")
+	//console.log(compositions, "<-- user in menu")
 
 	// if user._id === composition._id
 

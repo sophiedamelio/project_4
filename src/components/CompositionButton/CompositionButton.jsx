@@ -10,7 +10,7 @@ export default function CompositionButton(props) {
 
 	return (
 		<>
-			<button key={props.composition._id} onClick={props.selectComposition} username={props.composition.user.username} title={props.composition.title} text={props.composition.text} photourl={props.composition.photoUrl} notes={props.composition.notes}>{props.composition.title}</button>
+			<button key={props.composition._id} onClick={props.selectComposition} id={props.composition._id} username={props.composition.user.username} title={props.composition.title} text={props.composition.text} photourl={props.composition.photoUrl} notes={props.composition.notes}>{props.composition.title}</button>
 			<Image src={props.composition.photoUrl} avatar />
 		</>
 	)

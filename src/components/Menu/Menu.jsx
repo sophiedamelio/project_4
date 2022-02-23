@@ -78,7 +78,6 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 			<Grid columns="two" divided>
 				<Grid.Row>
 					<Grid.Column width="4">
-
 						{compositions ?
 							<>
 								{compositions.map((composition) => {

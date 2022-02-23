@@ -54,7 +54,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 	//useEffect(() => {
 	//	handleCompositionSelection()
 	//}, [])
-	console.log(compositions[0], "<--- all comps")
+	//console.log(compositions[0], "<--- all comps")
 	const [selectedComposition, setSelectedComposition] = useState("")
 
 	if (compositions) {
@@ -71,6 +71,18 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 		//console.log(selectedComposition, "<-- selected comp in menu")
 	}
 
+	//console.log(selectedComposition.attributes.getNamedItem('username').value, "<--- selected comp in menu")
+	//console.log(compositions[0].user._id, "<--- all compositions in menu")
+
+	//for (let i = 0; i < compositions; i++) {
+	//	let compUserId = compositions[i].user._id
+	//	console.log(compUserId, "<--- userId comp in menu")
+	//	return compUserId;
+	//}
+
+	console.log(compositions, "<-- user in menu")
+
+	// if user._id === composition._id
 
 	return (
 		<>
@@ -81,24 +93,29 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 						{compositions ?
 							<>
 								{compositions.map((composition) => {
-									return (
-										<ul>
-											{/*//<Link to="/:comp_id">*/}
-											{/*// when you click on one of these, it should display in full in the composition component (update the composition component)
-							// onclick of a sem UI (like Card,content) could be a function that updates the composition comp?*/}
-											<li key={composition._id}><CompositionButton composition={composition} key={composition._id} selectComposition={selectComposition} /></li>
-											{/*//</Link>*/}
-										</ul>
-									)
+									if (composition._id === user._id) {
+										return (
+											<ul>
+												{/*//<Link to="/:comp_id">*/}
+												{/*// when you click on one of these, it should display in full in the composition component (update the composition component)
+											// onclick of a sem UI (like Card,content) could be a function that updates the composition comp?*/}
+												<li key={composition._id}><CompositionButton composition={composition} key={composition._id} selectComposition={selectComposition} /></li>
+												{/*//</Link>*/}
+											</ul>
+										)
+									} else {
+										return <p>You don't have any compositions yet</p>
+									}
 								})}
 							</>
 							: null}
+
 						<Link to="/addComposition">
 							Add Composition
 						</Link>
 					</Grid.Column>
 					<Grid.Column width="12">
-						<Composition key={selectedComposition} selectedComposition={selectedComposition} />
+						<Composition key={user.username} selectedComposition={selectedComposition} user={user} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

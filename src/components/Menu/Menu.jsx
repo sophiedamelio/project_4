@@ -59,8 +59,9 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 
 	function selectComposition(e) {
 		e.preventDefault()
-		console.log(e.target, "<-- e in select comp, in comp button")
 		setSelectedComposition(e.target) // comp that was clicked on
+		//console.log(e.target, "<-- e in select comp, in comp button")
+		//console.log(selectedComposition, "<-- selected comp in menu")
 	}
 
 

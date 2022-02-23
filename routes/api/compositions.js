@@ -8,7 +8,6 @@ const upload = multer();
 
 router.post('/', isAuthenticated, upload.single('photo'), compositionsCtrl.create);
 router.get('/', compositionsCtrl.index)
-//router.post('/:compId', compositionsCtrl.setComposition);
 
 
 /*---------- Protected Routes ----------*/

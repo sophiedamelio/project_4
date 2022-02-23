@@ -54,8 +54,15 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 	//useEffect(() => {
 	//	handleCompositionSelection()
 	//}, [])
-	const [selectedComposition, setSelectedComposition] = useState('')
+	console.log(compositions[0], "<--- all comps")
+	const [selectedComposition, setSelectedComposition] = useState("")
 
+	if (compositions) {
+		function defaultComposition() {
+			setSelectedComposition(compositions[0])
+		}
+		//defaultComposition()
+	}
 
 	function selectComposition(e) {
 		e.preventDefault()
@@ -92,7 +99,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 						</Link>
 					</Grid.Column>
 					<Grid.Column width="12">
-						<Composition selectedComposition={selectedComposition} selectComposition={selectComposition} />
+						<Composition key={selectedComposition} selectedComposition={selectedComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

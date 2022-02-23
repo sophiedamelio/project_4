@@ -101,7 +101,7 @@ export default function SignUpPage(props) {
               <Form.TextArea
                 label="bio"
                 name="bio"
-                placeholder="Tell us more about your dogs..."
+                placeholder="Tell us more about yourself..."
                 onChange={handleChange}
               />
               <Button type="submit" className="btn">

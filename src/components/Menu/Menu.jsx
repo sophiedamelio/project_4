@@ -93,7 +93,8 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 						{compositions ?
 							<>
 								{compositions.map((composition) => {
-									if (composition._id === user._id) {
+									if (composition.user._id === user._id) {
+										//console.log(composition, "<-- composition in map")
 										return (
 											<ul>
 												{/*//<Link to="/:comp_id">*/}
@@ -104,7 +105,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 											</ul>
 										)
 									} else {
-										return <p>You don't have any compositions yet</p>
+										return null;
 									}
 								})}
 							</>

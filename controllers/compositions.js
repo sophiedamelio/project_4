@@ -9,8 +9,6 @@ const BUCKET = process.env.BUCKET;
 module.exports = {
     create,
     index,
-	setComposition,
-	update,
 }
 
 function create(req, res) {
@@ -44,55 +42,58 @@ function create(req, res) {
 }
 
 
-async function update(req, res, next){
-	console.log(req.file, "<--- req.file")
+//async function update(req, res, next){
+//	console.log(req.file, "<--- req.file")
 
-	const filePath = `${uuidv4()}${req.file.originalname}`;
-	const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
+//	const filePath = `${uuidv4()}${req.file.originalname}`;
+//	const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
 
-	s3.upload(params, async function(err, data) {
-		if(err) return res.status(400).json({err})
+//	s3.upload(params, async function(err, data) {
+//		if(err) return res.status(400).json({err})
 
-		try {
-			let composition = await Composition.create({
-				title: req.body.title,
-				user: req.user,
-				text: req.body.text,
-				photoUrl: data.Location,
-				notes: req.body.notes
-			})
+//		try {
+//			let composition = await Composition.create({
+//				title: req.body.title,
+//				user: req.user,
+//				text: req.body.text,
+//				photoUrl: data.Location,
+//				notes: req.body.notes
+//			})
 
-			composition = await composition.populate('user')
+//			composition = await composition.populate('user')
 
-			res.status(201).json({composition})
-		} catch(err){
-			console.log(err, "Error (update ctrl)")
-			res.status(400).json({err})
-		}
-	})
-}
+//			res.status(201).json({composition})
+//		} catch(err){
+//			console.log(err, "Error (update ctrl)")
+//			res.status(400).json({err})
+//		}
+//	})
+//}
 
 
 
 async function index(req, res) {
 	try {
 		const compositions = await Composition.find({user: req.user._id});
+
+		console.log(user, "<--- user in the comp ctrl index")
 		console.log(req.user._id, "<--- req.user._id in the comp ctrl index")
+
 		res.status(200).json({compositions: compositions});
 	} catch(err) {
 		res.status(400).json({err})
 	}
 }
 
-async function setComposition(req, res) {
-	try {
-		console.log(req.params.compId, "<--- req") // this is currently undefined
+//async function setComposition(req, res) {
+//	try {
+//		console.log(req.params.compId, "<--- req") // this is currently undefined
 
-		const composition = await Composition.findById(req.params.id);
-		composition.push({composition: composition})
-		await composition.save()
-		res.status(201).json({data: 'composition selected'})
-	}catch (err){
-		res.status(400).json({err})
-	}
-}
+//		const composition = await Composition.findById(req.params.id);
+//		composition.push({composition: composition})
+//		await composition.save()
+//		res.status(201).json({data: 'composition selected'})
+//	}catch (err){
+//		res.status(400).json({err})
+//	}
+//}

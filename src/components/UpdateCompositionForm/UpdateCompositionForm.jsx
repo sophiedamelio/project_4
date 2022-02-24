@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form"
 
 
 export default function UpdateCompositionForm(props) {
-	//console.log(props.compositions, "<=== props on addcomp form")
+	console.log(props, "<=== props on addcomp form")
 	//get the value of the selected form from a query using the compId in the url?
 	const compId = useParams().compId
 	console.log(compId, "<--- id from params?") // this successfully gets the id of the comp from the url

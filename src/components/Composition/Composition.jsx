@@ -2,6 +2,8 @@ import React from 'react';
 import { Segment, Image, Button } from 'semantic-ui-react';
 import "./Composition.css";
 
+import { Link } from 'react-router-dom';
+
 export default function Composition({ getCompositions, compositions, handleCompositionSelection, selectedComposition, user }) {
 	//console.log("<--- props on composition")
 	//console.log(handleCompositionSelection, "<---- handle comp selectionn")
@@ -21,11 +23,10 @@ export default function Composition({ getCompositions, compositions, handleCompo
 				<Image src={selectedComposition.attributes.getNamedItem('photourl').value} avatar />
 				<p>{selectedComposition.attributes.getNamedItem('text').value}</p>
 				<p>Notes: {selectedComposition.attributes.getNamedItem('notes').value}</p>
-				<a href={"update/" + selectedComposition.attributes.getNamedItem('id').value} id={selectedComposition.attributes.getNamedItem('id').value} compositions={compositions}><Button>Edit Composition</Button></a>
+				<Link to={{ pathname: "update/" + selectedComposition.attributes.getNamedItem('id').value, state: { selectedComposition } }} >Edit Composition</Link>
+				<Button onClick='' color="red">Delete Composition</Button>
 			</div >
 		)
 	}
 	return null;
-
-
 }

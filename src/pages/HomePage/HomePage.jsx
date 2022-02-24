@@ -13,59 +13,10 @@ import { Grid } from "semantic-ui-react";
 //import composition from "../../../models/composition";
 
 
-export default function HomePage({ user, handleLogout, getCompositions, compositions }) {
-	//const [compositions, setCompositions] = useState([])
-	////const [loading, setLoading] = useState(true);
-	//const [error, setError] = useState('')
+export default function HomePage({ user, handleLogout, }) {
+	const [compositions, setCompositions] = useState([])
+	const [error, setError] = useState('')
 
-	//async function addFavorite - icebox
-
-	//async function handleAddComposition(composition) {
-	//	try {
-	//		//setLoading(true)
-	//		const data = await compositionApi.create(composition);
-	//		console.log(data, "<--- this is the res form the server, in handle add comp")
-
-	//		setCompositions([data.composition, ...compositions]);
-	//		//setLoading(false)
-	//	} catch (err) {
-	//		setError(err.messgae);
-	//	}
-	//}
-
-	//async function getCompositions() {
-	//	try {
-	//		const data = await compositionApi.getAll()
-	//		//console.log(data, "<--- this is the data")
-	//		setCompositions([...data.compositions])
-	//		//setLoading(false)
-	//	} catch (err) {
-	//		//console.log(err.message, "<-- this is the error")
-	//		setError(err.message)
-	//	}
-	//}
-
-	//useEffect(() => {
-	//	getCompositions();
-	//}, [])
-
-	//if (loading) {
-	//	return (
-	//		<>
-	//			<Header handleLogout={handleLogout} user={user} />
-	//			{/*<Loading />  fix this, loading*/}
-	//		</>
-	//	);
-	//}
-
-	//if (error) {
-	//	return (
-	//		<>
-	//			<Header handleLogout={handleLogout} user={user} />
-	//			<ErrorMessage error={error} />
-	//		</>
-	//	)
-	//}
 
 	//async function handleUpdateComposition(composition) {
 	//	try {
@@ -81,7 +32,35 @@ export default function HomePage({ user, handleLogout, getCompositions, composit
 	//}
 
 
-	//console.log(compositions, "<-- compositions")
+	async function handleAddComposition(composition) {
+		try {
+			//setLoading(true)
+			const data = await compositionApi.create(composition);
+			console.log(data, "<--- this is the res form the server, in handle add comp")
+
+			setCompositions([data.composition, ...compositions]);
+			//setLoading(false)
+		} catch (err) {
+			setError(err.messgae);
+		}
+	}
+
+	// 
+	async function getCompositions() {
+		try {
+			const data = await compositionApi.getAll()
+			//console.log(data, "<--- this is the data")
+			setCompositions([...data.compositions])
+			//setLoading(false)
+		} catch (err) {
+			//console.log(err.message, "<-- this is the error")
+			setError(err.message)
+		}
+	}
+
+	useEffect(() => {
+		getCompositions();
+	}, [])
 
 	return (
 		<>
@@ -96,7 +75,7 @@ export default function HomePage({ user, handleLogout, getCompositions, composit
 				</Grid.Row>
 				<Grid.Row>
 					<Grid.Column width="16">
-						<Menu compositions={compositions} user={user} getCompositions={getCompositions} />
+						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} />
 					</Grid.Column>
 					{/*<Grid.Column>
 						<Composition compositions={compositions} user={user} getCompositions={getCompositions} handleCompositionSelection={handleCompositionSelection} />

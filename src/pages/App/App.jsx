@@ -18,7 +18,6 @@ function App() {
   // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like
   // this  const token = createJWT(user); // where user was the document we created from mongo
 
-  const [compositions, setCompositions] = useState([])
   //const [loading, setLoading] = useState(true);
   const [error, setError] = useState('')
 
@@ -31,57 +30,13 @@ function App() {
     setUser(null);
   }
 
-  async function handleAddComposition(composition) {
-    try {
-      //setLoading(true)
-      const data = await compositionApi.create(composition);
-      console.log(data, "<--- this is the res form the server, in handle add comp")
-
-      setCompositions([data.composition, ...compositions]);
-      //setLoading(false)
-    } catch (err) {
-      setError(err.messgae);
-    }
-  }
-
-  // 
-  async function getCompositions() {
-    try {
-      const data = await compositionApi.getAll()
-      //console.log(data, "<--- this is the data")
-      setCompositions([...data.compositions])
-      //setLoading(false)
-    } catch (err) {
-      //console.log(err.message, "<-- this is the error")
-      setError(err.message)
-    }
-  }
-
-  useEffect(() => {
-    getCompositions();
-  }, [])
-
-
-  async function handleUpdateComposition(composition) {
-    try {
-      //setLoading(true)
-      const data = await compositionApi.update(composition);
-      console.log(data, "<--- this is the res form the server, in handle add comp")
-
-      setCompositions([data.composition, ...compositions]);
-      //setLoading(false)
-    } catch (err) {
-      setError(err.messgae);
-    }
-  }
-
 
   if (user) {
     return (
       <Routes>
-        <Route path="/" element={<HomePage user={user} handleLogout={handleLogout} getCompositions={getCompositions} compositions={compositions} />} />
-        <Route path="/addComposition" element={<AddCompositionPage user={user} handleAddComposition={handleAddComposition} />} />
-        <Route path="update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} compositions={compositions} />} />
+        <Route path="/" element={<HomePage user={user} handleLogout={handleLogout} />} />
+        {/*<Route path="/" element={<AddCompositionPage user={user} />} />*/}
+        {/*<Route path="update/:compId" element={<UpdateCompositionPage user={user} />} />*/}
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

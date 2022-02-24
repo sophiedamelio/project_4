@@ -1,12 +1,9 @@
 //import AddComposition from "../AddComposition/AddComposition"
-import { useState, useEffect } from "react"
-import { Button, Grid, Segment } from 'semantic-ui-react';
+import { useState } from "react"
+import { Button, Grid, Modal } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
-import AddCompositionPage from "../../pages/AddCompositionPage/AddCompositionPage"
 import Composition from '../Composition/Composition';
 import CompositionButton from "../CompositionButton/CompositionButton"
-import * as compositionApi from "../../utils/compositionApi"
-import { Route, Routes } from 'react-router-dom';
 
 
 export default function Menu({ user, handleAddComposition, getCompositions, compositions }) {
@@ -15,10 +12,6 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 	const [selectedComposition, setSelectedComposition] = useState('')
 
 	// set selected composition state here, then send to composition component
-
-	//useEffect(() => {
-	//	handleCompositionSelection()
-	//}, [])
 
 	function selectComposition(composition) {
 		// this function currently returns the HTML element that is selected, the <button>
@@ -58,6 +51,8 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 							</>
 							: null}
 
+						{/* this add composition needs to be a modal, not a link . 
+						It should make the <AddCompositionForm> pop up, upon clicking submit, I want to see that composition ad the selected comp? or just the homepage again*/}
 						<Link to="/addComposition">
 							Add Composition
 						</Link>

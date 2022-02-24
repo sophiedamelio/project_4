@@ -17,7 +17,9 @@ export default function CompositionButton(props) {
 
 	return (
 		<>
-			<Link to={{ pathname: "/", state: { composition: props.composition }, }} onClick={props.selectComposition}>{props.composition.title}</Link>
+			{/* how to access this 'state' ? */}
+			{/*<Link to={{ pathname: "/", state: { composition: props.composition }, }} */}
+			<button onClick={() => props.selectComposition(props.composition)}>{props.composition.title}</button>
 			<Image src={props.composition.photoUrl} avatar />
 		</>
 	)

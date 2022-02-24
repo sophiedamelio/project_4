@@ -10,78 +10,27 @@ import { Route, Routes } from 'react-router-dom';
 
 
 export default function Menu({ user, handleAddComposition, getCompositions, compositions }) {
-	//console.log(user, handleAddComposition, "<--- props on menu")
-	//console.log(compositions, "<--- compositions on menu")
-	//console.log(handleCompositionSelection, "<--- handle com selection")
 
-	//const [selectedComposition, setSelectedComposition] = useState('')
 	const [error, setError] = useState('')
+	const [selectedComposition, setSelectedComposition] = useState('')
+
 	// set selected composition state here, then send to composition component
-
-	//toggle feature, boolean if else (render based on true or false) <-- from arthur
-	//function handleChange(e) {
-	//	setSelectedComposition({
-	//		...selectedComposition,
-	//		[e.target.name]: e.target.value
-	//	})
-	//}
-
-	//async function handleCompositionSelection(composition) {
-	//	try {
-	//		//e.preventDefault()
-	//		//console.log(e.currentTarget, "<--- e.ytarget in handle funct")
-	//		//const data = e.target.value
-	//		//console.log(data, "<--- composition in handle func")
-	//		//const composition = new FormData()
-	//		//composition.append('composition', selectedComposition);
-	//		//for (let key in selectedComposition) {
-	//		//	composition.append(key, selectedComposition[key])
-	//		//}
-	//		//console.log(composition.forEach((item) => console.log(item)), "<--- form data, composition")
-	//		//const data = await compositionApi.setComposition(composition)
-	//		//console.log(data, "<-- data from the handlecompositionselection")
-	//		//getCompositions()
-	//		//setSelectedComposition(composition)
-	//		alert('Hello!')
-	//	} catch (err) {
-	//		setError(err.message)
-	//	}
-	//	//return (
-	//	//	<Composition composition={composition} />
-	//	//)
-	//}
 
 	//useEffect(() => {
 	//	handleCompositionSelection()
 	//}, [])
-	//console.log(compositions[0], "<--- all comps")
-	const [selectedComposition, setSelectedComposition] = useState("")
 
-	//if (compositions) {
-	//	function defaultComposition() {
-	//		setSelectedComposition(compositions[0])
-	//	}
-	//	//defaultComposition()
-	//}
+	function selectComposition(composition) {
+		// this function currently returns the HTML element that is selected, the <button>
+		// I want it to grab the composition that corresponds with the button
+		// I think the composition button itself may be the issue, since it just renders, the title ?
+		// this function should select the ENTIRE composition that corresponds with the button
 
-	function selectComposition(e) {
-		//e.preventDefault()
-		console.log(e.currentTarget, "<--- e .target in menu")
-		setSelectedComposition(e.target) // comp that was clicked on
+		console.log(composition, "<--- e .target in menu")
+
+		setSelectedComposition(composition) // comp that was clicked on
 	}
 
-	//console.log(selectedComposition.attributes.getNamedItem('username').value, "<--- selected comp in menu")
-	//console.log(compositions[0].user._id, "<--- all compositions in menu")
-
-	//for (let i = 0; i < compositions; i++) {
-	//	let compUserId = compositions[i].user._id
-	//	console.log(compUserId, "<--- userId comp in menu")
-	//	return compUserId;
-	//}
-
-	//console.log(compositions, "<-- user in menu")
-
-	// if user._id === composition._id
 
 	return (
 		<>
@@ -91,19 +40,21 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 					<Grid.Column width="4">
 						{compositions ?
 							<>
-								{compositions.map((composition) => {
+								<ul>
+									{compositions.map((composition) => {
 
-									//console.log(composition, "<-- composition in map")
-									return (
-										<ul>
-											{/*//<Link to="/:comp_id">*/}
-											{/*// when you click on one of these, it should display in full in the composition component (update the composition component)
+										//console.log(composition, "<-- composition in map")
+										return (
+											/*//<Link to="/:comp_id">*/
+											//{/*// when you click on one of these, it should display in full in the composition component (update the composition component)
 											// onclick of a sem UI (like Card,content) could be a function that updates the composition comp?*/}
-											<li key={composition._id}><CompositionButton composition={composition} key={composition._id} selectComposition={selectComposition} /></li>
-											{/*//</Link>*/}
-										</ul>
-									)
-								})}
+											<li key={composition._id} >
+												<CompositionButton composition={composition} selectComposition={selectComposition} />
+											</li>
+											/*//</Link>*/
+										)
+									})}
+								</ul>
 							</>
 							: null}
 
@@ -112,7 +63,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 						</Link>
 					</Grid.Column>
 					<Grid.Column width="12">
-						<Composition key={user.username} selectedComposition={selectedComposition} user={user} compositions={compositions} />
+						<Composition selectedComposition={selectedComposition} user={user} compositions={compositions} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

@@ -11,14 +11,14 @@ export default function Composition(props) {
 	//var composition = stateData["composition"]
 
 	console.log(props.selectedComposition, "<--- composition???")
-	//if selectedComposition._id === composition
+	//if selectedComposition._id === composition._id?
+
 
 
 	if (props.selectedComposition) {
 		return (
 			<div id="composition">
-				<p>composition displays here</p>
-				{/*// this is the logged in user currently, not the user of the post*/}
+				<p>{props.selectedComposition.title}</p>
 				{/*<h3>User: {selectedComposition.attributes.getNamedItem('username').value} </h3>
 				< h3 > Title: {selectedComposition.title}</h3 >
 				<Image src={selectedComposition.attributes.getNamedItem('photourl').value} avatar />

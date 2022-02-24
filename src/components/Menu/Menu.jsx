@@ -93,20 +93,17 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 						{compositions ?
 							<>
 								{compositions.map((composition) => {
-									if (composition.user._id === user._id) {
-										//console.log(composition, "<-- composition in map")
-										return (
-											<ul>
-												{/*//<Link to="/:comp_id">*/}
-												{/*// when you click on one of these, it should display in full in the composition component (update the composition component)
+
+									//console.log(composition, "<-- composition in map")
+									return (
+										<ul>
+											{/*//<Link to="/:comp_id">*/}
+											{/*// when you click on one of these, it should display in full in the composition component (update the composition component)
 											// onclick of a sem UI (like Card,content) could be a function that updates the composition comp?*/}
-												<li key={composition._id}><CompositionButton composition={composition} key={composition._id} selectComposition={selectComposition} /></li>
-												{/*//</Link>*/}
-											</ul>
-										)
-									} else {
-										return null;
-									}
+											<li key={composition._id}><CompositionButton composition={composition} key={composition._id} selectComposition={selectComposition} /></li>
+											{/*//</Link>*/}
+										</ul>
+									)
 								})}
 							</>
 							: null}

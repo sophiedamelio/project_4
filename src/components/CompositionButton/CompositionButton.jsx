@@ -1,16 +1,17 @@
 import { useState } from "react"
 import Composition from "../Composition/Composition"
+import { Link } from "react-router-dom";
 
 import { Button, Image } from "semantic-ui-react"
 
 
 export default function CompositionButton(props) {
 	// props.handleCompositionSelection
-	//console.log(props.composition.user.username, "<--- props")
+	//console.log(props.selectComposition, "<--- props")
 
 	return (
 		<>
-			<button key={props.composition._id} onClick={props.selectComposition} id={props.composition._id} username={props.composition.user.username} title={props.composition.title} text={props.composition.text} photourl={props.composition.photoUrl} notes={props.composition.notes}>{props.composition.title}</button>
+			<Link to={{ pathname: "/", state: { composition: props.composition }, }} onClick={props.selectComposition} >{props.composition.title}</Link>
 			<Image src={props.composition.photoUrl} avatar />
 		</>
 	)

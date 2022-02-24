@@ -73,9 +73,11 @@ async function update(req, res, next){
 }
 
 
+
 async function index(req, res) {
 	try {
-		const compositions = await Composition.find({user: req.user._id}).populate('user').exec();
+		const compositions = await Composition.find({user: req.user._id});
+		console.log(req.user._id, "<--- req.user._id in the comp ctrl index")
 		res.status(200).json({compositions: compositions});
 	} catch(err) {
 		res.status(400).json({err})

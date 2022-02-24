@@ -41,7 +41,7 @@ export function getAll() {
 	})
 	.then(res => {
 		if(res.ok) return res.json()
-		throw new Error('Problem Fetching Gett All')
+		throw new Error('Problem Fetching Get All')
 	})	
 }
 

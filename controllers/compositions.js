@@ -31,6 +31,8 @@ function create(req, res) {
 				notes: req.body.notes
 			})
 
+			//console.log(req.user, "<---- req.user in the create controller")
+
 			composition = await composition.populate('user')
 
 			res.status(201).json({composition})
@@ -70,13 +72,16 @@ function create(req, res) {
 //	})
 //}
 
+//_id: new ObjectId("6216877ca537b972fc7822ac"),
+
+//_id: new ObjectId("621687c0a537b972fc7822ba"),
 
 
 async function index(req, res) {
 	try {
 		const compositions = await Composition.find({user: req.user._id});
-
-		console.log(user, "<--- user in the comp ctrl index")
+		console.log(compositions, "<-- compositions")
+		//console.log(user, "<--- user in the comp ctrl index")
 		console.log(req.user._id, "<--- req.user._id in the comp ctrl index")
 
 		res.status(200).json({compositions: compositions});

@@ -44,6 +44,7 @@ function App() {
     }
   }
 
+  // 
   async function getCompositions() {
     try {
       const data = await compositionApi.getAll()

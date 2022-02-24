@@ -57,18 +57,17 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 	//console.log(compositions[0], "<--- all comps")
 	const [selectedComposition, setSelectedComposition] = useState("")
 
-	if (compositions) {
-		function defaultComposition() {
-			setSelectedComposition(compositions[0])
-		}
-		//defaultComposition()
-	}
+	//if (compositions) {
+	//	function defaultComposition() {
+	//		setSelectedComposition(compositions[0])
+	//	}
+	//	//defaultComposition()
+	//}
 
 	function selectComposition(e) {
-		e.preventDefault()
+		//e.preventDefault()
+		console.log(e.currentTarget, "<--- e .target in menu")
 		setSelectedComposition(e.target) // comp that was clicked on
-		//console.log(e.target, "<-- e in select comp, in comp button")
-		//console.log(selectedComposition, "<-- selected comp in menu")
 	}
 
 	//console.log(selectedComposition.attributes.getNamedItem('username').value, "<--- selected comp in menu")

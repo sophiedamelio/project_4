@@ -7,11 +7,17 @@ import { Button, Image } from "semantic-ui-react"
 
 export default function CompositionButton(props) {
 	// props.handleCompositionSelection
-	//console.log(props.selectComposition, "<--- props")
+
+	//function isMatch(composition) {
+	//	return composition._id === props.selectedComposition._id
+	//}
+
+	//console.log((props.composition.find(isMatch)), "<-- props on compositionbutton")
+
 
 	return (
 		<>
-			<Link to={{ pathname: "/", state: { composition: props.composition }, }} onClick={props.selectComposition} >{props.composition.title}</Link>
+			<Link to={{ pathname: "/", state: { composition: props.composition }, }} onClick={props.selectComposition}>{props.composition.title}</Link>
 			<Image src={props.composition.photoUrl} avatar />
 		</>
 	)

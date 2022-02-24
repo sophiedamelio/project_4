@@ -2,21 +2,22 @@ import React from 'react';
 import { Segment, Image, Button } from 'semantic-ui-react';
 import "./Composition.css";
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-export default function Composition({ getCompositions, compositions, handleCompositionSelection, selectedComposition, user, composition }) {
-	console.log(composition, "<--- props on composition")
-	//console.log(handleCompositionSelection, "<---- handle comp selectionn")
+export default function Composition(props) {
+	//let location = useLocation();
+
+	//let stateData = props.location.state
+	//var composition = stateData["composition"]
+
+	console.log(props.selectedComposition, "<--- composition???")
+	//if selectedComposition._id === composition
 
 
-	//console.log(compositions, "<--- compositions")
-	//console.log(selectedComposition.attributes.getNamedItem('text').value, "<--- selected comp in comp")
-
-	//console.log(selectedComposition.attributes.getNamedItem('id').value, "<-- -user in composition")
-
-	if (selectedComposition) {
+	if (props.selectedComposition) {
 		return (
 			<div id="composition">
+				<p>composition displays here</p>
 				{/*// this is the logged in user currently, not the user of the post*/}
 				{/*<h3>User: {selectedComposition.attributes.getNamedItem('username').value} </h3>
 				< h3 > Title: {selectedComposition.title}</h3 >

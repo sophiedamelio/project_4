@@ -28,11 +28,6 @@ export default function UpdateCompositionForm(props) {
 		text: '',
 		notes: ''
 	})
-	//const [state, setState] = useState({
-	//	title: selectCompositionData[0].title,
-	//	text: selectCompositionData[0].text,
-	//	notes: selectCompositionData[0].notes
-	//})
 
 
 

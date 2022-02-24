@@ -4,12 +4,14 @@ import { Button, Grid, Modal } from 'semantic-ui-react';
 import { Link } from 'react-router-dom'
 import Composition from '../Composition/Composition';
 import CompositionButton from "../CompositionButton/CompositionButton"
+import AddCompositionForm from "../CompositionForm/CompositionForm";
 
 
 export default function Menu({ user, handleAddComposition, getCompositions, compositions }) {
 
 	const [error, setError] = useState('')
 	const [selectedComposition, setSelectedComposition] = useState('')
+	const [open, setOpen] = useState(false)
 
 	// set selected composition state here, then send to composition component
 
@@ -53,9 +55,19 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 
 						{/* this add composition needs to be a modal, not a link . 
 						It should make the <AddCompositionForm> pop up, upon clicking submit, I want to see that composition ad the selected comp? or just the homepage again*/}
-						<Link to="/addComposition">
-							Add Composition
-						</Link>
+						<Modal
+							onClose={() => setOpen(false)}
+							onOpen={() => setOpen(true)}
+							open={open}
+							trigger={<Button>Add composition</Button>}>
+							<Modal.Header>Add a Composition</Modal.Header>
+							<Modal.Content>
+								<AddCompositionForm handleAddComposition={handleAddComposition}></AddCompositionForm>
+								<Modal.Actions>
+									<Button content="Close Create Mode" onClick={() => setOpen(false)} />
+								</Modal.Actions>
+							</Modal.Content>
+						</Modal>
 					</Grid.Column>
 					<Grid.Column width="12">
 						<Composition selectedComposition={selectedComposition} user={user} compositions={compositions} />

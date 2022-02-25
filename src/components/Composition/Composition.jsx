@@ -37,8 +37,7 @@ export default function Composition(props) {
 						</Modal.Actions>
 					</Modal.Content>
 				</Modal>
-				{/*<Link to={{ pathname: "update/" + props.selectedComposition._id, state: { selectedComposition: props.selectedComposition } }} ></Link>*/}
-				{/*<Button onClick='' color="red">Delete Composition</Button>*/}
+				<Button color="red">Delete Composition</Button>
 			</div >
 		)
 	}

@@ -9,7 +9,7 @@ const BUCKET = process.env.BUCKET;
 module.exports = {
     create,
     index,
-	update
+	update,
 }
 
 function create(req, res) {
@@ -52,7 +52,7 @@ async function update(req, res, next){
 		if(err) return res.status(400).json({err})
 
 		try {
-			let composition = await Composition.create({
+			let composition = await Composition.updateOne({
 				title: req.body.title,
 				user: req.user,
 				text: req.body.text,
@@ -83,3 +83,13 @@ async function index(req, res) {
 		res.status(400).json({err})
 	}
 }
+
+//async function deleteComposition(req, res){
+//	try {
+//		const composition = Composition.find({'_id': req.params.id})
+
+
+//	}catch(err){
+//		res.status(400).json({err})
+//	}
+//}

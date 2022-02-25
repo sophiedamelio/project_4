@@ -60,7 +60,7 @@ export default function UpdateCompositionForm(props) {
 	}
 	//console.log(state, "<-- state in comp form")
 
-
+	// this should take the new / updated state from the comp form, and update the selectedComposition with the new state
 
 	return (
 		<>

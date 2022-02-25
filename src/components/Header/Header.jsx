@@ -5,11 +5,13 @@ import { Header, Segment, Image, Icon, Grid } from "semantic-ui-react";
 export default function PageHeader({ user, handleLogout }) {
 
 	return (
-		<div class="home-header">
-			<Header as="h3" floated="left" textAlign="center" verticalAlign="middle" class="home-header">
-				<Link to="/">
-					logo here
-				</Link>
+		<div>
+			<Header as="h3" floated="left" textAlign="center" verticalAlign="middle" id="logo">
+				<span id="logo">
+					<Link to="/" id="logo">
+						logo here
+					</Link>
+				</span>
 				<Image
 					src={
 						user?.photoUrl
@@ -20,7 +22,7 @@ export default function PageHeader({ user, handleLogout }) {
 				></Image>
 			</Header>
 			<Header floated="right" as="h3" textAlign="center" verticalAlign="middle">
-				<span>
+				<span id="greeting">
 					Hello {user.username}
 				</span>
 				<Link to="/">
@@ -30,6 +32,6 @@ export default function PageHeader({ user, handleLogout }) {
 					Logout
 				</Link>
 			</Header>
-		</div>
+		</div >
 	)
 }

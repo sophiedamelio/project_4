@@ -12,6 +12,10 @@ font-family: 'Major Mono Display', monospace;*/
 	--body-ft: 'Comfortaa', cursive;
 }
 
-.home-header {
-	background-color: var(--off-black);
+#logo a {
+	color: white;
+}
+
+#greeting {
+	color: white;
 }

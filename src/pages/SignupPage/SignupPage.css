@@ -12,19 +12,24 @@ font-family: 'Major Mono Display', monospace;*/
 	--body-ft: 'Comfortaa', cursive;
 }
 
+
+.logo {
+	padding-top: 5vh;
+}
+
 .whole-page {
 	font-family: var(--body-ft)
 }
 
 #login-header {
-	padding: 10vh 5vh;
+	padding: 1.5vh;
 	color: white;
 	font-family: var(--header-ft);
 	font-size: x-large;
 }
 
 #form-input {
-	padding: 1.5vh 8vh 1.5vh .75vh;
+	padding: 1.5vh 8vh 1.5vh 1vh;
 	border-radius: 500px;
 	border: none;
 	text-align: left;

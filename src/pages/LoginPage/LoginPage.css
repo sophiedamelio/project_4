@@ -15,24 +15,27 @@ font-family: 'Major Mono Display', monospace;*/
 
 /*  this is questionable, might need to be more specific in order to override
 the width is what we are overriding */
-img.ui.header>.image:not(.icon), .ui.header>img {
+/*img.ui.image.logo {
     width: 10em;
-}
+}*/
 
+.logo {
+	padding-top: 5vh;
+}
 
 .whole-page {
 	font-family: var(--body-ft)
 }
 
 #login-header {
-	padding: 10vh 5vh;
+	padding: 2vh;
 	color: white;
 	font-family: var(--header-ft);
 	font-size: x-large;
 }
 
 #form-input {
-	padding: 1.5vh 8vh 1.5vh .75vh;
+	padding: 1.5vh 8vh 1.5vh 1vh;
 	border-radius: 500px;
 	border: none;
 	text-align: left;

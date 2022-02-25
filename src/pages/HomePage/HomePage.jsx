@@ -66,16 +66,12 @@ export default function HomePage({ user, handleLogout, }) {
 
 	return (
 		<div class="whole-page">
-			<Grid columns="two" divided>
-				<div class="home-header">
-					<Grid.Row>
-						<Grid.Column width="16">
-							<PageHeader handleLogout={handleLogout} user={user} />
-						</Grid.Column>
-					</Grid.Row>
-				</div>
+			<div class="home-header">
+				<PageHeader handleLogout={handleLogout} user={user} />
+			</div>
+			<Grid columns="2" divided>
 				<Grid.Row>
-					<Grid.Column width="16">
+					<Grid.Column width="2">
 						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
 					</Grid.Column>
 				</Grid.Row>

@@ -22,7 +22,7 @@ export default function Menu({ user, handleAddComposition, compositions, handleU
 	return (
 		<div class="whole-page">
 			<h1 id="home-title">menu!</h1>
-			<Grid columns="two" divided>
+			<Grid>
 				<Grid.Row>
 					<Grid.Column width="4">
 						{compositions ?

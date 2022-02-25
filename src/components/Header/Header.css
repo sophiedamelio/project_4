@@ -14,14 +14,17 @@ font-family: 'Major Mono Display', monospace;*/
 
 #logo a {
 	color: white;
+	font-family: var(--body-ft);
 }
 
 .whole-header {
-	padding-top: 10vh;
-	/*font-family: var(--header-ft);*/
+	/*padding-top: 10vh;*/
+	font-family: var(--header-ft);
+	background-color: var(--off-black);
 }
 
 #greeting {
 	color: white;
+	font-family: var(--body-ft);
+	padding-right: 5vh;
 }
-

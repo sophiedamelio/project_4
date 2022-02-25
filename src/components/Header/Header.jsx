@@ -7,25 +7,28 @@ export default function PageHeader({ user, handleLogout }) {
 
 	return (
 		<div class="whole-header">
-			<Header as="h3" floated="left" textAlign="center" verticalAlign="middle" id="logo">
+			{/* floated="left" textAlign="center" verticalAlign="middle" */}
+			<Header as="h3" id="logo" floated="left">
 				<span id="logo">
 					<Link to="/" id="logo">
 						<Image src={"https://i.imgur.com/n5Uns60.png"} size="small"></Image>
 					</Link>
 				</span>
-				<Image
+				{/*<Image
 					src={
 						user?.photoUrl
 							? user?.photoUrl
 							: "https://react.semantic-ui.com/images/wireframe/square-image.png"
 					}
 					avatar
-				></Image>
+				></Image>*/}
 			</Header>
-			<Header floated="right" as="h3" textAlign="center" verticalAlign="middle">
+			<Header as="h3" textAlign="center" verticalAlign="middle" id="logo">
 				<span id="greeting">
 					Hello {user.username}
 				</span>
+			</Header>
+			<Header floated="right" as="h3" textAlign="center" verticalAlign="middle" id="logo">
 				<Link to="/">
 					<Icon color="black" name="home"></Icon>
 				</Link>

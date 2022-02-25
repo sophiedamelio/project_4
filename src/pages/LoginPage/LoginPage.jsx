@@ -44,26 +44,23 @@ export default function LoginPage(props) {
   }
 
   return (
-    <>
-      <Grid
-        textAlign="center"
-
-        verticalAlign="middle"
-      >
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h2" color="yellow" textAlign="center">
-            <Icon name="sign-in" />
+    <div class="whole-page">
+      <Grid textAlign="center" verticalAlign="middle">
+        <Grid.Column style={{ maxWidth: 550 }}>
+          <Header as="h2" textAlign="center" id="login-header">
+            <Icon name="sign-in" color="teal" />
             Log-in to your
             account
           </Header>
           <Form autoComplete="off" onSubmit={handleSubmit}>
-            <Segment stacked>
+            <Segment stacked class="form">
               <Form.Input
                 type="email"
                 name="email"
                 placeholder="email"
                 value={state.email}
                 onChange={handleChange}
+                id="form-input"
                 required
               />
               <Form.Input
@@ -72,10 +69,11 @@ export default function LoginPage(props) {
                 placeholder="password"
                 value={state.password}
                 onChange={handleChange}
+                id="form-input"
                 required
               />
               <Button
-                color="teal"
+                class="submitButton"
                 fluid
                 size="large"
                 type="submit"
@@ -85,12 +83,12 @@ export default function LoginPage(props) {
               </Button>
             </Segment>
           </Form>
-          <Message>
+          <Message class="altLink">
             New to us? <Link to="/signup">Sign Up</Link>
           </Message>
           {error ? <ErrorMessage error={error} /> : null}
         </Grid.Column>
       </Grid>
-    </>
+    </div>
   );
 }

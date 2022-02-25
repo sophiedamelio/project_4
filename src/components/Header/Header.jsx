@@ -5,35 +5,31 @@ import { Header, Segment, Image, Icon, Grid } from "semantic-ui-react";
 export default function PageHeader({ user, handleLogout }) {
 
 	return (
-		<Header>
-			<Grid columns="three">
-				<Grid.Row>
-					<Grid.Column>
-						<Link to="/">
-							logo here
-						</Link>
-						<Image
-							src={
-								user?.photoUrl
-									? user?.photoUrl
-									: "https://react.semantic-ui.com/images/wireframe/square-image.png"
-							}
-							avatar
-						></Image>
-					</Grid.Column>
-					<Grid.Column>
-						Hello {user.username}!
-					</Grid.Column>
-					<Grid.Column>
-						<Link to="/">
-							<Icon color="yellow" name="home"></Icon>
-						</Link>
-						<Link to="" onClick={handleLogout}>
-							Logout
-						</Link>
-					</Grid.Column>
-				</Grid.Row>
-			</Grid>
-		</Header>
+		<Segment clearing>
+			<Header as="h3" floated="left" textAlign="center" verticalAlign="middle">
+				<Link to="/">
+					logo here
+				</Link>
+				<Image
+					src={
+						user?.photoUrl
+							? user?.photoUrl
+							: "https://react.semantic-ui.com/images/wireframe/square-image.png"
+					}
+					avatar
+				></Image>
+			</Header>
+			<Header floated="right" as="h3" textAlign="center" verticalAlign="middle">
+				<span>
+					Hello {user.username}
+				</span>
+				<Link to="/">
+					<Icon color="black" name="home"></Icon>
+				</Link>
+				<Link to="" onClick={handleLogout}>
+					Logout
+				</Link>
+			</Header>
+		</Segment>
 	)
 }

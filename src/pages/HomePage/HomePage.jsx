@@ -53,7 +53,7 @@ export default function HomePage({ user, handleLogout, }) {
 	}, [])
 
 	return (
-		<>
+		<div>
 			<Grid columns="two" divided>
 				<Grid.Row>
 					<Grid.Column width="16">
@@ -66,6 +66,6 @@ export default function HomePage({ user, handleLogout, }) {
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>
-		</>
+		</div>
 	)
 }

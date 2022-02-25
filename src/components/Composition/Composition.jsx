@@ -31,7 +31,8 @@ export default function Composition(props) {
 						</Modal.Actions>
 					</Modal.Content>
 				</Modal>
-				<Button color="red">Delete Composition</Button>
+				{/*  do I want to pass the selectedComposition to this function> */}
+				<Button onClick={props.handleDeleteComposition} color="red">Delete Composition</Button>
 			</div >
 		)
 	}

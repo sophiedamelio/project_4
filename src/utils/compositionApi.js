@@ -45,15 +45,16 @@ export function getAll() {
 	})	
 }
 
-export function setComposition(composition){
+export function deleteComposition(selectedComposition) {
 	return fetch(BASE_URL, {
-		method: 'POST',
-		body: composition, // <-- this should be a composition object
+		method: 'DELETE',
+		body: selectedComposition, // this is empty still, when I log out the body
 		headers: {
 			'Authorization': 'Bearer ' + tokenService.getToken()
-		}
+			}
 	}).then(res => {
-		if(res.ok) return res.json()
-		throw new Error ('problem setting the composition!')
+		if (res.ok) return res.json()
+		throw new Error('Error deleting the composition. Check the express terminal')
 	})
 }
+

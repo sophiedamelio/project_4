@@ -10,6 +10,7 @@ module.exports = {
     create,
     index,
 	update,
+	deleteComposition
 }
 
 function create(req, res) {
@@ -84,12 +85,14 @@ async function index(req, res) {
 	}
 }
 
-//async function deleteComposition(req, res){
-//	try {
-//		const composition = Composition.find({'_id': req.params.id})
-
-
-//	}catch(err){
-//		res.status(400).json({err})
-//	}
-//}
+async function deleteComposition(req, res){
+	console.log(req, "<--- req.body in the compositions ctrl")
+	//if(!req.params)
+	try {
+		//const composition = Composition.find({'_id': req.params.id})
+		console.log(req.params.id, "<--- id to be deleted")
+		Composition.deleteOne({_id: req.params.id})
+	}catch(err){
+		res.status(400).json({err})
+	}
+}

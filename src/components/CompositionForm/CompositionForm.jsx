@@ -36,7 +36,7 @@ export default function AddCompositionForm(props) {
 		formData.append('notes', state.notes);
 
 		props.handleAddComposition(formData)
-		props.selectComposition()
+		//props.selectComposition()
 		navigate('/')
 
 	}

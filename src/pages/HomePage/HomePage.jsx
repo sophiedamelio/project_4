@@ -25,6 +25,16 @@ export default function HomePage({ user, handleLogout, }) {
 		}
 	}
 
+	async function handleDeleteComposition(selectedComposition) {
+		try {
+			const deletedComposition = await compositionApi.deleteComposition(selectedComposition)
+			console.log(deletedComposition, "<--- composition to be deleted")
+			setCompositions([...compositions]);
+
+		} catch (err) {
+			setError(err.message)
+		}
+	}
 
 	async function handleAddComposition(composition) {
 		try {
@@ -66,7 +76,7 @@ export default function HomePage({ user, handleLogout, }) {
 				</div>
 				<Grid.Row>
 					<Grid.Column width="16">
-						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} />
+						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

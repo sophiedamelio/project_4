@@ -12,6 +12,14 @@ font-family: 'Major Mono Display', monospace;*/
 	--body-ft: 'Comfortaa', cursive;
 }
 
+
+/*  this is questionable, might need to be more specific in order to override
+the width is what we are overriding */
+img.ui.header>.image:not(.icon), .ui.header>img {
+    width: 10em;
+}
+
+
 .whole-page {
 	font-family: var(--body-ft)
 }

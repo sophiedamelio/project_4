@@ -7,7 +7,8 @@ import {
   Form,
   Grid,
   Header,
-  Icon
+  Icon,
+  Image
 } from "semantic-ui-react";
 
 
@@ -44,6 +45,7 @@ export default function LoginPage(props) {
       <Grid textAlign="center" verticalAlign="middle" style={{ height: "100vh" }}>
         <Grid.Column style={{ maxWidth: 550 }}>
           <Header as="h2" textAlign="center" id="login-header">
+            <Image src={"https://i.imgur.com/n5Uns60.png"} size="huge"></Image>
             <Icon name="sign-in" color="teal" />
             Log-in to your
             account

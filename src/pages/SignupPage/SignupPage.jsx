@@ -8,7 +8,8 @@ import {
   Grid,
   Header,
   Segment,
-  Icon
+  Icon,
+  Image
 } from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 
@@ -61,6 +62,7 @@ export default function SignUpPage(props) {
       <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 550 }}>
           <Header as="h2" textAlign="center" id="login-header">
+            <Image src={"https://i.imgur.com/n5Uns60.png"} size="massive"></Image>
             <Icon name="signup" color="teal" /> Sign Up
           </Header>
           <Form autoComplete="off" onSubmit={handleSubmit}>

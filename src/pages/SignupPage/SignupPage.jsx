@@ -34,7 +34,7 @@ export default function SignUpPage(props) {
     for (let key in state) {
       formData.append(key, state[key])
     }
-    //console.log(formData.forEach((item) => console.log(item)), "<----- form data")
+
     try {
       await userService.signup(formData)
       props.handleSignUpOrLogin()

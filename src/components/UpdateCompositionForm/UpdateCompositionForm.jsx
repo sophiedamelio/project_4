@@ -1,26 +1,12 @@
 import React, { useState } from 'react'
-//import Header from "../Header/Header"
-import { Button, Form, Grid, GridColumn, Segment } from 'semantic-ui-react';
-import { useNavigate, Link, useParams } from 'react-router-dom';
-
-import { useForm } from "react-hook-form"
-
-//import { yupResolver } from "@hookform/resolvers/yup"
-//import * as Yup from "yup";
-//import { userService, alertService } from '@/_services'
-
+import { Button, Form, Grid, Segment } from 'semantic-ui-react';
+import { useNavigate } from 'react-router-dom';
 
 export default function UpdateCompositionForm(props) {
 	console.log(props, "<=== props on update comp form")
-	//get the value of the selected form from a query using the compId in the url?
-	//const compId = useParams().compId
-	//console.log(compId, "<--- id from params?") // this successfully gets the id of the comp from the url
-	//console.log(props.compositions, "<--- composition?")
 
-	// this should use the 'id' var on line 16 to query all compositions, find the one where composition.id === id
-	//const selectCompositionData = props.compositions.filter(composition => composition._id === compId)
+	const navigate = useNavigate()
 
-	//console.log(selectCompositionData[0].title, "<-- selected comp data") // this data now needs to fill in to the form, the data is correct
 	const [selectedFile, setSelectedFile] = useState('')
 	const [state, setState] = useState({
 		title: props.selectedComposition.title,
@@ -28,13 +14,9 @@ export default function UpdateCompositionForm(props) {
 		notes: props.selectedComposition.notes,
 	})
 
-
-	const navigate = useNavigate()
-
 	function handleFileInput(e) {
 		setSelectedFile(e.target.files[0])
 	}
-
 
 	function handleChange(e) {
 		setState({
@@ -53,12 +35,9 @@ export default function UpdateCompositionForm(props) {
 		formData.append('text', state.text);
 		formData.append('notes', state.notes);
 
-		//console.log(formData, "<--- formdata in comp form")
-
 		props.handleUpdateComposition(formData)
 		navigate('/')
 	}
-	//console.log(state, "<-- state in comp form")
 
 	// this should take the new / updated state from the comp form, and update the selectedComposition with the new state
 

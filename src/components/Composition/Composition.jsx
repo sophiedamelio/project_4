@@ -6,16 +6,10 @@ import { Link, useLocation } from 'react-router-dom';
 import UpdateCompositionForm from '../UpdateCompositionForm/UpdateCompositionForm';
 
 export default function Composition(props) {
-	//let location = useLocation();
 
 	const [open, setOpen] = useState(false)
-	//let stateData = props.location.state
-	//var composition = stateData["composition"]
 
 	console.log(props.selectedComposition, "<--- composition???")
-	//if selectedComposition._id === composition._id?
-
-
 
 	if (props.selectedComposition) {
 		return (

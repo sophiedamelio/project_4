@@ -8,7 +8,6 @@ export default function PageHeader({ user, handleLogout }) {
 		<Header>
 			<Grid columns="three">
 				<Grid.Row>
-					{/*<Header as="h2">*/}
 					<Grid.Column>
 						<Link to="/">
 							logo here
@@ -22,14 +21,9 @@ export default function PageHeader({ user, handleLogout }) {
 							avatar
 						></Image>
 					</Grid.Column>
-					{/*</Header>*/}
-
-					{/*<Header as="h2">*/}
 					<Grid.Column>
 						Hello {user.username}!
 					</Grid.Column>
-					{/*</Header>*/}
-					{/*<Header as="h2" >*/}
 					<Grid.Column>
 						<Link to="/">
 							<Icon color="yellow" name="home"></Icon>
@@ -38,7 +32,6 @@ export default function PageHeader({ user, handleLogout }) {
 							Logout
 						</Link>
 					</Grid.Column>
-					{/*</Header>*/}
 				</Grid.Row>
 			</Grid>
 		</Header>

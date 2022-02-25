@@ -1,14 +1,8 @@
 import React, { useEffect, useState } from "react";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import Composition from "../../components/Composition/Composition"
 import PageHeader from "../../components/Header/Header"
 import Menu from "../../components/Menu/Menu"
-import userService from "../../utils/userService";
-import { useNavigate, Link, Route, Routes } from "react-router-dom";
-
 import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
-//import composition from "../../../models/composition";
 
 
 export default function HomePage({ user, handleLogout, }) {
@@ -43,15 +37,13 @@ export default function HomePage({ user, handleLogout, }) {
 		}
 	}
 
-	// 
 	async function getCompositions() {
 		try {
 			const data = await compositionApi.getAll()
-			//console.log(data, "<--- this is the data")
 			setCompositions([...data.compositions])
 			//setLoading(false)
 		} catch (err) {
-			//console.log(err.message, "<-- this is the error")
+			console.log(err.message, "<-- this is the error")
 			setError(err.message)
 		}
 	}
@@ -62,9 +54,6 @@ export default function HomePage({ user, handleLogout, }) {
 
 	return (
 		<>
-			{/*<Routes>
-				<Route path="/update/:compId" element={<UpdateCompositionPage user={user} handleUpdateComposition={handleUpdateComposition} compositions={compositions} />} />
-			</Routes>*/}
 			<Grid columns="two" divided>
 				<Grid.Row>
 					<Grid.Column width="16">
@@ -75,9 +64,6 @@ export default function HomePage({ user, handleLogout, }) {
 					<Grid.Column width="16">
 						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} />
 					</Grid.Column>
-					{/*<Grid.Column>
-						<Composition compositions={compositions} user={user} getCompositions={getCompositions} handleCompositionSelection={handleCompositionSelection} />
-					</Grid.Column>*/}
 				</Grid.Row>
 			</Grid>
 		</>

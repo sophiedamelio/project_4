@@ -1,17 +1,11 @@
 import React, { useState } from 'react'
-//import Header from "../Header/Header"
 import { Button, Form, Grid, GridColumn, Segment } from 'semantic-ui-react';
 import { useNavigate, Link } from 'react-router-dom';
 
-import { useForm } from "react-hook-form"
-
-//import { yupResolver } from "@hookform/resolvers/yup"
-//import * as Yup from "yup";
-//import { userService, alertService } from '@/_services'
-
 export default function AddCompositionForm(props) {
-
 	console.log(props, "<=== props on addcomp form")
+
+	const navigate = useNavigate()
 
 	const [selectedFile, setSelectedFile] = useState('')
 	const [state, setState] = useState({
@@ -20,14 +14,9 @@ export default function AddCompositionForm(props) {
 		notes: ''
 	})
 
-
-	const navigate = useNavigate()
-
 	function handleFileInput(e) {
 		setSelectedFile(e.target.files[0])
 	}
-
-	//console.log(selectedFile, "<---- sleected file")
 
 	function handleChange(e) {
 		setState({
@@ -46,16 +35,13 @@ export default function AddCompositionForm(props) {
 		formData.append('text', state.text);
 		formData.append('notes', state.notes);
 
-		//console.log(formData, "<--- formdata in comp form")
-
 		props.handleAddComposition(formData)
 		props.selectComposition()
 		navigate('/')
 
 	}
+
 	console.log(state, "<-- state in comp form")
-
-
 
 	return (
 		<>

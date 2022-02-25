@@ -5,8 +5,8 @@ import { Header, Segment, Image, Icon, Grid } from "semantic-ui-react";
 export default function PageHeader({ user, handleLogout }) {
 
 	return (
-		<Segment clearing>
-			<Header as="h3" floated="left" textAlign="center" verticalAlign="middle">
+		<div class="home-header">
+			<Header as="h3" floated="left" textAlign="center" verticalAlign="middle" class="home-header">
 				<Link to="/">
 					logo here
 				</Link>
@@ -30,6 +30,6 @@ export default function PageHeader({ user, handleLogout }) {
 					Logout
 				</Link>
 			</Header>
-		</Segment>
+		</div>
 	)
 }

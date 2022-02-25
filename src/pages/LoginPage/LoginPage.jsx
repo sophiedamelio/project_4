@@ -64,6 +64,9 @@ export default function LoginPage(props) {
                 type="password"
                 placeholder="password"
                 value={state.password}
+                onChange={handleChange}
+                id="form-input"
+                required
               />
               <button
                 class="submitButton"

@@ -24,7 +24,7 @@ function create(req, res) {
 		if(err) return res.status(400).json({err})
 
 		try {
-			let composition = await Composition.updateOne({
+			let composition = await Composition.create({
 				title: req.body.title,
 				user: req.user,
 				text: req.body.text,
@@ -42,7 +42,7 @@ function create(req, res) {
 }
 
 
-async function update(req, res, next){
+function update(req, res){
 	console.log(req.file, "<--- req.file")
 
 	const filePath = `${uuidv4()}${req.file.originalname}`;

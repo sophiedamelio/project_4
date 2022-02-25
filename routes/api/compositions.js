@@ -5,10 +5,9 @@ const multer = require('multer');
 const upload = multer(); 
 
 /*---------- Public Routes ----------*/
-
-router.post('/', isAuthenticated, upload.single('photo'), compositionsCtrl.create);
 router.get('/', compositionsCtrl.index)
-router.get('/', compositionsCtrl.update)
+router.post('/', isAuthenticated, upload.single('photo'), compositionsCtrl.create);
+router.get('/', isAuthenticated, upload.single('photo'), compositionsCtrl.update)
 
 
 /*---------- Protected Routes ----------*/

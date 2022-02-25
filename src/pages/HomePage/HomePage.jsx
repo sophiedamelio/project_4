@@ -5,8 +5,6 @@ import PageHeader from "../../components/Header/Header"
 import Menu from "../../components/Menu/Menu"
 import userService from "../../utils/userService";
 import { useNavigate, Link, Route, Routes } from "react-router-dom";
-import UpdateCompositionPage from "../UpdateCompositionPage/UpdateCompositionPage"
-
 
 import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
@@ -18,18 +16,18 @@ export default function HomePage({ user, handleLogout, }) {
 	const [error, setError] = useState('')
 
 
-	//async function handleUpdateComposition(composition) {
-	//	try {
-	//		//setLoading(true)
-	//		const data = await compositionApi.update(composition);
-	//		console.log(data, "<--- this is the res form the server, in handle add comp")
+	async function handleUpdateComposition(composition) {
+		try {
+			//setLoading(true)
+			const data = await compositionApi.update(composition);
+			console.log(data, "<--- this is the res form the server, in handle add comp")
 
-	//		setCompositions([data.composition, ...compositions]);
-	//		//setLoading(false)
-	//	} catch (err) {
-	//		setError(err.messgae);
-	//	}
-	//}
+			setCompositions([data.composition, ...compositions]);
+			//setLoading(false)
+		} catch (err) {
+			setError(err.messgae);
+		}
+	}
 
 
 	async function handleAddComposition(composition) {
@@ -75,7 +73,7 @@ export default function HomePage({ user, handleLogout, }) {
 				</Grid.Row>
 				<Grid.Row>
 					<Grid.Column width="16">
-						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} />
+						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} />
 					</Grid.Column>
 					{/*<Grid.Column>
 						<Composition compositions={compositions} user={user} getCompositions={getCompositions} handleCompositionSelection={handleCompositionSelection} />

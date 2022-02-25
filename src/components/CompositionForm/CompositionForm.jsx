@@ -20,6 +20,7 @@ export default function AddCompositionForm(props) {
 		notes: ''
 	})
 
+
 	const navigate = useNavigate()
 
 	function handleFileInput(e) {
@@ -48,6 +49,7 @@ export default function AddCompositionForm(props) {
 		//console.log(formData, "<--- formdata in comp form")
 
 		props.handleAddComposition(formData)
+		props.selectComposition()
 		navigate('/')
 
 	}

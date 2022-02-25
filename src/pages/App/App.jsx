@@ -5,13 +5,8 @@ import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
-import AddCompositionForm from "../../components/CompositionForm/CompositionForm"
-import UpdateCompositionPage from "../UpdateCompositionPage/UpdateCompositionPage";
 
 import * as compositionApi from "../../utils/compositionApi";
-
-import AddCompositionPage from "../AddCompositionPage/AddCompositionPage"
-
 
 function App() {
   const [user, setUser] = useState(userService.getUser()); // getUser decodes our JWT token, into a javascript object
@@ -35,8 +30,6 @@ function App() {
     return (
       <Routes>
         <Route path="/" element={<HomePage user={user} handleLogout={handleLogout} />} />
-        {/*<Route path="/" element={<AddCompositionPage user={user} />} />*/}
-        {/*<Route path="update/:compId" element={<UpdateCompositionPage user={user} />} />*/}
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}

@@ -7,7 +7,7 @@ import CompositionButton from "../CompositionButton/CompositionButton"
 import AddCompositionForm from "../CompositionForm/CompositionForm";
 
 
-export default function Menu({ user, handleAddComposition, getCompositions, compositions }) {
+export default function Menu({ user, handleAddComposition, getCompositions, compositions, handleUpdateComposition }) {
 
 	const [error, setError] = useState('')
 	const [selectedComposition, setSelectedComposition] = useState('')
@@ -70,7 +70,7 @@ export default function Menu({ user, handleAddComposition, getCompositions, comp
 						</Modal>
 					</Grid.Column>
 					<Grid.Column width="12">
-						<Composition selectedComposition={selectedComposition} user={user} compositions={compositions} />
+						<Composition selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

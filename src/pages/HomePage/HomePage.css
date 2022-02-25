@@ -12,7 +12,11 @@ font-family: 'Major Mono Display', monospace;*/
 	--body-ft: 'Comfortaa', cursive;
 }
 
-div.ui.grid {
-	padding-top:10vh;
-	background-color: red;
+.home-header {
+	background-color: var(--off-black);
+	font-family: var(--header-ft);
+}
+
+.whole-page {
+	font-family: var(--body-ft); 
 }

@@ -18,6 +18,7 @@ font-family: 'Major Mono Display', monospace;*/
 
 .whole-header {
 	padding-top: 10vh;
+	/*font-family: var(--header-ft);*/
 }
 
 #greeting {

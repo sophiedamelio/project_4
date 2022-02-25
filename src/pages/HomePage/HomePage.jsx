@@ -4,6 +4,8 @@ import Menu from "../../components/Menu/Menu"
 import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
 
+import "./HomePage.css"
+
 
 export default function HomePage({ user, handleLogout, }) {
 	const [compositions, setCompositions] = useState([])
@@ -53,7 +55,7 @@ export default function HomePage({ user, handleLogout, }) {
 	}, [])
 
 	return (
-		<div>
+		<div class="whole-page">
 			<Grid columns="two" divided>
 				<div class="home-header">
 					<Grid.Row>

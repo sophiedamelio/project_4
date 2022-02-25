@@ -12,15 +12,12 @@ font-family: 'Major Mono Display', monospace;*/
 	--body-ft: 'Comfortaa', cursive;
 }
 
-#logo a {
+#home-title {
 	color: white;
+	font-family: var(--header-ft)
+
 }
 
-.whole-header {
-	padding-top: 10vh;
+.whole-page {
+	font-family: var(--body-ft);
 }
-
-#greeting {
-	color: white;
-}
-

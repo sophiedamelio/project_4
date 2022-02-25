@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { Header, Segment, Image, Icon, Grid } from "semantic-ui-react";
+import "./Header.css"
 
 export default function PageHeader({ user, handleLogout }) {
 
 	return (
-		<div>
+		<div class="whole-header">
 			<Header as="h3" floated="left" textAlign="center" verticalAlign="middle" id="logo">
 				<span id="logo">
 					<Link to="/" id="logo">

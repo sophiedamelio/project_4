@@ -4,6 +4,7 @@ import { Button, Grid, Modal } from 'semantic-ui-react';
 import Composition from '../Composition/Composition';
 import CompositionButton from "../CompositionButton/CompositionButton"
 import AddCompositionForm from "../CompositionForm/CompositionForm";
+import "./Menu.css"
 
 
 export default function Menu({ user, handleAddComposition, compositions, handleUpdateComposition }) {
@@ -19,8 +20,8 @@ export default function Menu({ user, handleAddComposition, compositions, handleU
 
 
 	return (
-		<>
-			<h1>menu!</h1>
+		<div class="whole-page">
+			<h1 id="home-title">menu!</h1>
 			<Grid columns="two" divided>
 				<Grid.Row>
 					<Grid.Column width="4">
@@ -57,6 +58,6 @@ export default function Menu({ user, handleAddComposition, compositions, handleU
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>
-		</>
+		</div>
 	)
 }

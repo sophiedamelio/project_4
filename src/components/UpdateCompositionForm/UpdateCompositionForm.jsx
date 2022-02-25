@@ -28,36 +28,69 @@ export default function UpdateCompositionForm(props) {
 	function handleSubmit(e) {
 		e.preventDefault()
 
-		const formData = new FormData()
+		const updatedFormData = {
+			photo: this.selectedFile,
+			//formData.append('title', state.title);
+			//formData.append('text', state.text);
+			//formData.append('notes', state.notes);
+			title: this.state.title,
+			text: this.state.text,
+			notes: this.state.notes
+		}
 
-		formData.append('photo', selectedFile);
-		formData.append('title', state.title);
-		formData.append('text', state.text);
-		formData.append('notes', state.notes);
+		if (this.state.formdata.filter(item => item.title === updatedFormData.title).length > 0) {
+			// update item
+			this.setState(prevState => ({
+				formdata: prevState.formdata.map(item => {
+					if (item.title === updatedFormData.title) return updatedFormData;
+					else return item;
+				})
+			}))
+		} else {
+			// add new item // not sure if this else should be here?
+			this.setState(prevState => ({
+				formdata: prevState.formdata.concat(updatedFormData)
+			}))
+		}
 
-		props.handleUpdateComposition(formData)
-		navigate('/')
+		alert("form submitted!")
+
+		//props.handleUpdateComposition(formData)
+		this.setSelectedFile({
+			photo: ""
+		})
+
+		this.setState({
+			title: "",
+			text: "",
+			notes: ""
+		})
 	}
+	e.preventDefault()
+	navigate('/')
+}
 
-	// this should take the new / updated state from the comp form, and update the selectedComposition with the new state
+// felete couild go here?
 
-	return (
-		<>
-			<Grid>
-				<Grid.Column>
-					<Segment>
-						<Form autoComplete="off" onSubmit={handleSubmit}>
-							<Form.Input placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
-							<Form.TextArea rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
-							<Form.Input placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />
-							<Form.Input placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
-							<Button type="submit" className="btn">
-								Update Composition
-							</Button>
-						</Form>
-					</Segment>
-				</Grid.Column>
-			</Grid>
-		</>
-	)
+// this should take the new / updated state from the comp form, and update the selectedComposition with the new state
+
+return (
+	<>
+		<Grid>
+			<Grid.Column>
+				<Segment>
+					<Form autoComplete="off" onSubmit={handleSubmit}>
+						<Form.Input placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
+						<Form.TextArea rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
+						<Form.Input placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />
+						<Form.Input placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
+						<Button type="submit" className="btn">
+							Update Composition
+						</Button>
+					</Form>
+				</Segment>
+			</Grid.Column>
+		</Grid>
+	</>
+)
 }

@@ -4,13 +4,9 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import userService from "../../utils/userService";
 import { useNavigate, Link } from "react-router-dom";
 import {
-  Button,
   Form,
   Grid,
   Header,
-  Image,
-  Message,
-  Segment,
   Icon
 } from "semantic-ui-react";
 
@@ -45,7 +41,7 @@ export default function LoginPage(props) {
 
   return (
     <div class="whole-page">
-      <Grid textAlign="center" verticalAlign="middle">
+      <Grid textAlign="center" verticalAlign="middle" style={{ height: "100vh" }}>
         <Grid.Column style={{ maxWidth: 550 }}>
           <Header as="h2" textAlign="center" id="login-header">
             <Icon name="sign-in" color="teal" />
@@ -68,9 +64,6 @@ export default function LoginPage(props) {
                 type="password"
                 placeholder="password"
                 value={state.password}
-                onChange={handleChange}
-                id="form-input"
-                required
               />
               <button
                 class="submitButton"

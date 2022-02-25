@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Josefin+Sans:wght@100;200&family=Major+Mono+Display&display=swap');
+/*font-family: 'Comfortaa', cursive;
+font-family: 'Major Mono Display', monospace;*/
+
+:root {
+	--bg-gray: #3a3b42;
+	--bg-lt-gray: #41424a;
+	--periwink: #92a8d4;
+	--off-black: #1f2024;
+	--teal: #14aca3;
+	--header-ft: 'Major Mono Display', monospace;
+	--body-ft: 'Comfortaa', cursive;
+}
+
+.whole-page {
+	font-family: var(--body-ft)
+}
+
+#login-header {
+	padding: 10vh 5vh;
+	color: white;
+	font-family: var(--header-ft);
+	font-size: x-large;
+}
+
+#form-input {
+	padding: 1.5vh 8vh 1.5vh .75vh;
+	border-radius: 500px;
+	border: none;
+	text-align: left;
+	margin-top: 1vh;
+	font-family: var(--body-ft);
+}
+
+.submitButton {
+	background-color: var(--periwink);
+	color: var(--bg-gray);
+	padding: 2vh 8vh;
+	border-radius: 500px;
+	border: none;
+	margin-top: 1vh;
+	font-family: var(--body-ft)
+}
+
+.form {
+	background-color: var(--off-black);
+	padding: 4vh 12vh;
+	border-radius: 20px;
+}
+
+.altLink {
+	margin-top: 2vh;
+	padding: 2vh 5vh;
+	border-radius: 500px;
+	background-color: var(--bg-lt-gray);
+	color: white;
+}
+
+.altLink a {
+	color: var(--periwink);
+}

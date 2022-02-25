@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import userService from "../../utils/userService";
-import { Button, Form, Grid, Header, Image, Segment, Icon } from "semantic-ui-react";
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Segment,
+  Icon
+} from "semantic-ui-react";
 import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage(props) {
@@ -50,64 +57,68 @@ export default function SignUpPage(props) {
   }
 
   return (
-    <div>
+    <div class="whole-page">
       <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as="h2" color="yellow" textAlign="center">
-            <Icon name="signup" /> Sign Up
+        <Grid.Column style={{ maxWidth: 550 }}>
+          <Header as="h2" textAlign="center" id="login-header">
+            <Icon name="signup" color="teal" /> Sign Up
           </Header>
           <Form autoComplete="off" onSubmit={handleSubmit}>
-            <Segment stacked>
+            <Form.Input
+              name="username"
+              placeholder="username"
+              value={state.username}
+              onChange={handleChange}
+              id="form-input"
+              required
+            />
+            <Form.Input
+              type="email"
+              name="email"
+              placeholder="email"
+              value={state.email}
+              onChange={handleChange}
+              id="form-input"
+              required
+            />
+            <Form.Input
+              name="password"
+              type="password"
+              placeholder="password"
+              value={state.password}
+              onChange={handleChange}
+              id="form-input"
+              required
+            />
+            <Form.Input
+              name="passwordConf"
+              type="password"
+              placeholder="Confirm Password"
+              value={state.passwordConf}
+              onChange={handleChange}
+              id="form-input"
+              required
+            />
+            <Form.Field>
               <Form.Input
-                name="username"
-                placeholder="username"
-                value={state.username}
-                onChange={handleChange}
+                type="file"
+                name="photo"
+                placeholder="upload image"
+                onChange={handleFileInput}
+                id="form-input"
                 required
               />
-              <Form.Input
-                type="email"
-                name="email"
-                placeholder="email"
-                value={state.email}
-                onChange={handleChange}
-                required
-              />
-              <Form.Input
-                name="password"
-                type="password"
-                placeholder="password"
-                value={state.password}
-                onChange={handleChange}
-                required
-              />
-              <Form.Input
-                name="passwordConf"
-                type="password"
-                placeholder="Confirm Password"
-                value={state.passwordConf}
-                onChange={handleChange}
-                required
-              />
-              <Form.Field>
-                <Form.Input
-                  type="file"
-                  name="photo"
-                  placeholder="upload image"
-                  onChange={handleFileInput}
-                  required
-                />
-              </Form.Field>
-              <Form.TextArea
-                label="bio"
-                name="bio"
-                placeholder="Tell us more about yourself..."
-                onChange={handleChange}
-              />
-              <Button type="submit" className="btn">
-                Signup
-              </Button>
-            </Segment>
+            </Form.Field>
+            <Form.TextArea
+              label="bio"
+              name="bio"
+              placeholder="Tell us more about yourself..."
+              onChange={handleChange}
+              id="form-input"
+            />
+            <button type="submit" class="submitButton">
+              Signup
+            </button>
             {error ? <ErrorMessage error={error} /> : null}
           </Form>
         </Grid.Column>

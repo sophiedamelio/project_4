@@ -53,7 +53,7 @@ export default function LoginPage(props) {
             account
           </Header>
           <Form autoComplete="off" onSubmit={handleSubmit}>
-            <Segment stacked class="form">
+            <div class="form">
               <Form.Input
                 type="email"
                 name="email"
@@ -72,20 +72,17 @@ export default function LoginPage(props) {
                 id="form-input"
                 required
               />
-              <Button
+              <button
                 class="submitButton"
-                fluid
-                size="large"
                 type="submit"
-                className="btn"
               >
                 Login
-              </Button>
-            </Segment>
+              </button>
+            </div>
           </Form>
-          <Message class="altLink">
+          <div class="altLink">
             New to us? <Link to="/signup">Sign Up</Link>
-          </Message>
+          </div>
           {error ? <ErrorMessage error={error} /> : null}
         </Grid.Column>
       </Grid>

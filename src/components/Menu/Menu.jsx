@@ -9,6 +9,8 @@ import "./Menu.css"
 
 export default function Menu({ user, handleAddComposition, compositions, handleUpdateComposition, handleDeleteComposition }) {
 
+	//console.log(handleAddComposition, "<-- handleadd comp in menu")
+
 	const [error, setError] = useState('')
 	const [selectedComposition, setSelectedComposition] = useState('')
 	const [open, setOpen] = useState(false)
@@ -18,11 +20,12 @@ export default function Menu({ user, handleAddComposition, compositions, handleU
 		setSelectedComposition(composition) // comp that was clicked on
 	}
 
+	console.log(selectedComposition, "<_-== selected comp")
 
 	return (
 		<div class="whole-page">
 			<h1 id="home-title">menu!</h1>
-			<Grid>
+			<Grid columns="two" divided>
 				<Grid.Row>
 					<Grid.Column width="4">
 						{compositions ?

@@ -36,7 +36,7 @@ export default function UpdateCompositionForm(props) {
 			photoUrl: selectedFile,
 			notes: state.notes
 		}
-		//console.log(infoFromTheForm, "<--- state in thre update form") // this is the proper state, updated
+		console.log(infoFromTheForm, "<--- state in thre update form") // this is the proper state, updated
 		// infofromtheform holds the correect, updated state
 		//e.preventDefault()
 		props.handleUpdateComposition(infoFromTheForm)

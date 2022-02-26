@@ -23,7 +23,7 @@ export default function HomePage({ user, handleLogout, }) {
 			//setLoading(true)
 			const data = await compositionApi.update(selectedComposition._id, infoFromTheForm);
 			//console.log(data, "<--- this is the res form the server, in handle updateeeee comp")
-			console.log(selectComposition, "<--- selected comp in the homepage handle func")
+			console.log(selectedComposition, "<--- selected comp in the homepage handle update func")
 			setCompositions([data.composition, ...compositions]);
 			//setLoading(false)
 		} catch (err) {

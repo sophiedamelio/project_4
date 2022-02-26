@@ -73,7 +73,8 @@ export default function UpdateCompositionForm(props) {
 					<div id="comp-form">
 						<Segment style={{ backgroundColor: "#3a3b42", border: "none" }}>
 							{/* props.handleDeleteComposition.bind(null, props.selectedComposition._id) */}
-							<Form autoComplete="off" onSubmit={props.handleUpdateComposition.bind(null, props.selectedComposition._id)}>
+							{/*  update composition takes in the compId, and the forminfo(selectedComp object) */}
+							<Form autoComplete="off" onSubmit={props.handleUpdateComposition.bind(null, props.selectedComposition._id, props.selectedComposition)}>
 								<Form.Input id="form-input" placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
 								<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
 								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />

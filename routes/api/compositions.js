@@ -8,7 +8,7 @@ const upload = multer();
 router.get('/', compositionsCtrl.index)
 router.post('/', isAuthenticated, upload.single('photo'), compositionsCtrl.create);
 router.put('/', isAuthenticated, upload.single('photo'), compositionsCtrl.update)
-router.delete('/', isAuthenticated, compositionsCtrl.deleteComposition)
+router.delete('/:compId', isAuthenticated, compositionsCtrl.deleteComposition)
 
 
 /*---------- Protected Routes ----------*/

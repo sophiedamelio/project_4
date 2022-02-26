@@ -3,6 +3,7 @@ import PageHeader from "../../components/Header/Header"
 import Menu from "../../components/Menu/Menu"
 import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
+import { useNavigate } from "react-router-dom"
 
 import "./HomePage.css"
 
@@ -11,6 +12,14 @@ export default function HomePage({ user, handleLogout, }) {
 	const [compositions, setCompositions] = useState([])
 	const [error, setError] = useState('')
 
+	const [selectedComposition, setSelectedComposition] = useState('')
+
+	const navigate = useNavigate()
+
+	// set selected composition state here, then send to composition component
+	function selectComposition(composition) {
+		setSelectedComposition(composition) // comp that was clicked on
+	}
 
 	async function handleUpdateComposition(composition) {
 		try {
@@ -25,12 +34,13 @@ export default function HomePage({ user, handleLogout, }) {
 		}
 	}
 
-	async function handleDeleteComposition(selectedComposition) {
+	async function handleDeleteComposition(selectedCompositionId) {
 		try {
-			const deletedComposition = await compositionApi.deleteComposition(selectedComposition)
-			console.log(deletedComposition, "<--- composition to be deleted")
-			setCompositions([...compositions]);
-
+			const deletedComposition = await compositionApi.deleteComposition(selectedCompositionId)
+			//console.log(compositions, "<--- comps before deleete")
+			setCompositions(compositions.filter((comp) => comp._id !== selectedCompositionId));
+			//console.log(compositions, "<--- comps after deleete")
+			setSelectedComposition('');
 		} catch (err) {
 			setError(err.message)
 		}
@@ -77,7 +87,7 @@ export default function HomePage({ user, handleLogout, }) {
 
 				<Grid.Row>
 					<Grid.Column >
-						<Menu compositions={compositions} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
+						<Menu compositions={compositions} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

@@ -88,13 +88,10 @@ async function index(req, res) {
 }
 
 async function deleteComposition(req, res){
-	console.log(req, "<--- req.body in the compositions ctrl")
-	// not finding the id or the composition properly, req.body is empty
-	//if(!req.params)
 	try {
-		//const composition = Composition.find({'_id': req.params.id})
-		console.log(req.params.id, "<--- id to be deleted")
-		Composition.deleteOne({_id: req.params.id})
+		console.log(req.params.compId, "<--- compId to be deleted")
+		const success = await Composition.deleteOne({_id: req.params.compId})
+		res.status(200).json(success);
 	}catch(err){
 		res.status(400).json({err})
 	}

@@ -1,6 +1,6 @@
 import tokenService from "./tokenService"
 
-const BASE_URL = '/api/compositions/'
+const BASE_URL = '/api/compositions'
 
 export function create(infoFromTheForm){
 	// Make a post request to the server
@@ -45,10 +45,9 @@ export function getAll() {
 	})	
 }
 
-export function deleteComposition(selectedComposition) {
-	return fetch(BASE_URL, {
+export function deleteComposition(compId) {
+	return fetch(`${BASE_URL}/${compId}`, {
 		method: 'DELETE',
-		body: selectedComposition, // this is empty still, when I log out the body
 		headers: {
 			'Authorization': 'Bearer ' + tokenService.getToken()
 			}

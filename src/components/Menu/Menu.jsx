@@ -6,20 +6,10 @@ import CompositionButton from "../CompositionButton/CompositionButton"
 import AddCompositionForm from "../CompositionForm/CompositionForm";
 import "./Menu.css"
 
-export default function Menu({ user, handleAddComposition, compositions, handleUpdateComposition, handleDeleteComposition }) {
-
-	//console.log(handleAddComposition, "<-- handleadd comp in menu")
+export default function Menu({ user, selectComposition, selectedComposition, handleAddComposition, compositions, handleUpdateComposition, handleDeleteComposition }) {
 
 	const [error, setError] = useState('')
-	const [selectedComposition, setSelectedComposition] = useState('')
 	const [open, setOpen] = useState(false)
-
-	// set selected composition state here, then send to composition component
-	function selectComposition(composition) {
-		setSelectedComposition(composition) // comp that was clicked on
-	}
-
-	console.log(selectedComposition, "<_-== selected comp")
 
 	return (
 		<div class="whole-page">

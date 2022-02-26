@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Form, Grid, Segment } from 'semantic-ui-react';
 import { useNavigate } from 'react-router-dom';
-//import {  } from 'aws-sdk'; 
 
 export default function UpdateCompositionForm(props) {
 	//console.log(props, "<=== props on update comp form")

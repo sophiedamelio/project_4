@@ -16,7 +16,7 @@ export default function HomePage({ user, handleLogout, }) {
 		try {
 			//setLoading(true)
 			const data = await compositionApi.update(composition);
-			console.log(data, "<--- this is the res form the server, in handle add comp")
+			console.log(data, "<--- this is the res form the server, in handle updateeeee comp")
 
 			setCompositions([data.composition, ...compositions]);
 			//setLoading(false)

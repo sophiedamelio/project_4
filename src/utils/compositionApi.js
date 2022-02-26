@@ -21,7 +21,7 @@ export function create(infoFromTheForm){
 
 export function update(infoFromTheForm){
 	return fetch(BASE_URL, {
-		method: 'POST',
+		method: 'PUT',
 		body: infoFromTheForm,
 		headers: {
 			'Authorization': 'Bearer ' + tokenService.getToken()

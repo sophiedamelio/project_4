@@ -14,9 +14,9 @@ module.exports = {
 }
 
 function create(req, res) {
-	//console.log(req, "<--- req in comp ctrl")
-	//console.log(req.body, "<---- req.body (ctrl create)", req.file, "<----- req.file (ctrl create)")
+	
 	console.log(req.file, "<--- req.file")
+	console.log(req.body.title, "<--- req.body in the vcreate ctrl")
 
 	const filePath = `${uuidv4()}${req.file.originalname}`;
 	const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
@@ -44,7 +44,8 @@ function create(req, res) {
 
 
 function update(req, res){
-	console.log(req.file, "<--- req.file")
+	console.log(req, "<--- req in the update funcction controller")
+	console.log(req.body, "<--- req.body in the update controller function")
 
 	const filePath = `${uuidv4()}${req.file.originalname}`;
 	const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
@@ -53,7 +54,8 @@ function update(req, res){
 		if(err) return res.status(400).json({err})
 
 		try {
-			let composition = await Composition.updateOne({
+			let composition = Composition.find({_id: req.body._id})
+			composition = await Composition.updateOne({
 				title: req.body.title,
 				user: req.user,
 				text: req.body.text,
@@ -62,7 +64,7 @@ function update(req, res){
 			})
 
 			composition = await composition.populate('user')
-
+			// need  a .save() in here
 			res.status(201).json({composition})
 		} catch(err){
 			console.log(err, "Error (update ctrl)")

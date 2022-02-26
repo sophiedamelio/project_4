@@ -3,7 +3,6 @@ import PageHeader from "../../components/Header/Header"
 import Menu from "../../components/Menu/Menu"
 import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
-import { useNavigate } from "react-router-dom"
 
 import "./HomePage.css"
 
@@ -14,19 +13,16 @@ export default function HomePage({ user, handleLogout, }) {
 
 	const [selectedComposition, setSelectedComposition] = useState('')
 
-	const navigate = useNavigate()
-
 	// set selected composition state here, then send to composition component
 	function selectComposition(composition) {
 		setSelectedComposition(composition) // comp that was clicked on
 	}
 
-	async function handleUpdateComposition(composition) {
+	async function handleUpdateComposition(selectedCompositionId, infoFromTheForm) {
 		try {
 			//setLoading(true)
-			const data = await compositionApi.update(composition);
-			console.log(data, "<--- this is the res form the server, in handle updateeeee comp")
-
+			const data = await compositionApi.update(selectedCompositionId, infoFromTheForm);
+			//console.log(data, "<--- this is the res form the server, in handle updateeeee comp")
 			setCompositions([data.composition, ...compositions]);
 			//setLoading(false)
 		} catch (err) {

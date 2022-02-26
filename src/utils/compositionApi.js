@@ -19,8 +19,8 @@ export function create(infoFromTheForm){
 	})
 }
 
-export function update(infoFromTheForm){
-	return fetch(BASE_URL, {
+export function update(compId, infoFromTheForm){
+	return fetch(`${BASE_URL}/${compId}`, {
 		method: 'PUT',
 		body: infoFromTheForm,
 		headers: {

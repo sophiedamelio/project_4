@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "./UpdateCompositionForm.css"
 
 export default function UpdateCompositionForm(props) {
-	//console.log(props, "<=== props on update comp form")
+	console.log(props, "<=== props on update comp form")
 	//constructor(props){
 	//	super(props);
 
@@ -44,51 +44,24 @@ export default function UpdateCompositionForm(props) {
 		})
 	}
 
-	function handleSubmit(e) {
+	//function handleSubmit(e) {
 
-		const updatedFormData = {
-			photo: selectedFile,
-			//formData.append('title', state.title);
-			//formData.append('text', state.text);
-			//formData.append('notes', state.notes);
-			title: state.title,
-			text: state.text,
-			notes: state.notes
-		}
+	//	const updatedFormData = {
+	//		photo: selectedFile,
+	//		//formData.append('title', state.title);
+	//		//formData.append('text', state.text);
+	//		//formData.append('notes', state.notes);
+	//		title: state.title,
+	//		text: state.text,
+	//		notes: state.notes
+	//	}
 
-		console.log(state, "<--- state in thre update form") // this is the proper state, updated
+	//	console.log(state, "<--- state in thre update form") // this is the proper state, updated
 
-		//if (state.formdata.filter(item => item.title === updatedFormData.title).length > 0) {
-		//	// update item
-		//	setState(prevState => ({
-		//		formdata: prevState.formdata.map(item => {
-		//			if (item.title === updatedFormData.title) return updatedFormData;
-		//			else return item;
-		//		})
-		//	}))
-		//} else {
-		//	// add new item // not sure if this else should be here?
-		//	setState(prevState => ({
-		//		formdata: prevState.formdata.concat(updatedFormData)
-		//	}))
-		//}
-		//alert("form submitted!")
-
-		//props.handleUpdateComposition(formData)
-		//setSelectedFile({
-		//	photo: ""
-		//})
-
-		//setState({
-		//	title: "",
-		//	text: "",
-		//	notes: ""
-		//})
-
-		e.preventDefault()
-		props.handleUpdateComposition(updatedFormData)
-		navigate('/')
-	}
+	//	e.preventDefault()
+	//	props.handleUpdateComposition(updatedFormData)
+	//	navigate('/')
+	//}
 
 	// felete couild go here?
 
@@ -99,7 +72,8 @@ export default function UpdateCompositionForm(props) {
 				<Grid.Column>
 					<div id="comp-form">
 						<Segment style={{ backgroundColor: "#3a3b42", border: "none" }}>
-							<Form autoComplete="off" onSubmit={handleSubmit}>
+							{/* props.handleDeleteComposition.bind(null, props.selectedComposition._id) */}
+							<Form autoComplete="off" onSubmit={props.handleUpdateComposition.bind(null, props.selectedComposition._id)}>
 								<Form.Input id="form-input" placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
 								<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
 								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />

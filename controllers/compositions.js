@@ -46,6 +46,7 @@ function create(req, res) {
 function update(req, res){
 	console.log(req, "<--- req in the update funcction controller")
 	console.log(req.body, "<--- req.body in the update controller function")
+	console.log(req.file, "<--- req.file in the update ctrl")
 
 	const filePath = `${uuidv4()}${req.file.originalname}`;
 	const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
@@ -54,18 +55,20 @@ function update(req, res){
 		if(err) return res.status(400).json({err})
 
 		try {
-			let composition = Composition.find({_id: req.body._id})
-			composition = await Composition.updateOne({
+			let composition = Composition.findByIdAndUpdate({
+				_id: req.body._id,
 				title: req.body.title,
 				user: req.user,
 				text: req.body.text,
 				photoUrl: data.Location,
 				notes: req.body.notes
 			})
+			//composition = await composition.populate('user')
+			console.log(composition, "<-- composition in update ctrl")
 
-			composition = await composition.populate('user')
-			// need  a .save() in here
+			composition.save()
 			res.status(201).json({composition})
+			
 		} catch(err){
 			console.log(err, "Error (update ctrl)")
 			res.status(400).json({err})

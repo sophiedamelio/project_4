@@ -24,43 +24,47 @@ export default function Menu({ user, handleAddComposition, compositions, handleU
 
 	return (
 		<div class="whole-page">
-			<h1 id="home-title">menu!</h1>
 			<Grid columns="two" divided>
-				<Grid.Row>
-					<Grid.Column width="4">
-						{compositions ?
-							<>
-								<ul>
-									{compositions.map((composition) => {
-										return (
-											<li key={composition._id} >
-												<CompositionButton composition={composition} selectComposition={selectComposition} />
-											</li>
-										)
-									})}
-								</ul>
-							</>
-							: null}
 
-						<Modal
-							onClose={() => setOpen(false)}
-							onOpen={() => setOpen(true)}
-							open={open}
-							trigger={<Button>Add composition</Button>}>
-							<Modal.Header>Add a Composition</Modal.Header>
-							<Modal.Content>
-								<AddCompositionForm handleAddComposition={handleAddComposition}></AddCompositionForm>
-								<Modal.Actions>
-									<Button content="Close Create Mode" onClick={() => setOpen(false)} />
-								</Modal.Actions>
-							</Modal.Content>
-						</Modal>
+				<Grid.Row>
+
+					<Grid.Column width="4">
+						<div id="menu-content">
+							<h1 id="home-title">menu!</h1>
+							{compositions ?
+								<>
+									<ul id="menu-list">
+										{compositions.map((composition) => {
+											return (
+												<li key={composition._id} >
+													<CompositionButton composition={composition} selectComposition={selectComposition} />
+												</li>
+											)
+										})}
+									</ul>
+								</>
+								: null}
+
+							<Modal
+								onClose={() => setOpen(false)}
+								onOpen={() => setOpen(true)}
+								open={open}
+								trigger={<button id="add-comp-btn">Add composition</button>}>
+								<Modal.Header>Add a Composition</Modal.Header>
+								<Modal.Content>
+									<AddCompositionForm handleAddComposition={handleAddComposition}></AddCompositionForm>
+									<Modal.Actions>
+										<Button content="Close Create Mode" onClick={() => setOpen(false)} />
+									</Modal.Actions>
+								</Modal.Content>
+							</Modal>
+						</div>
 					</Grid.Column>
 					<Grid.Column width="12">
 						<Composition selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>
-		</div>
+		</div >
 	)
 }

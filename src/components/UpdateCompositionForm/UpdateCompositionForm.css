@@ -14,18 +14,3 @@ font-family: 'Major Mono Display', monospace;*/
 	--header-ft: 'Major Mono Display', monospace;
 	--body-ft: 'Comfortaa', cursive;
 }
-
-
-
-#comp-button {
-	color: white;
-	font-family: var(--body-ft);
-	background-color: var(--lighter-gray);
-	border: none;
-	border-radius: 2px;
-	padding: 1vh 5vh;
-	padding-left: 1vh;
-	margin: 1px;
-	text-align: left;
-	width: 100%;
-}

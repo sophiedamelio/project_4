@@ -1,3 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Josefin+Sans:wght@100;200&family=Major+Mono+Display&display=swap');
+/*font-family: 'Comfortaa', cursive;
+font-family: 'Major Mono Display', monospace;*/
+
+:root {
+	--bg-gray: #3a3b42;
+	--bg-lt-gray: #41424a;
+	--lighter-gray: #60626e;
+	--light-gray: #b6bad1;
+	--periwink: #92a8d4;
+	--dark-peach: #ed9393;
+	--off-black: #1f2024;
+	--teal: #14aca3;
+	--header-ft: 'Major Mono Display', monospace;
+	--body-ft: 'Comfortaa', cursive;
+}
+
+
 #composition {
 	white-space: pre-wrap;
+	color: white;
+	width: 100%;
 }
+
+p {
+	padding-left: 5vh;
+}
+
+#notes {
+	background-color: var(--off-black);
+	margin-top: 3vh;
+	margin-bottom: 3vh;
+	padding: 2vh 1vh;
+	color: var(--light-gray);
+}
+
+#notes-label {
+	color: var(--periwink);
+	font-weight: 800;
+	font-family: var(--header-ft);
+}
+
+#title {
+	font-family: var(--header-ft);
+	padding: 5vh;
+	padding-bottom: 0vh;
+	color: white;
+}
+
+.comp-img {
+	margin-left: 5px;
+}
+
+#edit-comp-btn {
+	background-color: var(--periwink);
+	color: var(--bg-gray);
+	padding: 2vh 4vh;
+	border-radius: 500px;
+	border: none;
+	margin-top: 1vh;
+	margin-right: 1vh;
+	font-family: var(--body-ft);
+	font-weight: 900;
+}
+
+#delete-comp-btn {
+	background-color: var(--dark-peach);
+	color: var(--bg-gray);
+	padding: 2vh 4vh;
+	border-radius: 500px;
+	border: none;
+	margin-top: 1vh;
+	font-family: var(--body-ft);
+	font-weight: 900;
+}
+

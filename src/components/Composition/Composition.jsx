@@ -14,15 +14,17 @@ export default function Composition(props) {
 	if (props.selectedComposition) {
 		return (
 			<div id="composition">
-				<h3> Title: {props.selectedComposition.title}</h3>
-				<Image src={props.selectedComposition.photoUrl} avatar />
+				<div id="comp-header">
+					<h3 id="title">{props.selectedComposition.title}</h3>
+					<Image src={props.selectedComposition.photoUrl} avatar className="comp-img" />
+				</div>
 				<p>{props.selectedComposition.text}</p>
-				<p>Notes: {props.selectedComposition.notes}</p>
+				<p id="notes"><span id="notes-label">notes: <br></br></span>{props.selectedComposition.notes}</p>
 				<Modal
 					onClose={() => setOpen(false)}
 					onOpen={() => setOpen(true)}
 					open={open}
-					trigger={<Button>Edit Composition</Button>}>
+					trigger={<button id="edit-comp-btn">Edit Composition</button>}>
 					<Modal.Header>Edit - {props.selectedComposition.title}</Modal.Header>
 					<Modal.Content>
 						<UpdateCompositionForm {...props}></UpdateCompositionForm>
@@ -32,7 +34,7 @@ export default function Composition(props) {
 					</Modal.Content>
 				</Modal>
 				{/*  do I want to pass the selectedComposition to this function> */}
-				<Button onClick={props.handleDeleteComposition} color="red">Delete Composition</Button>
+				<button id="delete-comp-btn" onClick={props.handleDeleteComposition}>Delete Composition</button>
 			</div >
 		)
 	}

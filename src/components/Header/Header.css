@@ -5,7 +5,10 @@ font-family: 'Major Mono Display', monospace;*/
 :root {
 	--bg-gray: #3a3b42;
 	--bg-lt-gray: #41424a;
+	--lighter-gray: #60626e;
+	--light-gray: #b6bad1;
 	--periwink: #92a8d4;
+	--dark-peach: #ed9393;
 	--off-black: #1f2024;
 	--teal: #14aca3;
 	--header-ft: 'Major Mono Display', monospace;

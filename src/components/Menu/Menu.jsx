@@ -30,7 +30,7 @@ export default function Menu({ user, handleAddComposition, compositions, handleU
 
 					<Grid.Column width="4">
 						<div id="menu-content">
-							<h1 id="home-title">menu!</h1>
+							<h1 id="home-title">my Songs</h1>
 							{compositions ?
 								<>
 									<ul id="menu-list">

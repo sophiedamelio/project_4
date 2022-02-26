@@ -18,11 +18,12 @@ export default function HomePage({ user, handleLogout, }) {
 		setSelectedComposition(composition) // comp that was clicked on
 	}
 
-	async function handleUpdateComposition(selectedCompositionId, infoFromTheForm) {
+	async function handleUpdateComposition(infoFromTheForm) {
 		try {
 			//setLoading(true)
-			const data = await compositionApi.update(selectedCompositionId, infoFromTheForm);
+			const data = await compositionApi.update(selectedComposition._id, infoFromTheForm);
 			//console.log(data, "<--- this is the res form the server, in handle updateeeee comp")
+			console.log(selectComposition, "<--- selected comp in the homepage handle func")
 			setCompositions([data.composition, ...compositions]);
 			//setLoading(false)
 		} catch (err) {

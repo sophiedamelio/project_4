@@ -12,9 +12,10 @@ font-family: 'Major Mono Display', monospace;*/
 	--body-ft: 'Comfortaa', cursive;
 }
 
-#logo a {
-	color: white;
-	font-family: var(--body-ft);
+
+img.ui.small.image {
+	padding: 3vh;
+	padding-bottom: 0vh;
 }
 
 .whole-header {
@@ -23,7 +24,13 @@ font-family: 'Major Mono Display', monospace;*/
 }
 
 #greeting {
-	color: white;
-	font-family: var(--body-ft);
-	padding-right: 5vh;
+	/* this needs to be centered ideally? */
+	color: var(--periwink);
+	font-family: var(--header-ft);
+	padding: 5vh;
+}
+
+#logout {
+	color: var(--periwink);
+	font-family: var(--header-ft);
 }

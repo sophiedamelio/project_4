@@ -15,6 +15,7 @@ font-family: 'Major Mono Display', monospace;*/
 .home-header {
 	background-color: var(--off-black);
 	font-family: var(--header-ft);
+	width: 100%;
 }
 
 .whole-page {

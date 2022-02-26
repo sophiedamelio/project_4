@@ -8,9 +8,9 @@ export default function PageHeader({ user, handleLogout }) {
 	return (
 		<div class="whole-header">
 			{/* floated="left" textAlign="center" verticalAlign="middle" */}
-			<Header as="h3" id="logo" floated="left">
+			<Header as="h3" floated="left">
 				<span id="logo">
-					<Link to="/" id="logo">
+					<Link to="/">
 						<Image src={"https://i.imgur.com/n5Uns60.png"} size="small"></Image>
 					</Link>
 				</span>
@@ -23,17 +23,19 @@ export default function PageHeader({ user, handleLogout }) {
 					avatar
 				></Image>*/}
 			</Header>
-			<Header as="h3" textAlign="center" verticalAlign="middle" id="logo">
+			<Header>
 				<span id="greeting">
 					Hello {user.username}
 				</span>
 			</Header>
-			<Header floated="right" as="h3" textAlign="center" verticalAlign="middle" id="logo">
+			<Header floated="right">
 				<Link to="/">
-					<Icon color="black" name="home"></Icon>
+					<Icon color="teal" name="home"></Icon>
 				</Link>
 				<Link to="" onClick={handleLogout}>
-					Logout
+					<span id="logout">
+						Logout
+					</span>
 				</Link>
 			</Header>
 		</div >

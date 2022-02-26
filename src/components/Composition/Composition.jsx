@@ -21,15 +21,16 @@ export default function Composition(props) {
 				<p>{props.selectedComposition.text}</p>
 				<p id="notes"><span id="notes-label">notes: <br></br></span>{props.selectedComposition.notes}</p>
 				<Modal
+					style={{ borderRadius: "20px" }}
 					onClose={() => setOpen(false)}
 					onOpen={() => setOpen(true)}
 					open={open}
-					trigger={<button id="edit-comp-btn">Edit Composition</button>}>
-					<Modal.Header>Edit - {props.selectedComposition.title}</Modal.Header>
-					<Modal.Content>
+					trigger={<button id="edit-comp-btn">edit composition</button>}>
+					<Modal.Header style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>Edit - {props.selectedComposition.title}</Modal.Header>
+					<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 						<UpdateCompositionForm {...props}></UpdateCompositionForm>
 						<Modal.Actions>
-							<Button content="Close Update Mode" onClick={() => setOpen(false)} />
+							<button content="Close Update Mode" id="close-modal-btn" onClick={() => setOpen(false)} >Close Update Mode</button>
 						</Modal.Actions>
 					</Modal.Content>
 				</Modal>

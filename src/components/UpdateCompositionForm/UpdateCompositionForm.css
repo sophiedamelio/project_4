@@ -7,10 +7,41 @@ font-family: 'Major Mono Display', monospace;*/
 	--bg-lt-gray: #41424a;
 	--lighter-gray: #60626e;
 	--light-gray: #b6bad1;
+	--off-white: rgb(255, 255, 241);
 	--periwink: #92a8d4;
 	--dark-peach: #ed9393;
 	--off-black: #1f2024;
 	--teal: #14aca3;
 	--header-ft: 'Major Mono Display', monospace;
 	--body-ft: 'Comfortaa', cursive;
+}
+
+#form-input {
+	padding: 1.5vh 8vh 1.5vh 2vh;
+	border-radius: 5px;
+	border: none;
+	text-align: left;
+	margin-top: 1vh;
+	font-family: var(--body-ft);
+	background-color: var(--off-white);
+}
+
+#text-input {
+	padding: 1.5vh 8vh 1.5vh 2vh;
+	border-radius: 5px;
+	border: none;
+	text-align: left;
+	margin-top: 1vh;
+	font-family: var(--body-ft);
+	background-color: var(--off-white);
+}
+
+.btn {
+	background-color: var(--periwink);
+	color: var(--bg-gray);
+	padding: 2vh 8vh;
+	border-radius: 500px;
+	border: none;
+	margin-top: 1vh;
+	font-family: var(--body-ft)
 }

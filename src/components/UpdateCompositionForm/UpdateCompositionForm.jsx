@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Button, Form, Grid, Segment } from 'semantic-ui-react';
 import { useNavigate } from 'react-router-dom';
+import "./UpdateCompositionForm.css"
 
 export default function UpdateCompositionForm(props) {
 	//console.log(props, "<=== props on update comp form")
@@ -94,19 +95,21 @@ export default function UpdateCompositionForm(props) {
 	// this should take the new / updated state from the comp form, and update the selectedComposition with the new state
 	return (
 		<>
-			<Grid>
+			<Grid style={{ backgroundColor: "#3a3b42", margin: "none" }}>
 				<Grid.Column>
-					<Segment>
-						<Form autoComplete="off" onSubmit={handleSubmit}>
-							<Form.Input placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
-							<Form.TextArea rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
-							<Form.Input placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />
-							<Form.Input placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
-							<Button type="submit" className="btn">
-								Update Composition
-							</Button>
-						</Form>
-					</Segment>
+					<div id="comp-form">
+						<Segment style={{ backgroundColor: "#3a3b42", border: "none" }}>
+							<Form autoComplete="off" onSubmit={handleSubmit}>
+								<Form.Input id="form-input" placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
+								<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
+								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />
+								<Form.Input id="form-input" placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
+								<button type="submit" className="btn">
+									Update Composition
+								</button>
+							</Form>
+						</Segment>
+					</div>
 				</Grid.Column>
 			</Grid>
 		</>

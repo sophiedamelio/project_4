@@ -45,3 +45,15 @@ font-family: 'Major Mono Display', monospace;*/
 	width: 100%;
 	font-family: var(--body-ft)
 }
+
+#close-modal-btn {
+	background-color: var(--dark-peach);
+	color: var(--bg-gray);
+	padding: 2vh 4vh;
+	margin-left: 2vh;
+	border-radius: 500px;
+	border: none;
+	margin-top: 1vh;
+	font-family: var(--body-ft);
+	font-weight: 900;
+}

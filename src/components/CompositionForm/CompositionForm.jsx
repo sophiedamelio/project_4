@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Button, Form, Grid, GridColumn, Segment } from 'semantic-ui-react';
 import { useNavigate, Link } from 'react-router-dom';
 
+import "./CompositionForm.css"
+
 export default function AddCompositionForm(props) {
 	console.log(props, "<=== props on addcomp form")
 
@@ -44,22 +46,22 @@ export default function AddCompositionForm(props) {
 	console.log(state, "<-- state in comp form")
 
 	return (
-		<>
-			<Grid>
-				<Grid.Column>
-					<Segment>
+		<Grid style={{ backgroundColor: "#3a3b42", margin: "none" }}>
+			<Grid.Column>
+				<div id="comp-form">
+					<Segment style={{ backgroundColor: "#3a3b42", border: "none" }}>
 						<Form autoComplete="off" onSubmit={handleSubmit}>
-							<Form.Input placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
-							<Form.TextArea rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
-							<Form.Input placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />
-							<Form.Input placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
-							<Button type="submit" className="btn">
+							<Form.Input id="form-input" placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
+							<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
+							<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />
+							<Form.Input id="form-input" placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
+							<button type="submit" className="btn">
 								Add composition
-							</Button>
+							</button>
 						</Form>
 					</Segment>
-				</Grid.Column>
-			</Grid>
-		</>
+				</div>
+			</Grid.Column>
+		</Grid>
 	)
 }

@@ -6,7 +6,6 @@ import CompositionButton from "../CompositionButton/CompositionButton"
 import AddCompositionForm from "../CompositionForm/CompositionForm";
 import "./Menu.css"
 
-
 export default function Menu({ user, handleAddComposition, compositions, handleUpdateComposition, handleDeleteComposition }) {
 
 	//console.log(handleAddComposition, "<-- handleadd comp in menu")
@@ -46,15 +45,18 @@ export default function Menu({ user, handleAddComposition, compositions, handleU
 								: null}
 
 							<Modal
+								style={{ borderRadius: "20px" }}
 								onClose={() => setOpen(false)}
 								onOpen={() => setOpen(true)}
+								// why doesnt this work
+								closeOnDocumentClick='true'
 								open={open}
 								trigger={<button id="add-comp-btn">Add composition</button>}>
-								<Modal.Header>Add a Composition</Modal.Header>
-								<Modal.Content>
+								<Modal.Header className="modal-header" style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>add a Composition</Modal.Header>
+								<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 									<AddCompositionForm handleAddComposition={handleAddComposition}></AddCompositionForm>
 									<Modal.Actions>
-										<Button content="Close Create Mode" onClick={() => setOpen(false)} />
+										<button content="Close Create Mode" id="close-modal-btn" onClick={() => setOpen(false)} >Close Create Mode</button>
 									</Modal.Actions>
 								</Modal.Content>
 							</Modal>

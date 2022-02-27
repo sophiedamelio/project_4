@@ -10,6 +10,7 @@ export default function UpdateCompositionForm(props) {
 
 	const [selectedFile, setSelectedFile] = useState('')
 	const [state, setState] = useState({
+		_id: props.selectedComposition._id,
 		title: props.selectedComposition.title,
 		text: props.selectedComposition.text,
 		notes: props.selectedComposition.notes
@@ -29,17 +30,27 @@ export default function UpdateCompositionForm(props) {
 	}
 
 	function handleSubmit(e) {
+		e.preventDefault()
 
-		const infoFromTheForm = {
-			title: state.title,
-			text: state.text,
-			photoUrl: selectedFile,
-			notes: state.notes
-		}
+		const infoFromTheForm = new FormData()
+		console.log(state, "<--- state in handlesubmit update comp")
+
+		infoFromTheForm.append('_id', state._id)
+		infoFromTheForm.append('photo', selectedFile);
+		infoFromTheForm.append('title', state.title);
+		infoFromTheForm.append('text', state.text);
+		infoFromTheForm.append('notes', state.notes);
+		//const infoFromTheForm = {
+		//	title: state.title,
+		//	text: state.text,
+		//	photoUrl: selectedFile,
+		//	notes: state.notes
+		//}
 		console.log(infoFromTheForm, "<--- state in thre update form") // this is the proper state, updated
 		// infofromtheform holds the correect, updated state
 		//e.preventDefault()
 		props.handleUpdateComposition(infoFromTheForm)
+		// update state here as well 
 		//navigate('/')
 	}
 

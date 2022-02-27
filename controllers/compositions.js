@@ -54,21 +54,24 @@ function update(req, res){
 	s3.upload(params, async function(err, data) {
 		if(err) return res.status(400).json({err})
 
+		console.log(req.body, "<--- req.body._id in update ctrl")
 		try {
-			let composition = Composition.findByIdAndUpdate({
-				_id: req.body._id,
+			const updatedComposition = await Composition.findByIdAndUpdate(
+				req.body._id, {
 				title: req.body.title,
 				user: req.user,
 				text: req.body.text,
 				photoUrl: data.Location,
 				notes: req.body.notes
-			})
-			//composition = await composition.populate('user')
-			console.log(composition, "<-- composition in update ctrl")
+			}).exec()
 
-			composition.save()
-			res.status(201).json({composition})
-			
+			//composition = await composition.populate('user').exec()
+			console.log(updatedComposition, "<-- composition in update ctrl")
+
+			//composition.save()
+
+			res.status(201).json(updatedComposition)
+
 		} catch(err){
 			console.log(err, "Error (update ctrl)")
 			res.status(400).json({err})
@@ -80,10 +83,6 @@ function update(req, res){
 async function index(req, res) {
 	try {
 		const compositions = await Composition.find({user: req.user._id});
-		console.log(compositions, "<-- compositions")
-		//console.log(user, "<--- user in the comp ctrl index")
-		console.log(req.user._id, "<--- req.user._id in the comp ctrl index")
-
 		res.status(200).json({compositions: compositions});
 	} catch(err) {
 		res.status(400).json({err})

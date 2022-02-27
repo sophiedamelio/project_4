@@ -24,7 +24,27 @@ export default function HomePage({ user, handleLogout, }) {
 			const data = await compositionApi.update(selectedComposition._id, infoFromTheForm);
 			//console.log(data, "<--- this is the res form the server, in handle updateeeee comp")
 			console.log(selectedComposition, "<--- selected comp in the homepage handle update func")
-			setCompositions([data.composition, ...compositions]);
+			//setCompositions([data.composition, ...compositions]);
+
+			//console.log(data, "<--- data is updated comp in handleupdate homepage")
+			// like line 40, go find the one we edited, update the state of that one
+			// to equal the new data (updatecCOmposition)
+			// new array, with all filter on all compositions (map maybe)
+			// map to figure out whihc one to change
+			// if id matches, update it, if not, push to new array
+
+			// for each thing, do something
+
+			// this line filters all the 'unchanged' compositions into a new array
+			let unchangedCompositions = (compositions.filter((comp) => comp._id !== selectedComposition._id))
+
+			console.log(unchangedCompositions, "<--- unchanged comps in update in home")
+			//setCompositions(compositions.map(composition => composition._id === selectedComposition._id))
+
+			// set new array to be setCompositions
+
+			console.log(compositions, "<--- compositions in the handle update, homepage")
+
 			//setLoading(false)
 		} catch (err) {
 			setError(err.messgae);

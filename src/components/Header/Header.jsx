@@ -6,7 +6,7 @@ import "./Header.css"
 export default function PageHeader({ user, handleLogout }) {
 
 	return (
-		<div class="whole-header">
+		<div className="whole-header">
 			<Header as="h3" floated="left">
 				<span id="logo">
 					<Link to="/">

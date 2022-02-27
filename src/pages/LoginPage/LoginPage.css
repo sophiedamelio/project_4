@@ -1,20 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Josefin+Sans:wght@100;200&family=Major+Mono+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Josefin+Sans:wght@100;200&family=Major+Mono+Display&family=Open+Sans:wght@300&display=swap');
 /*font-family: 'Comfortaa', cursive;
 font-family: 'Major Mono Display', monospace;*/
+/*font-family: 'Open Sans', sans-serif;*/
 
 :root {
 	--bg-gray: #3a3b42;
 	--bg-lt-gray: #41424a;
 	--lighter-gray: #60626e;
 	--light-gray: #b6bad1;
+	--off-white: rgb(255, 255, 241);
 	--periwink: #92a8d4;
 	--dark-peach: #ed9393;
 	--off-black: #1f2024;
 	--teal: #14aca3;
 	--header-ft: 'Major Mono Display', monospace;
-	--body-ft: 'Comfortaa', cursive;
+	--body-ft: 'Open Sans', sans-serif;
 }
-
 
 /*  this is questionable, might need to be more specific in order to override
 the width is what we are overriding */

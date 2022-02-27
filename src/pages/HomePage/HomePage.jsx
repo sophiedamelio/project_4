@@ -77,9 +77,9 @@ export default function HomePage({ user, handleLogout, }) {
 	}, [])
 
 	return (
-		<div class="whole-page">
+		<div className="whole-page">
 			<Grid >
-				<div class="home-header">
+				<div className="home-header">
 					<Grid.Row>
 						<Grid.Column >
 							<PageHeader handleLogout={handleLogout} user={user} />

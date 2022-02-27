@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Image, Modal } from 'semantic-ui-react';
+import { Grid, Image, Modal } from 'semantic-ui-react';
 import "./Composition.css";
 
 import UpdateCompositionForm from '../UpdateCompositionForm/UpdateCompositionForm';
@@ -14,8 +14,16 @@ export default function Composition(props) {
 		return (
 			<div id="composition">
 				<div id="comp-header">
-					<h3 id="title">{props.selectedComposition.title}</h3>
-					<Image src={props.selectedComposition.photoUrl} avatar className="comp-img" />
+					<Grid>
+						<Grid.Row>
+							<Grid.Column width="10">
+								<span><h3 id="title">{props.selectedComposition.title}</h3></span>
+							</Grid.Column>
+							<Grid.Column width="6">
+								<Image src={props.selectedComposition.photoUrl} avatar />
+							</Grid.Column>
+						</Grid.Row>
+					</Grid>
 				</div>
 				<p>{props.selectedComposition.text}</p>
 				<p id="notes"><span id="notes-label">notes: <br></br></span>{props.selectedComposition.notes}</p>

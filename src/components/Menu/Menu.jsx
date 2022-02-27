@@ -18,11 +18,9 @@ export default function Menu({ user, getCompositions, selectComposition, selecte
 	//}, [])
 
 	return (
-		<div class="whole-page">
+		<div className="whole-page">
 			<Grid columns="two" divided>
-
 				<Grid.Row>
-
 					<Grid.Column width="4">
 						<div id="menu-content">
 							<h1 id="home-title">my Songs</h1>

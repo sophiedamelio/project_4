@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
-import { Button, Form, Grid, GridColumn, Segment } from 'semantic-ui-react';
-import { useNavigate, Link } from 'react-router-dom';
+import { Form, Grid, Segment } from 'semantic-ui-react';
 
 import "./CompositionForm.css"
 
 export default function AddCompositionForm(props) {
-	console.log(props, "<=== props on addcomp form")
-
-	const navigate = useNavigate()
 
 	const [selectedFile, setSelectedFile] = useState('')
 	const [state, setState] = useState({
@@ -38,9 +34,6 @@ export default function AddCompositionForm(props) {
 		formData.append('notes', state.notes);
 
 		props.handleAddComposition(formData)
-		props.selectComposition()
-		navigate('/')
-
 	}
 
 	console.log(state, "<-- state in comp form")

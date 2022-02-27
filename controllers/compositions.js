@@ -44,7 +44,6 @@ function create(req, res) {
 
 
 function update(req, res){
-	console.log(req, "<--- req in the update funcction controller")
 	console.log(req.body, "<--- req.body in the update controller function")
 	console.log(req.file, "<--- req.file in the update ctrl")
 
@@ -54,7 +53,6 @@ function update(req, res){
 	s3.upload(params, async function(err, data) {
 		if(err) return res.status(400).json({err})
 
-		console.log(req.body, "<--- req.body._id in update ctrl")
 		try {
 			const updatedComposition = await Composition.findByIdAndUpdate(
 				req.body._id, {
@@ -65,11 +63,7 @@ function update(req, res){
 				notes: req.body.notes
 			}).exec()
 
-			//composition = await composition.populate('user').exec()
-			console.log(updatedComposition, "<-- composition in update ctrl")
-
-			//composition.save()
-
+			//console.log(updatedComposition, "<-- composition in update ctrl")
 			res.status(201).json(updatedComposition)
 
 		} catch(err){

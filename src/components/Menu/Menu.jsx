@@ -1,15 +1,21 @@
 //import AddComposition from "../AddComposition/AddComposition"
 import { useState } from "react"
-import { Button, Grid, Modal } from 'semantic-ui-react';
+import { Grid, Modal } from 'semantic-ui-react';
 import Composition from '../Composition/Composition';
 import CompositionButton from "../CompositionButton/CompositionButton"
 import AddCompositionForm from "../CompositionForm/CompositionForm";
 import "./Menu.css"
 
-export default function Menu({ user, selectComposition, selectedComposition, handleAddComposition, compositions, handleUpdateComposition, handleDeleteComposition }) {
+export default function Menu({ user, getCompositions, selectComposition, selectedComposition, handleAddComposition, compositions, handleUpdateComposition, handleDeleteComposition }) {
 
 	const [error, setError] = useState('')
 	const [open, setOpen] = useState(false)
+
+	// should the re-render be happening here ?
+	// to update the view for Comp Button and for Composition
+	//useEffect(() => {
+	//	getCompositions()
+	//}, [])
 
 	return (
 		<div class="whole-page">
@@ -39,7 +45,7 @@ export default function Menu({ user, selectComposition, selectedComposition, han
 								onClose={() => setOpen(false)}
 								onOpen={() => setOpen(true)}
 								// why doesnt this work
-								closeOnDocumentClick='true'
+								//closeOnDocumentClick='true'
 								open={open}
 								trigger={<button id="add-comp-btn">Add composition</button>}>
 								<Modal.Header className="modal-header" style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>add a Composition</Modal.Header>

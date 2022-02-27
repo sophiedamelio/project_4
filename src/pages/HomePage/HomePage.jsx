@@ -20,32 +20,22 @@ export default function HomePage({ user, handleLogout, }) {
 
 	async function handleUpdateComposition(infoFromTheForm) {
 		try {
-			//setLoading(true)
 			const data = await compositionApi.update(selectedComposition._id, infoFromTheForm);
-			//console.log(data, "<--- this is the res form the server, in handle updateeeee comp")
-			console.log(selectedComposition, "<--- selected comp in the homepage handle update func")
-			//setCompositions([data.composition, ...compositions]);
-
+			//console.log(selectedComposition, "<--- selected comp in the homepage handle update func")
 			//console.log(data, "<--- data is updated comp in handleupdate homepage")
-			// like line 40, go find the one we edited, update the state of that one
-			// to equal the new data (updatecCOmposition)
-			// new array, with all filter on all compositions (map maybe)
-			// map to figure out whihc one to change
-			// if id matches, update it, if not, push to new array
-
-			// for each thing, do something
 
 			// this line filters all the 'unchanged' compositions into a new array
 			let unchangedCompositions = (compositions.filter((comp) => comp._id !== selectedComposition._id))
+			//console.log(unchangedCompositions, "<--- unchanged comps in update in home") // this works
 
-			console.log(unchangedCompositions, "<--- unchanged comps in update in home")
-			//setCompositions(compositions.map(composition => composition._id === selectedComposition._id))
+			setCompositions([data, ...unchangedCompositions]);
 
-			// set new array to be setCompositions
-
+			//compositions are being set properly, just need to re-render now
 			console.log(compositions, "<--- compositions in the handle update, homepage")
 
-			//setLoading(false)
+			// why doesn't this line work to re-render?
+			//setSelectedComposition(selectedComposition);
+
 		} catch (err) {
 			setError(err.messgae);
 		}
@@ -54,9 +44,7 @@ export default function HomePage({ user, handleLogout, }) {
 	async function handleDeleteComposition(selectedCompositionId) {
 		try {
 			const deletedComposition = await compositionApi.deleteComposition(selectedCompositionId)
-			//console.log(compositions, "<--- comps before deleete")
 			setCompositions(compositions.filter((comp) => comp._id !== selectedCompositionId));
-			//console.log(compositions, "<--- comps after deleete")
 			setSelectedComposition('');
 		} catch (err) {
 			setError(err.message)
@@ -65,12 +53,10 @@ export default function HomePage({ user, handleLogout, }) {
 
 	async function handleAddComposition(composition) {
 		try {
-			//setLoading(true)
 			const data = await compositionApi.create(composition);
 			console.log(data, "<--- this is the res form the server, in handle add comp")
 
 			setCompositions([data.composition, ...compositions]);
-			//setLoading(false)
 		} catch (err) {
 			setError(err.messgae);
 		}
@@ -80,7 +66,6 @@ export default function HomePage({ user, handleLogout, }) {
 		try {
 			const data = await compositionApi.getAll()
 			setCompositions([...data.compositions])
-			//setLoading(false)
 		} catch (err) {
 			console.log(err.message, "<-- this is the error")
 			setError(err.message)

@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { Segment, Image, Button, Modal } from 'semantic-ui-react';
+import { Image, Modal } from 'semantic-ui-react';
 import "./Composition.css";
 
-import { Link, useLocation } from 'react-router-dom';
 import UpdateCompositionForm from '../UpdateCompositionForm/UpdateCompositionForm';
 
 export default function Composition(props) {
 
 	const [open, setOpen] = useState(false)
 
-	console.log(props.selectedComposition, "<--- composition???")
+	//console.log(props, "<--- composition???")
 
 	if (props.selectedComposition) {
 		return (
@@ -34,7 +33,7 @@ export default function Composition(props) {
 						</Modal.Actions>
 					</Modal.Content>
 				</Modal>
-				{/* add in line explainging this */}
+				{/* I use .bind so that I can pass an argument into the handleDeleteComposition function inline */}
 				<button id="delete-comp-btn" onClick={props.handleDeleteComposition.bind(null, props.selectedComposition._id)}>Delete Composition</button>
 			</div >
 		)

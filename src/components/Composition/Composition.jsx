@@ -8,7 +8,7 @@ export default function Composition(props) {
 
 	const [open, setOpen] = useState(false)
 
-	//console.log(props, "<--- composition???")
+	console.log(props, "<--- props in composition component")
 
 	if (props.selectedComposition) {
 		return (

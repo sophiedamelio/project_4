@@ -11,6 +11,10 @@ export default function HomePage({ user, handleLogout, }) {
 	const [compositions, setCompositions] = useState([])
 	const [error, setError] = useState('')
 
+	// this is to set up my default composition
+	const firstComposition = compositions[0];
+	console.log(firstComposition, "<--- first comp")
+
 	const [selectedComposition, setSelectedComposition] = useState('')
 
 	// set selected composition state here, then send to composition component
@@ -75,6 +79,7 @@ export default function HomePage({ user, handleLogout, }) {
 	useEffect(() => {
 		getCompositions();
 	}, [])
+
 
 	return (
 		<div className="whole-page">

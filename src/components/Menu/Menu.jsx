@@ -57,7 +57,7 @@ export default function Menu({ user, getCompositions, selectComposition, selecte
 						</div>
 					</Grid.Column>
 					<Grid.Column width="12">
-						<Composition selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
+						<Composition selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

@@ -51,32 +51,32 @@ export default function LoginPage(props) {
             account
           </Header>
           <Form autoComplete="off" onSubmit={handleSubmit}>
-            <div class="form">
-              <Form.Input
-                type="email"
-                name="email"
-                placeholder="email"
-                value={state.email}
-                onChange={handleChange}
-                id="form-input"
-                required
-              />
-              <Form.Input
-                name="password"
-                type="password"
-                placeholder="password"
-                value={state.password}
-                onChange={handleChange}
-                id="form-input"
-                required
-              />
-              <button
-                class="submitButton"
-                type="submit"
-              >
-                Login
-              </button>
-            </div>
+            {/*<div class="form">*/}
+            <Form.Input
+              type="email"
+              name="email"
+              placeholder="email"
+              value={state.email}
+              onChange={handleChange}
+              id="form-input"
+              required
+            />
+            <Form.Input
+              name="password"
+              type="password"
+              placeholder="password"
+              value={state.password}
+              onChange={handleChange}
+              id="form-input"
+              required
+            />
+            <button
+              class="submitButton"
+              type="submit"
+            >
+              Login
+            </button>
+            {/*</div>*/}
           </Form>
           <div class="altLink">
             New to us? <Link to="/signup">Sign Up</Link>

@@ -4,15 +4,13 @@ import "./SignupPage.css"
 
 import userService from "../../utils/userService";
 import {
-  Button,
   Form,
   Grid,
   Header,
-  Segment,
   Icon,
   Image
 } from "semantic-ui-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function SignUpPage(props) {
   console.log(props, "<---- props on signup ")
@@ -105,19 +103,14 @@ export default function SignUpPage(props) {
               id="form-input"
               required
             />
-            <Form.TextArea
-              label="bio"
-              name="bio"
-              placeholder="Tell us more about yourself..."
-              onChange={handleChange}
-              id="form-input"
-            />
             <button type="submit" class="submitButton">
               Signup
             </button>
-            <a href="/login"><button>Login  link</button></a>
             {error ? <ErrorMessage error={error} /> : null}
           </Form>
+          <div class="altLink">
+            Already have an account? <Link to="/login"> Log In</Link>
+          </div>
         </Grid.Column>
       </Grid>
     </div>

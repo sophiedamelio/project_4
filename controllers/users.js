@@ -1,12 +1,6 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const SECRET = process.env.SECRET;
-const { v4: uuidv4 } = require('uuid');
-const S3 = require('aws-sdk/clients/s3');
-const s3 = new S3(); // initialize the construcotr
-// now s3 can crud on our s3 buckets
-
-const BUCKET = process.env.BUCKET;
 
 module.exports = {
   signup,

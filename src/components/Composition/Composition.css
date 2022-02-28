@@ -73,3 +73,14 @@ p {
 	font-weight: 900;
 }
 
+#scroll-button {
+	background-color: var(--teal);
+	color: var(--bg-gray);
+	padding: 2vh 4vh;
+	border-radius: 500px;
+	border: none;
+	margin: 2vh 5vh;
+	font-family: var(--body-ft);
+	font-weight: 900;
+}
+

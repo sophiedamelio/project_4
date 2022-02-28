@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Grid, Image, Modal } from 'semantic-ui-react';
+import { Grid, Image, Modal, Button } from 'semantic-ui-react';
 import "./Composition.css";
 
 import UpdateCompositionForm from '../UpdateCompositionForm/UpdateCompositionForm';
@@ -11,6 +11,7 @@ export default function Composition(props) {
 	console.log(props, "<--- props in composition component")
 
 	if (props.selectedComposition) {
+
 		return (
 			<div id="composition">
 				<div id="comp-header">
@@ -20,11 +21,11 @@ export default function Composition(props) {
 								<span><h3 id="title">{props.selectedComposition.title}</h3></span>
 							</Grid.Column>
 							<Grid.Column width="6">
-								<Image src={props.selectedComposition.photoUrl} avatar />
 							</Grid.Column>
 						</Grid.Row>
 					</Grid>
 				</div>
+				<button id="scroll-button" onClick={props.pageScroll}>auto-scroll</button>
 				<p>{props.selectedComposition.text}</p>
 				<p id="notes"><span id="notes-label">notes: <br></br></span>{props.selectedComposition.notes}</p>
 				<Modal

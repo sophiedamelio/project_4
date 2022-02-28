@@ -6,7 +6,6 @@ import { Grid } from "semantic-ui-react";
 
 import "./HomePage.css"
 
-
 export default function HomePage({ user, handleLogout, }) {
 	const [compositions, setCompositions] = useState([])
 	const [error, setError] = useState('')
@@ -16,6 +15,11 @@ export default function HomePage({ user, handleLogout, }) {
 	console.log(firstComposition, "<--- first comp")
 
 	const [selectedComposition, setSelectedComposition] = useState('')
+
+	function pageScroll() {
+		window.scrollBy(0, 1);
+		let scrolldelay = setTimeout(pageScroll, 10);
+	}
 
 	// set selected composition state here, then send to composition component
 	function selectComposition(composition) {
@@ -94,7 +98,7 @@ export default function HomePage({ user, handleLogout, }) {
 
 				<Grid.Row>
 					<Grid.Column >
-						<Menu compositions={compositions} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
+						<Menu pageScroll={pageScroll} compositions={compositions} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

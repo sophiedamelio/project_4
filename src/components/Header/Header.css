@@ -18,9 +18,15 @@ font-family: 'Major Mono Display', monospace;*/
 }
 
 
-img.ui.small.image {
+/*img.ui.small.image {
 	padding: 3vh;
 	padding-bottom: 0vh;
+}*/
+
+#logo img {
+	padding: 2vh;
+    padding-left: 4vh;
+	width: 50vh;
 }
 
 .whole-header {

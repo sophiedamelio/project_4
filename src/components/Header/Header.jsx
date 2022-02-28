@@ -8,11 +8,9 @@ export default function PageHeader({ user, handleLogout }) {
 	return (
 		<div className="whole-header">
 			<Header as="h3" floated="left">
-				<span id="logo">
-					<Link to="/">
-						<Image src={"https://i.imgur.com/EmG6mZk.jpg"} size="medium"></Image>
-					</Link>
-				</span>
+				<Link to="/">
+					<span id="logo"><img src="https://i.imgur.com/hFjKuuR.png" /></span>
+				</Link>
 			</Header>
 			<Header>
 				<span id="greeting">

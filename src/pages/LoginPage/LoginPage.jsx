@@ -44,7 +44,7 @@ export default function LoginPage(props) {
     <div class="whole-page">
       <Grid textAlign="center" verticalAlign="middle" style={{ height: "100vh" }}>
         <Grid.Column style={{ maxWidth: 550 }}>
-          <Image src={"https://i.imgur.com/eufpVnN.jpg"} size="medium" centered="true" className="logo"></Image>
+          <Image src={"https://i.imgur.com/Yu3B0dN.png"} size="medium" centered="true" className="logo"></Image>
           <Header as="h2" textAlign="center" id="login-header">
             <Icon name="sign-in" color="teal" />
             Log-in to your

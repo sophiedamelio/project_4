@@ -17,6 +17,9 @@ export default function Composition(props) {
 	// onclick of start button set to true, vice versa
 	// when scroll = false call stopScroll(), vice versa
 
+
+	// or if keep like this, the startscroll() needs to be stopped somehow
+	// currently stopScroll() never gets hit (return statement?)
 	const contextRef = createRef()
 
 	if (props.selectedComposition) {

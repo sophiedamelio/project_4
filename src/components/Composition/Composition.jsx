@@ -12,6 +12,10 @@ export default function Composition(props) {
 
 	console.log(props, "<--- props in composition component")
 
+	// use state for autoscroll ?
+	// initial is false
+	// onclick of start button set to true, vice versa
+	// when scroll = false call stopScroll(), vice versa
 
 	const contextRef = createRef()
 
@@ -50,7 +54,8 @@ export default function Composition(props) {
 								))}
 								<Rail position="right">
 									<Sticky context={contextRef}>
-										<button id="scroll-button" onClick={props.pageScroll}>auto-scroll</button>
+										<button id="start-scroll-button" onClick={props.startPageScroll}>start auto-scroll</button>
+										<button id="stop-scroll-button" onClick={props.stopPageScroll}>stop auto-scroll</button>
 									</Sticky>
 								</Rail>
 							</Segment>

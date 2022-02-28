@@ -16,9 +16,15 @@ export default function HomePage({ user, handleLogout, }) {
 
 	const [selectedComposition, setSelectedComposition] = useState('')
 
-	function pageScroll() {
+	function startPageScroll() {
 		window.scrollBy(0, 1);
-		let scrolldelay = setTimeout(pageScroll, 10);
+		let scrolldelay = setTimeout(startPageScroll, 10);
+	}
+
+	function stopPageScroll() {
+		window.scrollBy(0, 0)
+		let scrolldelay = setTimeout(stopPageScroll, 10);
+		//window.onscroll
 	}
 
 	// set selected composition state here, then send to composition component
@@ -98,7 +104,7 @@ export default function HomePage({ user, handleLogout, }) {
 
 				<Grid.Row>
 					<Grid.Column >
-						<Menu pageScroll={pageScroll} compositions={compositions} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
+						<Menu stopPageScroll={stopPageScroll} startPageScroll={startPageScroll} compositions={compositions} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

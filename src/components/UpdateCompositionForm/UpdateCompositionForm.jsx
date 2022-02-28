@@ -50,7 +50,8 @@ export default function UpdateCompositionForm(props) {
 							<Form autoComplete="off" onSubmit={handleSubmit}>
 								<Form.Input id="form-input" placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
 								<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
-								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />								<button type="submit" className="btn">
+								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} />
+								<button type="submit" className="btn">
 									Update Composition
 								</button>
 							</Form>

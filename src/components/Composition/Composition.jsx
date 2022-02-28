@@ -48,7 +48,9 @@ export default function Composition(props) {
 											<span><h3 id="title">{props.selectedComposition.title}</h3></span>
 										</div>
 										<p>{props.selectedComposition.text}</p>
-										<p id="notes"><span id="notes-label">notes: <br></br></span>{props.selectedComposition.notes}</p>
+										{props.selectedComposition.notes ?
+											<p id="notes"><span id="notes-label">notes: <br></br></span>{props.selectedComposition.notes}</p>
+											: null}
 										<Modal
 											style={{ borderRadius: "20px" }}
 											onClose={() => setOpen(false)}

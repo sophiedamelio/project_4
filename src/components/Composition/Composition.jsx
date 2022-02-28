@@ -1,4 +1,4 @@
-import React, { useState, createRef, useReducer, useEffect } from 'react';
+import React, { useState, createRef, useReducer, useEffect, useCallback } from 'react';
 import { Modal, Rail, Ref, Segment, Sticky, Grid } from 'semantic-ui-react';
 import "./Composition.css";
 import _ from 'lodash'
@@ -9,6 +9,11 @@ import UpdateCompositionForm from '../UpdateCompositionForm/UpdateCompositionFor
 export default function Composition(props) {
 
 	const [open, setOpen] = useState(false)
+
+	//const [, updateState] = useState()
+	//const forceUpdate = useCallback(() => updateState({}), [])
+
+
 
 	console.log(props, "<--- props in composition component")
 
@@ -22,15 +27,23 @@ export default function Composition(props) {
 	const contextRef = createRef()
 
 
+	// the idea here is that this 'simulates' state change, should trigger re-render
+	//function reload() {
+	//	console.log("reload invoked")
+	//	forceUpdate()
+	//	//setOpen(false);
+	//}
+
 	if (props.selectedComposition) {
 		return (
 			<div id="composition">
+				{/*<button onClick={forceUpdate}>reload</button>*/}
 				<Grid columns={2}>
 					<Grid.Column>
 						<Ref innerRef={contextRef}>
 							<Segment id="segment-composition" style={{ backgroundColor: '#3a3b42', border: 'none' }}>
 								{_.times(1, (i) => (
-									<>
+									<div key={props.selectedComposition._id}>
 										<div id="comp-header">
 											<span><h3 id="title">{props.selectedComposition.title}</h3></span>
 										</div>
@@ -52,7 +65,7 @@ export default function Composition(props) {
 										</Modal>
 										{/* I use .bind so that I can pass an argument into the handleDeleteComposition function inline */}
 										<button id="delete-comp-btn" onClick={props.handleDeleteComposition.bind(null, props.selectedComposition._id)}>Delete Composition</button>
-									</>
+									</div>
 								))}
 								<Rail position="right">
 									<Sticky context={contextRef}>

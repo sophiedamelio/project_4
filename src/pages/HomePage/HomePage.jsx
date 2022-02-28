@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import PageHeader from "../../components/Header/Header"
 import Menu from "../../components/Menu/Menu"
 import * as compositionApi from "../../utils/compositionApi";
@@ -33,14 +33,6 @@ export default function HomePage({ user, handleLogout, }) {
 	// set selected composition state here, then send to composition component
 	function selectComposition(composition) {
 		setSelectedComposition(composition) // comp that was clicked on
-	}
-
-	// reload stuff ------------------------------
-	const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-
-	function reload() {
-		forceUpdate();
-		console.log("reload invoked")
 	}
 
 
@@ -106,11 +98,18 @@ export default function HomePage({ user, handleLogout, }) {
 	}, [])
 
 
+	// another attempt at forcing reload
+	//const [, updateState] = useState()
+	//const forceUpdate = useCallback(() => updateState({}), [])
+
+	//console.log("log from home on reload?")
+
+
 	return (
 		<div className="whole-page">
 			<Grid >
 				<div className="home-header">
-					<Grid.Row>
+					<Grid.Row style={{ marginTop: "5vh" }}>
 						<Grid.Column >
 							<PageHeader handleLogout={handleLogout} user={user} />
 						</Grid.Column>
@@ -119,6 +118,7 @@ export default function HomePage({ user, handleLogout, }) {
 
 				<Grid.Row>
 					<Grid.Column >
+						{/*<button onClick={forceUpdate}>reload</button>*/}
 						<Menu stopPageScroll={stopPageScroll} startPageScroll={startPageScroll} compositions={compositions} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
 					</Grid.Column>
 				</Grid.Row>

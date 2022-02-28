@@ -12,12 +12,12 @@ export default function PageHeader({ user, handleLogout }) {
 					<span id="logo"><img src="https://i.imgur.com/hFjKuuR.png" /></span>
 				</Link>
 			</Header>
-			<Header>
-				<span id="greeting">
+			<Header as="h3" floated="left">
+				<div id="greeting">
 					Hello {user.username}
-				</span>
+				</div>
 			</Header>
-			<Header floated="right">
+			<Header floated="right" style={{ marginRight: "5vh", marginTop: "5vh" }}>
 				<Link to="/">
 					<Icon color="teal" name="home"></Icon>
 				</Link>

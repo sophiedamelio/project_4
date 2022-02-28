@@ -1,5 +1,5 @@
 //import AddComposition from "../AddComposition/AddComposition"
-import { useState } from "react"
+import { useState, useCallback } from "react"
 import { Grid, Modal } from 'semantic-ui-react';
 import Composition from '../Composition/Composition';
 import CompositionButton from "../CompositionButton/CompositionButton"
@@ -16,6 +16,8 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 	//useEffect(() => {
 	//	getCompositions()
 	//}, [])
+
+	//console.log("log from menu on reload?")
 
 	return (
 		<div className="whole-page">

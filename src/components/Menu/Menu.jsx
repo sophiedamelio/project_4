@@ -1,5 +1,5 @@
 //import AddComposition from "../AddComposition/AddComposition"
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import { Grid, Modal } from 'semantic-ui-react';
 import Composition from '../Composition/Composition';
 import CompositionButton from "../CompositionButton/CompositionButton"
@@ -33,6 +33,9 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 
 	//selectComposition(selectedComposition)
 
+	//useEffect(() => {
+	//	getCompositions()
+	//}, [])
 
 	return (
 		<div className="whole-page">
@@ -41,14 +44,14 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 					<Grid.Column width="4">
 						<div id="menu-content">
 							<h1 id="home-title">my songs</h1>
-							<button onClick={getCompositions}>get 'em</button>
+							{/*<button onClick={getCompositions}>get 'em</button>*/}
 							{compositions ?
 								<>
 									<ul id="menu-list">
 										{compositions.map((composition) => {
 											return (
 												<li key={composition._id} >
-													<CompositionButton composition={composition} selectComposition={selectComposition} />
+													<CompositionButton getCompositions={getCompositions} composition={composition} selectComposition={selectComposition} />
 												</li>
 											)
 										})}
@@ -68,6 +71,7 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 								<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 									<AddCompositionForm handleAddComposition={handleAddComposition}></AddCompositionForm>
 									<Modal.Actions>
+										{/* compositions (comp that matches selected one) set to ===  */}
 										<button content="Close Create Mode" id="close-modal-btn" onClick={() => { setOpen(false); }} >Close Create Mode</button>
 									</Modal.Actions>
 								</Modal.Content>
@@ -75,6 +79,7 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 						</div>
 					</Grid.Column>
 					<Grid.Column width="12">
+						{/*<button onClick={getCompositions}>get 'em</button>*/}
 						<Composition stopPageScroll={stopPageScroll} startPageScroll={startPageScroll} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} getCompositions={getCompositions} />
 					</Grid.Column>
 				</Grid.Row>

@@ -17,15 +17,15 @@ export default function HomePage({ user, handleLogout, }) {
 	const firstComposition = compositions[0];
 	console.log(firstComposition, "<--- first comp")
 
-	const [selectedComposition, setSelectedComposition] = useState({
-		//_id: firstComposition._id,
-		//user: firstComposition.user,
-		//title: firstComposition.title,
-		//capo: firstComposition.capo,
-		//text: firstComposition.text,
-		//notes: firstComposition.notes
-		//compositions[0]
-	})
+	const [selectedComposition, setSelectedComposition] = useState('')
+	//_id: firstComposition._id,
+	//user: firstComposition.user,
+	//title: firstComposition.title,
+	//capo: firstComposition.capo,
+	//text: firstComposition.text,
+	//notes: firstComposition.notes
+	//compositions[0]
+	//})
 
 	console.log(selectedComposition, "<--- initial selected comp")
 

@@ -43,6 +43,7 @@ export default function UpdateCompositionForm(props) {
 
 		//setState({ selectedComposition })
 		props.getCompositions()
+		props.selectComposition(props.selectedComposition)
 
 		//console.log(state, "<--- state in update comp") // this is correct
 
@@ -51,7 +52,7 @@ export default function UpdateCompositionForm(props) {
 
 	}
 
-	props.selectComposition(props.selectedComposition)
+	//props.selectComposition(props.selectedComposition)
 
 	return (
 		<>
@@ -64,7 +65,7 @@ export default function UpdateCompositionForm(props) {
 								<Form.Input id="form-input" placeholder="Capo" className="form-control" name="capo" value={state.capo} onChange={handleChange} />
 								<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
 								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} />
-								<button type="submit" className="btn">
+								<button type="submit" className="btn" onClick={() => { props.getCompositions(); props.selectComposition(state) }}>
 									Update Composition
 								</button>
 							</Form>

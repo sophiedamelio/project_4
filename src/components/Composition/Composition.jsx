@@ -43,7 +43,18 @@ export default function Composition(props) {
 	//	setState({ selectedComposition })
 	//}
 
-	//props.selectComposition(props.selectedComposition)
+	function getComps() {
+		//props.selectComposition(props.selectedComposition)
+		console.log("getcomps invoked")
+		props.getCompositions()
+	}
+
+	//useEffect(() => {
+	//	props.getCompositions()
+	//}, [])
+
+	// selected comp needs to be updated / state needs to be set to the updated v
+
 
 
 	if (props.selectedComposition) {
@@ -51,13 +62,13 @@ export default function Composition(props) {
 			<div id="composition">
 				<Grid columns={2}>
 					<Grid.Column>
+						<button onClick={() => { props.getCompositions(); }}>get 'em</button>
 						<Ref innerRef={contextRef}>
 							<Segment id="segment-composition" style={{ backgroundColor: '#3a3b42', border: 'none' }}>
 								{_.times(1, (i) => (
 									<div key={props.selectedComposition._id}>
 										<div id="comp-header">
 											<span><h3 id="title">{props.selectedComposition.title}</h3></span>
-											<button onClick={props.getCompositions}>get 'em</button>
 										</div>
 										{props.selectedComposition.capo ? <p>Capo: {props.selectedComposition.capo}</p> : null}
 										<p>{props.selectedComposition.text}</p>
@@ -75,7 +86,7 @@ export default function Composition(props) {
 											<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 												<UpdateCompositionForm {...props}></UpdateCompositionForm>
 												<Modal.Actions>
-													<button content="Close Update Mode" id="close-modal-btn" onClick={() => { setOpen(false); }}>Close Update Mode</button>
+													<button content="Close Update Mode" id="close-modal-btn" onClick={() => { setOpen(false); props.getCompositions(); props.selectComposition(props.selectedComposition); }}>Close Update Mode</button>
 												</Modal.Actions>
 											</Modal.Content>
 										</Modal>

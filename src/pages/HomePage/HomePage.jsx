@@ -39,20 +39,15 @@ export default function HomePage({ user, handleLogout, }) {
 	async function handleUpdateComposition(infoFromTheForm) {
 		try {
 			const data = await compositionApi.update(selectedComposition._id, infoFromTheForm);
-			//console.log(selectedComposition, "<--- selected comp in the homepage handle update func")
-			//console.log(data, "<--- data is updated comp in handleupdate homepage")
 
 			// this line filters all the 'unchanged' compositions into a new array
 			let unchangedCompositions = (compositions.filter((comp) => comp._id !== selectedComposition._id))
-			//console.log(unchangedCompositions, "<--- unchanged comps in update in home") // this works
 
 			// this line should trigger re-render?
 			setCompositions([data, ...unchangedCompositions]);
 
 			//compositions are being set properly, just need to re-render now
-			console.log(compositions, "<--- compositions in the handle update, homepage")
-
-			//reload()
+			//console.log(compositions, "<--- compositions in the handle update, homepage")
 
 			// why doesn't this line work to re-render?
 			//setSelectedComposition(selectedComposition);
@@ -75,7 +70,7 @@ export default function HomePage({ user, handleLogout, }) {
 	async function handleAddComposition(composition) {
 		try {
 			const data = await compositionApi.create(composition);
-			console.log(data, "<--- this is the res form the server, in handle add comp")
+			//console.log(data, "<--- this is the res form the server, in handle add comp")
 
 			setCompositions([data.composition, ...compositions]);
 		} catch (err) {

@@ -1,13 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const compositionsCtrl = require('../../controllers/compositions');
-const multer = require('multer');
-const upload = multer(); 
 
 /*---------- Public Routes ----------*/
 router.get('/', compositionsCtrl.index);
 router.post('/', isAuthenticated, compositionsCtrl.create);
-router.put('/:compId', isAuthenticated, upload.single('photo'), compositionsCtrl.update);
+router.put('/:compId', isAuthenticated, compositionsCtrl.update);
 router.delete('/:compId', isAuthenticated, compositionsCtrl.deleteComposition);
 
 

@@ -24,9 +24,11 @@ export function create(infoFromTheForm){
 export function update(compId, infoFromTheForm){
 	return fetch(`${BASE_URL}/${compId}`, {
 		method: 'PUT',
-		body: infoFromTheForm,
+		body: JSON.stringify(infoFromTheForm),
 		headers: {
-			'Authorization': 'Bearer ' + tokenService.getToken()
+			'Authorization': 'Bearer ' + tokenService.getToken(),
+			'Content-Type': 'application/json',
+			'Accept': 'application/json'
 		}
 	}).then(res => {
 		if (res.ok) return res.json()

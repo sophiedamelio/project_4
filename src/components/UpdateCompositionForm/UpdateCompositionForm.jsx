@@ -27,21 +27,12 @@ export default function UpdateCompositionForm(props) {
 
 	function handleSubmit(e) {
 		e.preventDefault()
+		props.handleUpdateComposition(state)
 
-		const infoFromTheForm = new FormData()
-		console.log(state, "<--- state in handlesubmit update comp")
+		//console.log(state, "<--- state in update comp") // this is correct
 
-		infoFromTheForm.append('_id', state._id)
-		infoFromTheForm.append('photo', selectedFile);
-		infoFromTheForm.append('title', state.title);
-		infoFromTheForm.append('text', state.text);
-		infoFromTheForm.append('notes', state.notes);
-
-		//console.log(infoFromTheForm, "<--- state in thre update form") // this is the proper state, updated
-
-		props.handleUpdateComposition(infoFromTheForm)
-		// update state here as well, this should be re-rendering I believe
-		setState({ ...state, infoFromTheForm })
+		// update state here as well? this should be re-rendering I believe
+		//setState({ ...state })
 
 	}
 
@@ -59,9 +50,7 @@ export default function UpdateCompositionForm(props) {
 							<Form autoComplete="off" onSubmit={handleSubmit}>
 								<Form.Input id="form-input" placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
 								<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
-								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />
-								<Form.Input id="form-input" placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
-								<button type="submit" className="btn">
+								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />								<button type="submit" className="btn">
 									Update Composition
 								</button>
 							</Form>

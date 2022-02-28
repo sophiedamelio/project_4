@@ -25,7 +25,7 @@ export default function SignUpPage(props) {
     passwordConf: '',
     bio: '',
   })
-  const [selectedFile, setSelectedFile] = useState('')
+  //const [selectedFile, setSelectedFile] = useState('')
   const navigate = useNavigate() // declaring variable for ease of use
 
   function handleChange(e) {
@@ -37,26 +37,29 @@ export default function SignUpPage(props) {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const formData = new FormData()
-    formData.append('photo', selectedFile);
 
-    for (let key in state) {
-      formData.append(key, state[key])
-    }
+    //const formData = new FormData()
 
+    //for (let key in state) {
+    //  formData.append(key, state[key])
+    //}
+
+    //console.log(state, "<-- state in signup")
     try {
-      await userService.signup(formData)
+      await userService.signup(state)
+
       props.handleSignUpOrLogin()
+
       navigate('/')
     } catch (err) {
       setError(err.message)
     }
   }
 
-  function handleFileInput(e) {
-    console.log(e.target.files, "<----- e.target.files")
-    setSelectedFile(e.target.files[0])
-  }
+  //function handleFileInput(e) {
+  //  console.log(e.target.files, "<----- e.target.files")
+  //  setSelectedFile(e.target.files[0])
+  //}
 
   return (
     <div class="whole-page">
@@ -102,16 +105,6 @@ export default function SignUpPage(props) {
               id="form-input"
               required
             />
-            <Form.Field>
-              <Form.Input
-                type="file"
-                name="photo"
-                placeholder="upload image"
-                onChange={handleFileInput}
-                id="form-input"
-                required
-              />
-            </Form.Field>
             <Form.TextArea
               label="bio"
               name="bio"
@@ -122,6 +115,7 @@ export default function SignUpPage(props) {
             <button type="submit" class="submitButton">
               Signup
             </button>
+            <a href="/login"><button>Login  link</button></a>
             {error ? <ErrorMessage error={error} /> : null}
           </Form>
         </Grid.Column>

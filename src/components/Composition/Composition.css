@@ -45,7 +45,7 @@ p {
 #title {
 	font-family: var(--body-ft);
 	padding: 5vh;
-	padding-bottom: 0vh;
+	padding-bottom: 2vh;
 	color: white;
 }
 

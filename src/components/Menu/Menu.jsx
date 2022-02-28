@@ -10,6 +10,7 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 
 	const [error, setError] = useState('')
 	const [open, setOpen] = useState(false)
+	const [state, setState] = useState('')
 
 	// should the re-render be happening here ?
 	// to update the view for Comp Button and for Composition
@@ -17,7 +18,21 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 	//	getCompositions()
 	//}, [])
 
+	//selectComposition(selectedComposition)
+
+
 	//console.log("log from menu on reload?")
+
+	//function getComps() {
+	//	console.log("getcomps invoked")
+	//	getCompositions()
+
+	//	let newSelectedComposition = compositions.filter(composition => selectedComposition._id === composition._id)
+	//	setState({ newSelectedComposition })
+	//}
+
+	//selectComposition(selectedComposition)
+
 
 	return (
 		<div className="whole-page">
@@ -25,7 +40,8 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 				<Grid.Row>
 					<Grid.Column width="4">
 						<div id="menu-content">
-							<h1 id="home-title">my Songs</h1>
+							<h1 id="home-title">my songs</h1>
+							<button onClick={getCompositions}>get 'em</button>
 							{compositions ?
 								<>
 									<ul id="menu-list">
@@ -52,14 +68,14 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 								<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 									<AddCompositionForm handleAddComposition={handleAddComposition}></AddCompositionForm>
 									<Modal.Actions>
-										<button content="Close Create Mode" id="close-modal-btn" onClick={() => setOpen(false)} >Close Create Mode</button>
+										<button content="Close Create Mode" id="close-modal-btn" onClick={() => { setOpen(false); }} >Close Create Mode</button>
 									</Modal.Actions>
 								</Modal.Content>
 							</Modal>
 						</div>
 					</Grid.Column>
 					<Grid.Column width="12">
-						<Composition stopPageScroll={stopPageScroll} startPageScroll={startPageScroll} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
+						<Composition stopPageScroll={stopPageScroll} startPageScroll={startPageScroll} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} getCompositions={getCompositions} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

@@ -9,6 +9,7 @@ import UpdateCompositionForm from '../UpdateCompositionForm/UpdateCompositionFor
 export default function Composition(props) {
 
 	const [open, setOpen] = useState(false)
+	const [state, setState] = useState('')
 
 	//const [, updateState] = useState()
 	//const forceUpdate = useCallback(() => updateState({}), [])
@@ -34,10 +35,20 @@ export default function Composition(props) {
 	//	//setOpen(false);
 	//}
 
+	//function getComps() {
+	//	console.log("getcomps invoked")
+	//	props.getCompositions()
+
+	//	let selectedComposition = props.compositions.filter(composition => props.selectedComposition._id === composition._id)
+	//	setState({ selectedComposition })
+	//}
+
+	//props.selectComposition(props.selectedComposition)
+
+
 	if (props.selectedComposition) {
 		return (
 			<div id="composition">
-				{/*<button onClick={forceUpdate}>reload</button>*/}
 				<Grid columns={2}>
 					<Grid.Column>
 						<Ref innerRef={contextRef}>
@@ -46,6 +57,7 @@ export default function Composition(props) {
 									<div key={props.selectedComposition._id}>
 										<div id="comp-header">
 											<span><h3 id="title">{props.selectedComposition.title}</h3></span>
+											<button onClick={props.getCompositions}>get 'em</button>
 										</div>
 										{props.selectedComposition.capo ? <p>Capo: {props.selectedComposition.capo}</p> : null}
 										<p>{props.selectedComposition.text}</p>
@@ -63,7 +75,7 @@ export default function Composition(props) {
 											<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 												<UpdateCompositionForm {...props}></UpdateCompositionForm>
 												<Modal.Actions>
-													<button content="Close Update Mode" id="close-modal-btn" onClick={() => { setOpen(false) }}>Close Update Mode</button>
+													<button content="Close Update Mode" id="close-modal-btn" onClick={() => { setOpen(false); }}>Close Update Mode</button>
 												</Modal.Actions>
 											</Modal.Content>
 										</Modal>

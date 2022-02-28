@@ -38,6 +38,8 @@ export function update(compId, infoFromTheForm){
 
 
 export function getAll() {
+	console.log("get all invoked")
+	
 	return fetch(BASE_URL, {
 		headers: {
 		'Authorization': 'Bearer ' + tokenService.getToken()

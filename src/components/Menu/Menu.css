@@ -19,7 +19,7 @@ font-family: 'Major Mono Display', monospace;*/
 
 #home-title {
 	color: white;
-	font-family: var(--header-ft);
+	font-family: var(--body-ft);
 	text-align: center;
 }
 

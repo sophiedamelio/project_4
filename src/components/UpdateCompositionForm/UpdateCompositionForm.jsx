@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useReducer } from 'react'
 import { Form, Grid, Segment } from 'semantic-ui-react';
+
+import { getAll } from "../../utils/compositionApi"
+
 import "./UpdateCompositionForm.css"
 
 export default function UpdateCompositionForm(props) {
@@ -14,6 +17,7 @@ export default function UpdateCompositionForm(props) {
 		notes: props.selectedComposition.notes
 	})
 
+	//const [selectedComposition, setSelectedComposition] = useState('')
 
 	function handleChange(e) {
 		setState({
@@ -26,6 +30,20 @@ export default function UpdateCompositionForm(props) {
 		e.preventDefault()
 		props.handleUpdateComposition(state)
 
+		// set selected composition gain, here
+		// filter array of comps, for the one that matches props.selected._id === 
+		// return array with one object in it
+		// select that one and set state to equal that one we found
+
+		let selectedComposition = props.compositions.filter(composition => props.selectedComposition._id === composition._id)
+
+		//console.log(state._id, "<--- selectedComposition")
+		//console.log(props.selectedComposition._id, "<--- selectedComposition")
+		//console.log(selectedComposition, "<--- selectedCOMPPPP")
+
+		//setState({ selectedComposition })
+		props.getCompositions()
+
 		//console.log(state, "<--- state in update comp") // this is correct
 
 		// update state here as well? this should be re-rendering I believe
@@ -33,10 +51,7 @@ export default function UpdateCompositionForm(props) {
 
 	}
 
-	//useEffect(() => {
-	//	props.selectComposition(props.selectedComposition)
-	//}, [])
-
+	props.selectComposition(props.selectedComposition)
 
 	return (
 		<>

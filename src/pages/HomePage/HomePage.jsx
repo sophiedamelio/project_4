@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useReducer } from "react";
 import PageHeader from "../../components/Header/Header"
 import Menu from "../../components/Menu/Menu"
 import * as compositionApi from "../../utils/compositionApi";
 import { Grid } from "semantic-ui-react";
 
 import "./HomePage.css"
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage({ user, handleLogout, }) {
 	const [compositions, setCompositions] = useState([])
 	const [error, setError] = useState('')
+
+	const navigate = useNavigate()
 
 	// this is to set up my default composition
 	const firstComposition = compositions[0];
@@ -32,6 +35,15 @@ export default function HomePage({ user, handleLogout, }) {
 		setSelectedComposition(composition) // comp that was clicked on
 	}
 
+	// reload stuff ------------------------------
+	const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+
+	function reload() {
+		forceUpdate();
+		console.log("reload invoked")
+	}
+
+
 	async function handleUpdateComposition(infoFromTheForm) {
 		try {
 			const data = await compositionApi.update(selectedComposition._id, infoFromTheForm);
@@ -42,10 +54,13 @@ export default function HomePage({ user, handleLogout, }) {
 			let unchangedCompositions = (compositions.filter((comp) => comp._id !== selectedComposition._id))
 			//console.log(unchangedCompositions, "<--- unchanged comps in update in home") // this works
 
+			// this line should trigger re-render?
 			setCompositions([data, ...unchangedCompositions]);
 
 			//compositions are being set properly, just need to re-render now
 			console.log(compositions, "<--- compositions in the handle update, homepage")
+
+			//reload()
 
 			// why doesn't this line work to re-render?
 			//setSelectedComposition(selectedComposition);

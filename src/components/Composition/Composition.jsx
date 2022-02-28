@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react';
+import React, { useState, createRef, useReducer, useEffect } from 'react';
 import { Modal, Rail, Ref, Segment, Sticky, Grid } from 'semantic-ui-react';
 import "./Composition.css";
 import _ from 'lodash'
@@ -17,19 +17,18 @@ export default function Composition(props) {
 	// onclick of start button set to true, vice versa
 	// when scroll = false call stopScroll(), vice versa
 
-
 	// or if keep like this, the startscroll() needs to be stopped somehow
 	// currently stopScroll() never gets hit (return statement?)
 	const contextRef = createRef()
 
-	if (props.selectedComposition) {
 
+	if (props.selectedComposition) {
 		return (
 			<div id="composition">
 				<Grid columns={2}>
 					<Grid.Column>
 						<Ref innerRef={contextRef}>
-							<Segment style={{ backgroundColor: '#3a3b42', border: 'none' }}>
+							<Segment id="segment-composition" style={{ backgroundColor: '#3a3b42', border: 'none' }}>
 								{_.times(1, (i) => (
 									<>
 										<div id="comp-header">
@@ -47,7 +46,7 @@ export default function Composition(props) {
 											<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 												<UpdateCompositionForm {...props}></UpdateCompositionForm>
 												<Modal.Actions>
-													<button content="Close Update Mode" id="close-modal-btn" onClick={() => setOpen(false)} >Close Update Mode</button>
+													<button content="Close Update Mode" id="close-modal-btn" onClick={() => { setOpen(false) }}>Close Update Mode</button>
 												</Modal.Actions>
 											</Modal.Content>
 										</Modal>

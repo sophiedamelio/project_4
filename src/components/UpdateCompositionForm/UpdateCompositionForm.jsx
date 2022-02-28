@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 import { Form, Grid, Segment } from 'semantic-ui-react';
 import "./UpdateCompositionForm.css"
 
 export default function UpdateCompositionForm(props) {
+
+	console.log(props, "<--- props in update form")
 
 	const [selectedFile, setSelectedFile] = useState('')
 	const [state, setState] = useState({
@@ -42,6 +44,10 @@ export default function UpdateCompositionForm(props) {
 		setState({ ...state, infoFromTheForm })
 
 	}
+
+	//useEffect(() => {
+	//	props.selectComposition(props.selectedComposition)
+	//}, [])
 
 
 	return (

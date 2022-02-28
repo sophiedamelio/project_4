@@ -5,16 +5,16 @@ import "./CompositionForm.css"
 
 export default function AddCompositionForm(props) {
 
-	const [selectedFile, setSelectedFile] = useState('')
+	//const [selectedFile, setSelectedFile] = useState('')
 	const [state, setState] = useState({
 		title: '',
 		text: '',
 		notes: ''
 	})
 
-	function handleFileInput(e) {
-		setSelectedFile(e.target.files[0])
-	}
+	//function handleFileInput(e) {
+	//	setSelectedFile(e.target.files[0])
+	//}
 
 	function handleChange(e) {
 		setState({
@@ -26,14 +26,9 @@ export default function AddCompositionForm(props) {
 	function handleSubmit(e) {
 		e.preventDefault()
 
-		const formData = new FormData()
+		console.log(state, "<---- state in add comp form") // this is correct
 
-		formData.append('photo', selectedFile);
-		formData.append('title', state.title);
-		formData.append('text', state.text);
-		formData.append('notes', state.notes);
-
-		props.handleAddComposition(formData)
+		props.handleAddComposition(state)
 	}
 
 	console.log(state, "<-- state in comp form")
@@ -47,7 +42,7 @@ export default function AddCompositionForm(props) {
 							<Form.Input id="form-input" placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
 							<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
 							<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} required />
-							<Form.Input id="form-input" placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />
+							{/*<Form.Input id="form-input" placeholder="Upload Image" type="file" className="form-control" name="photo" onChange={handleFileInput} required />*/}
 							<button type="submit" className="btn">
 								Add composition
 							</button>

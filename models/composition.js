@@ -4,7 +4,6 @@ const compositionSchema = new mongoose.Schema({
 	user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 	title: String,
 	text: String,
-	photoUrl: String,
 	notes: String
 }, {
 	timestamps: true

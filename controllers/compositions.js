@@ -13,33 +13,39 @@ module.exports = {
 	deleteComposition
 }
 
-function create(req, res) {
+async function create(req, res) {
 	
-	console.log(req.file, "<--- req.file")
-	console.log(req.body.title, "<--- req.body in the vcreate ctrl")
+	//console.log(req.file, "<--- req.file")
+	//console.log(req.body.title, "<--- req.body in the vcreate ctrl")
 
-	const filePath = `${uuidv4()}${req.file.originalname}`;
-	const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
+	//const filePath = `${uuidv4()}${req.file.originalname}`;
+	//const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
 
-	s3.upload(params, async function(err, data) {
-		if(err) return res.status(400).json({err})
+	//s3.upload(params, async function(err, data) {
+	//	if(err) return res.status(400).json({err})
+
 
 		try {
 			let composition = await Composition.create({
-				title: req.body.title,
 				user: req.user,
+				title: req.body.title,
 				text: req.body.text,
-				photoUrl: data.Location,
 				notes: req.body.notes
 			})
 			composition = await composition.populate('user')
+			//composition = await composition.populate('title')
+			//composition = await composition.populate('text')
+			//composition = await composition.populate('notes')
 
-			res.status(201).json({composition})
+
+			console.log(req.body, "<--- req.body") // req.body is empty right now
+
+			res.status(201).json({composition: composition})
 		} catch(err){
 			console.log(err, "Error (create ctrl)")
 			res.status(400).json({err})
 		}
-	})
+	//})
 }
 
 

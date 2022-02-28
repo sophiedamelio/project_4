@@ -8,9 +8,11 @@ export function create(infoFromTheForm){
 		method: 'POST',
 		// We are sending over a picture
 		// multipart/form-data < - is the content type
-		body: infoFromTheForm, // <- postInfoFromTheForm has to be formData
+		body: JSON.stringify(infoFromTheForm), // <- postInfoFromTheForm has to be formData
 		headers: {
-			'Authorization': 'Bearer ' + tokenService.getToken()
+			'Authorization': 'Bearer ' + tokenService.getToken(),
+			'Content-Type': 'application/json',
+			'Accept': 'application/json'
 		}
 	}).then(res => {
 		// Valid login if we have a status of 2xx (res.ok)

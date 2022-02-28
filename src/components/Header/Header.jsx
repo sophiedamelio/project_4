@@ -10,7 +10,7 @@ export default function PageHeader({ user, handleLogout }) {
 			<Header as="h3" floated="left">
 				<span id="logo">
 					<Link to="/">
-						<Image src={"https://i.imgur.com/n5Uns60.png"} size="small"></Image>
+						<Image src={"https://i.imgur.com/EmG6mZk.jpg"} size="medium"></Image>
 					</Link>
 				</span>
 			</Header>

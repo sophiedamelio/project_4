@@ -47,7 +47,9 @@ export default function Composition(props) {
 										<div id="comp-header">
 											<span><h3 id="title">{props.selectedComposition.title}</h3></span>
 										</div>
+										{props.selectedComposition.capo ? <p>Capo: {props.selectedComposition.capo}</p> : null}
 										<p>{props.selectedComposition.text}</p>
+
 										{props.selectedComposition.notes ?
 											<p id="notes"><span id="notes-label">notes: <br></br></span>{props.selectedComposition.notes}</p>
 											: null}

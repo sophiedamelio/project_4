@@ -13,6 +13,7 @@ async function create(req, res) {
 		let composition = await Composition.create({
 			user: req.user,
 			title: req.body.title,
+			capo: req.body.capo,
 			text: req.body.text,
 			notes: req.body.notes
 		})
@@ -33,8 +34,9 @@ async function update(req, res){
 	try {
 		const updatedComposition = await Composition.findByIdAndUpdate(
 			req.body._id, {
-			title: req.body.title,
 			user: req.user,
+			title: req.body.title,
+			capo: req.body.capo,
 			text: req.body.text,
 			notes: req.body.notes
 		}).exec()

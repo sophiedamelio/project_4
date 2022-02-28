@@ -6,17 +6,14 @@ export default function UpdateCompositionForm(props) {
 
 	console.log(props, "<--- props in update form")
 
-	const [selectedFile, setSelectedFile] = useState('')
 	const [state, setState] = useState({
 		_id: props.selectedComposition._id,
 		title: props.selectedComposition.title,
+		capo: props.selectedComposition.capo,
 		text: props.selectedComposition.text,
 		notes: props.selectedComposition.notes
 	})
 
-	function handleFileInput(e) {
-		setSelectedFile(e.target.files[0])
-	}
 
 	function handleChange(e) {
 		setState({
@@ -49,6 +46,7 @@ export default function UpdateCompositionForm(props) {
 						<Segment style={{ backgroundColor: "#3a3b42", border: "none" }}>
 							<Form autoComplete="off" onSubmit={handleSubmit}>
 								<Form.Input id="form-input" placeholder="Title" className="form-control" name="title" value={state.title} onChange={handleChange} required />
+								<Form.Input id="form-input" placeholder="Capo" className="form-control" name="capo" value={state.capo} onChange={handleChange} />
 								<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
 								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} />
 								<button type="submit" className="btn">

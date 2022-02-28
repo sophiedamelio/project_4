@@ -1,4 +1,4 @@
-import React, { useState, createRef, useReducer, useEffect, useCallback } from 'react';
+import React, { useState, createRef } from 'react';
 import { Modal, Rail, Ref, Segment, Sticky, Grid } from 'semantic-ui-react';
 import "./Composition.css";
 import _ from 'lodash'
@@ -9,12 +9,6 @@ import UpdateCompositionForm from '../UpdateCompositionForm/UpdateCompositionFor
 export default function Composition(props) {
 
 	const [open, setOpen] = useState(false)
-	const [state, setState] = useState('')
-
-	//const [, updateState] = useState()
-	//const forceUpdate = useCallback(() => updateState({}), [])
-
-
 
 	console.log(props, "<--- props in composition component")
 
@@ -28,41 +22,11 @@ export default function Composition(props) {
 	const contextRef = createRef()
 
 
-	// the idea here is that this 'simulates' state change, should trigger re-render
-	//function reload() {
-	//	console.log("reload invoked")
-	//	forceUpdate()
-	//	//setOpen(false);
-	//}
-
-	//function getComps() {
-	//	console.log("getcomps invoked")
-	//	props.getCompositions()
-
-	//	let selectedComposition = props.compositions.filter(composition => props.selectedComposition._id === composition._id)
-	//	setState({ selectedComposition })
-	//}
-
-	function getComps() {
-		//props.selectComposition(props.selectedComposition)
-		console.log("getcomps invoked")
-		props.getCompositions()
-	}
-
-	//useEffect(() => {
-	//	props.getCompositions()
-	//}, [])
-
-	// selected comp needs to be updated / state needs to be set to the updated v
-
-
-
 	if (props.selectedComposition) {
 		return (
 			<div id="composition">
 				<Grid columns={2}>
 					<Grid.Column>
-						<button onClick={() => { props.getCompositions(); }}>get 'em</button>
 						<Ref innerRef={contextRef}>
 							<Segment id="segment-composition" style={{ backgroundColor: '#3a3b42', border: 'none' }}>
 								{_.times(1, (i) => (

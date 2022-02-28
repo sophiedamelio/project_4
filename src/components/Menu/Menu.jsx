@@ -44,7 +44,6 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 					<Grid.Column width="4">
 						<div id="menu-content">
 							<h1 id="home-title">my songs</h1>
-							{/*<button onClick={getCompositions}>get 'em</button>*/}
 							{compositions ?
 								<>
 									<ul id="menu-list">
@@ -71,7 +70,6 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 								<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 									<AddCompositionForm handleAddComposition={handleAddComposition}></AddCompositionForm>
 									<Modal.Actions>
-										{/* compositions (comp that matches selected one) set to ===  */}
 										<button content="Close Create Mode" id="close-modal-btn" onClick={() => { setOpen(false); }} >Close Create Mode</button>
 									</Modal.Actions>
 								</Modal.Content>
@@ -79,7 +77,6 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 						</div>
 					</Grid.Column>
 					<Grid.Column width="12">
-						{/*<button onClick={getCompositions}>get 'em</button>*/}
 						<Composition stopPageScroll={stopPageScroll} startPageScroll={startPageScroll} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} getCompositions={getCompositions} />
 					</Grid.Column>
 				</Grid.Row>

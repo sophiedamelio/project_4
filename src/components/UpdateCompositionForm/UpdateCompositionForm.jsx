@@ -44,6 +44,7 @@ export default function UpdateCompositionForm(props) {
 
 		//props.setOpen(false)
 		props.getCompositions()
+		// the argument here maybe should be selectedComposiiton, not props.
 		props.selectComposition(props.selectedComposition)
 		props.setOpen(false) // just changed from props.selectedComposition
 

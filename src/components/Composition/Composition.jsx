@@ -21,6 +21,7 @@ export default function Composition(props) {
 	// currently stopScroll() never gets hit (return statement?)
 	const contextRef = createRef()
 
+	// this creates a default selected composition, if there are compositions
 	if (!props.selectedComposition && props.compositions) {
 		props.selectComposition(props.compositions[0])
 	}

@@ -48,16 +48,10 @@ export default function Composition(props) {
 											onClose={() => setOpen(false)}
 											onOpen={() => setOpen(true)}
 											open={open}
-											//as={Form}
-											//onSubmit={e => props.handleUpdateComposition(e)}
-											//closeOnDocumentClick={true}
 											trigger={<button id="edit-comp-btn">edit composition</button>}>
 											<Modal.Header style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>Edit - {props.selectedComposition.title}</Modal.Header>
 											<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 												<UpdateComposition setOpen={setOpen} {...props}></UpdateComposition>
-												<Modal.Actions>
-													{/*<button content="Close Update Mode" id="close-modal-btn" onClick={() => { setOpen(false); props.getCompositions(); props.selectComposition(props.selectedComposition); }}>Close Update Mode</button>*/}
-												</Modal.Actions>
 											</Modal.Content>
 										</Modal>
 										{/* I use .bind so that I can pass an argument into the handleDeleteComposition function inline */}

@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useState } from 'react'
 import { Form, Grid, Segment } from 'semantic-ui-react';
 
-import { getAll } from "../../utils/compositionApi"
 
 import "./UpdateCompositionForm.css"
 
 export default function UpdateCompositionForm(props) {
-
-	console.log(props, "<--- props in update form")
 
 	const [state, setState] = useState({
 		_id: props.selectedComposition._id,
@@ -16,8 +13,6 @@ export default function UpdateCompositionForm(props) {
 		text: props.selectedComposition.text,
 		notes: props.selectedComposition.notes
 	})
-
-	//const [selectedComposition, setSelectedComposition] = useState('')
 
 	function handleChange(e) {
 		setState({
@@ -30,36 +25,14 @@ export default function UpdateCompositionForm(props) {
 		e.preventDefault()
 		props.handleUpdateComposition(state)
 
-		// set selected composition gain, here
-		// filter array of comps, for the one that matches props.selected._id === 
-		// return array with one object in it
-		// select that one and set state to equal that one we found
-
-		let selectedComposition = props.compositions.filter(composition => props.selectedComposition._id === composition._id)
-
-		//console.log(state._id, "<--- selectedComposition")
-		//console.log(props.selectedComposition._id, "<--- selectedComposition")
-		//console.log(selectedComposition, "<--- selectedCOMPPPP")
-		//setState({ selectedComposition })
-
-		//props.setOpen(false)
-
-		// the argument here maybe should be selectedComposiiton, not props.
-		//props.selectComposition(props.selectedCompsition)
-
+		// add in notes to explain this
 		props.getCompositions()
-
 		props.selectComposition(state)
-
-		props.setOpen(false) // just changed from props.selectedComposition
-
+		props.setOpen(false)
 		props.getCompositions()
-		//console.log(state, "<--- state in update comp") // this is correct
-		// update state here as well? this should be re-rendering I believe
-		//setState({ ...state })
+
 	}
 
-	//props.selectComposition(props.selectedComposition)
 
 	return (
 		<>
@@ -72,8 +45,7 @@ export default function UpdateCompositionForm(props) {
 								<Form.Input id="form-input" placeholder="Capo" className="form-control" name="capo" value={state.capo} onChange={handleChange} />
 								<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
 								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} />
-								<button type="submit" className="btn" >
-									{/*onClick={() => { props.getCompositions(); props.selectComposition(state); */}
+								<button type="submit" className="btn">
 									Update Composition
 								</button>
 							</Form>

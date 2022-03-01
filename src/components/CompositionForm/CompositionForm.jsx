@@ -24,6 +24,7 @@ export default function AddCompositionForm(props) {
 		//console.log(state, "<---- state in add comp form") // this is correct
 		props.selectComposition(state)
 		props.handleAddComposition(state)
+		props.setOpen(false)
 	}
 
 	console.log(state, "<-- state in comp form")

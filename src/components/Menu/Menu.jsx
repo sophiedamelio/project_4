@@ -46,7 +46,7 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 								<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 									<AddCompositionForm setOpen={setOpen} selectComposition={selectComposition} handleAddComposition={handleAddComposition}></AddCompositionForm>
 									<Modal.Actions>
-										<button content="Close Create Mode" id="close-modal-btn" onClick={() => { setOpen(false); }} >Close Create Mode</button>
+										{/*<button content="Close Create Mode" id="close-modal-btn" onClick={() => { setOpen(false); }} >Close Create Mode</button>*/}
 									</Modal.Actions>
 								</Modal.Content>
 							</Modal>

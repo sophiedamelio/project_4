@@ -40,18 +40,16 @@ export default function UpdateCompositionForm(props) {
 		//console.log(state._id, "<--- selectedComposition")
 		//console.log(props.selectedComposition._id, "<--- selectedComposition")
 		//console.log(selectedComposition, "<--- selectedCOMPPPP")
-
 		//setState({ selectedComposition })
+
+		//props.setOpen(false)
 		props.getCompositions()
 		props.selectComposition(props.selectedComposition)
-
-		props.setOpen(false)
+		props.setOpen(false) // just changed from props.selectedComposition
 
 		//console.log(state, "<--- state in update comp") // this is correct
-
 		// update state here as well? this should be re-rendering I believe
 		//setState({ ...state })
-
 	}
 
 	//props.selectComposition(props.selectedComposition)

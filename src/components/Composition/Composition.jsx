@@ -88,8 +88,14 @@ export default function Composition(props) {
 									<Rail position="right">
 										<Sticky context={contextRef}>
 											<button id="start-scroll-button" onClick={scroll}>
-												{paused === true ? <Icon name="play"></Icon> : <Icon name="pause"></Icon>}												auto-scroll
+												<Icon name="play"></Icon>
+												auto-scroll
 											</button>
+											<button id="stop-scroll-button" onClick={scroll}>
+												<Icon name="pause"></Icon>
+												pause auto-scroll
+											</button>
+
 										</Sticky>
 									</Rail>
 								</Grid.Column>

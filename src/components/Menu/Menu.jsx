@@ -44,7 +44,7 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 								trigger={<button id="add-comp-btn">Add composition</button>}>
 								<Modal.Header className="modal-header" style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>add a Composition</Modal.Header>
 								<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
-									<AddCompositionForm selectComposition={selectComposition} handleAddComposition={handleAddComposition}></AddCompositionForm>
+									<AddCompositionForm setOpen={setOpen} selectComposition={selectComposition} handleAddComposition={handleAddComposition}></AddCompositionForm>
 									<Modal.Actions>
 										<button content="Close Create Mode" id="close-modal-btn" onClick={() => { setOpen(false); }} >Close Create Mode</button>
 									</Modal.Actions>

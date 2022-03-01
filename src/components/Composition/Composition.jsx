@@ -1,9 +1,9 @@
-import React, { useState, createRef, useEffect } from 'react';
-import { Modal, Rail, Ref, Segment, Sticky, Grid } from 'semantic-ui-react';
+import React, { useState, createRef } from 'react';
+import { Modal, Rail, Ref, Segment, Sticky, Grid, Form } from 'semantic-ui-react';
 import "./Composition.css";
 import _ from 'lodash'
 
-import UpdateCompositionForm from '../UpdateCompositionForm/UpdateCompositionForm';
+import UpdateComposition from '../UpdateCompositionForm/UpdateCompositionForm';
 
 
 export default function Composition(props) {
@@ -39,7 +39,6 @@ export default function Composition(props) {
 										</div>
 										{props.selectedComposition.capo ? <p>Capo: {props.selectedComposition.capo}</p> : null}
 										<p>{props.selectedComposition.text}</p>
-
 										{props.selectedComposition.notes ?
 											<p id="notes"><span id="notes-label">notes: <br></br></span>{props.selectedComposition.notes}</p>
 											: null}
@@ -48,12 +47,15 @@ export default function Composition(props) {
 											onClose={() => setOpen(false)}
 											onOpen={() => setOpen(true)}
 											open={open}
+											//as={Form}
+											//onSubmit={e => props.handleUpdateComposition(e)}
+											closeOnDocumentClick={true}
 											trigger={<button id="edit-comp-btn">edit composition</button>}>
 											<Modal.Header style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>Edit - {props.selectedComposition.title}</Modal.Header>
 											<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
-												<UpdateCompositionForm {...props}></UpdateCompositionForm>
+												<UpdateComposition setOpen={setOpen} {...props}></UpdateComposition>
 												<Modal.Actions>
-													<button content="Close Update Mode" id="close-modal-btn" onClick={() => { setOpen(false); props.getCompositions(); props.selectComposition(props.selectedComposition); }}>Close Update Mode</button>
+													{/*<button content="Close Update Mode" id="close-modal-btn" onClick={() => { setOpen(false); props.getCompositions(); props.selectComposition(props.selectedComposition); }}>Close Update Mode</button>*/}
 												</Modal.Actions>
 											</Modal.Content>
 										</Modal>

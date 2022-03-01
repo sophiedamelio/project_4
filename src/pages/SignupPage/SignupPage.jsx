@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
-import "./SignupPage.css"
-
-import userService from "../../utils/userService";
-import {
-  Form,
-  Grid,
-  Header,
-  Icon,
-  Image
-} from "semantic-ui-react";
 import { useNavigate, Link } from "react-router-dom";
+import { Form, Grid, Header, Icon, Image } from "semantic-ui-react";
+
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
+import userService from "../../utils/userService";
+
+import "./SignupPage.css"
 
 export default function SignUpPage(props) {
   console.log(props, "<---- props on signup ")
@@ -23,7 +18,7 @@ export default function SignUpPage(props) {
     passwordConf: '',
     bio: '',
   })
-  //const [selectedFile, setSelectedFile] = useState('')
+
   const navigate = useNavigate() // declaring variable for ease of use
 
   function handleChange(e) {
@@ -35,29 +30,14 @@ export default function SignUpPage(props) {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
-    //const formData = new FormData()
-
-    //for (let key in state) {
-    //  formData.append(key, state[key])
-    //}
-
-    //console.log(state, "<-- state in signup")
     try {
       await userService.signup(state)
-
       props.handleSignUpOrLogin()
-
       navigate('/')
     } catch (err) {
       setError(err.message)
     }
   }
-
-  //function handleFileInput(e) {
-  //  console.log(e.target.files, "<----- e.target.files")
-  //  setSelectedFile(e.target.files[0])
-  //}
 
   return (
     <div class="whole-page">

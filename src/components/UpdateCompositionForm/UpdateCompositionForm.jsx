@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Form, Grid, Segment } from 'semantic-ui-react';
 
-
 import "./UpdateCompositionForm.css"
 
 export default function UpdateCompositionForm(props) {

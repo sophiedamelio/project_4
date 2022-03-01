@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import "./App.css";
+
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import HomePage from "../HomePage/HomePage";
+
+import "./App.css";
 
 function App() {
   const [user, setUser] = useState(userService.getUser()); // getUser decodes our JWT token, into a javascript object

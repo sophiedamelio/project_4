@@ -1,33 +1,17 @@
-import React, { useEffect, useState, useCallback } from "react";
-import PageHeader from "../../components/Header/Header"
-import Menu from "../../components/Menu/Menu"
-import * as compositionApi from "../../utils/compositionApi";
+import React, { useEffect, useState } from "react";
 import { Grid } from "semantic-ui-react";
 
+import * as compositionApi from "../../utils/compositionApi";
+import PageHeader from "../../components/Header/Header"
+import Menu from "../../components/Menu/Menu"
+
 import "./HomePage.css"
-import { useNavigate } from "react-router-dom";
 
 export default function HomePage({ user, handleLogout, }) {
 	const [compositions, setCompositions] = useState([])
 	const [error, setError] = useState('')
 
-	const navigate = useNavigate()
-
-	// this is to set up my default composition
-	const firstComposition = compositions[0];
-	console.log(firstComposition, "<--- first comp")
-
 	const [selectedComposition, setSelectedComposition] = useState('')
-	//_id: firstComposition._id,
-	//user: firstComposition.user,
-	//title: firstComposition.title,
-	//capo: firstComposition.capo,
-	//text: firstComposition.text,
-	//notes: firstComposition.notes
-	//compositions[0]
-	//}
-
-	console.log(selectedComposition, "<--- initial selected comp")
 
 
 	function startPageScroll() {
@@ -50,19 +34,9 @@ export default function HomePage({ user, handleLogout, }) {
 	async function handleUpdateComposition(infoFromTheForm) {
 		try {
 			const data = await compositionApi.update(selectedComposition._id, infoFromTheForm);
-
 			// this line filters all the 'unchanged' compositions into a new array
 			let unchangedCompositions = (compositions.filter((comp) => comp._id !== selectedComposition._id))
-
-			// this line should trigger re-render?
 			setCompositions([data, ...unchangedCompositions]);
-
-			//compositions are being set properly, just need to re-render now
-			//console.log(compositions, "<--- compositions in the handle update, homepage")
-
-			// why doesn't this line work to re-render?
-			//setSelectedComposition(selectedComposition);
-
 		} catch (err) {
 			setError(err.messgae);
 		}
@@ -81,10 +55,9 @@ export default function HomePage({ user, handleLogout, }) {
 	async function handleAddComposition(composition) {
 		try {
 			const data = await compositionApi.create(composition);
-			//console.log(data, "<--- this is the res form the server, in handle add comp")
-
 			setCompositions([data.composition, ...compositions]);
 		} catch (err) {
+			console.log(err.message, "<-- this is the error, from handleAppComposition")
 			setError(err.messgae);
 		}
 	}
@@ -95,7 +68,7 @@ export default function HomePage({ user, handleLogout, }) {
 			setCompositions([...data.compositions])
 
 		} catch (err) {
-			console.log(err.message, "<-- this is the error")
+			console.log(err.message, "<-- this is the error, from getCompositions")
 			setError(err.message)
 		}
 	}
@@ -103,13 +76,6 @@ export default function HomePage({ user, handleLogout, }) {
 	useEffect(() => {
 		getCompositions();
 	}, [])
-
-
-	// another attempt at forcing reload
-	//const [, updateState] = useState()
-	//const forceUpdate = useCallback(() => updateState({}), [])
-
-	//console.log("log from home on reload?")
 
 
 	return (
@@ -125,7 +91,6 @@ export default function HomePage({ user, handleLogout, }) {
 
 				<Grid.Row>
 					<Grid.Column >
-						{/*<button onClick={forceUpdate}>reload</button>*/}
 						<Menu stopPageScroll={stopPageScroll} startPageScroll={startPageScroll} compositions={compositions} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} getCompositions={getCompositions} handleAddComposition={handleAddComposition} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} />
 					</Grid.Column>
 				</Grid.Row>

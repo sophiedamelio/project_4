@@ -1,9 +1,10 @@
-//import AddComposition from "../AddComposition/AddComposition"
-import { useState, useCallback, useEffect } from "react"
+import { useState } from "react"
 import { Grid, Modal } from 'semantic-ui-react';
+
 import Composition from '../Composition/Composition';
 import CompositionButton from "../CompositionButton/CompositionButton"
 import AddCompositionForm from "../CompositionForm/CompositionForm";
+
 import "./Menu.css"
 
 export default function Menu({ user, stopPageScroll, startPageScroll, getCompositions, selectComposition, selectedComposition, handleAddComposition, compositions, handleUpdateComposition, handleDeleteComposition }) {
@@ -31,7 +32,6 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 									</ul>
 								</>
 								: null}
-
 							<Modal
 								style={{ borderRadius: "20px" }}
 								onClose={() => setOpen(false)}

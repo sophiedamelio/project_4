@@ -1,16 +1,11 @@
 import React, { useState } from "react";
-import "./LoginPage.css";
+import { useNavigate, Link } from "react-router-dom";
+import { Form, Grid, Header, Icon, Image } from "semantic-ui-react";
+
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import userService from "../../utils/userService";
-import { useNavigate, Link } from "react-router-dom";
-import {
-  Form,
-  Grid,
-  Header,
-  Icon,
-  Image
-} from "semantic-ui-react";
 
+import "./LoginPage.css";
 
 export default function LoginPage(props) {
   const [error, setError] = useState('');

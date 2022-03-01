@@ -52,11 +52,12 @@ export default function Composition(props) {
 		clearInterval(scrollerID);
 	}
 
-	const scrollButton = document.getElementById('start-scroll-button')
+	//const scrollButton = document.getElementById('start-scroll-button')
 
-	scrollButton.addEventListener('click', function (event) {
-		//if (event.which == 13 || event.keyCode == 13) {
-		// It's the 'Enter' key
+	//scrollButton.addEventListener('click', function (event) {
+	//if (event.which == 13 || event.keyCode == 13) {
+	// It's the 'Enter' key
+	function scroll() {
 		if (paused == true) {
 			scrollerID = startPageScroll();
 			paused = false;
@@ -65,8 +66,9 @@ export default function Composition(props) {
 			stopPageScroll();
 			paused = true;
 		}
-		//}
-	}, true);
+	}
+	//}
+	//}, true);
 
 	//============================================
 
@@ -119,7 +121,7 @@ export default function Composition(props) {
 								<Grid.Column>
 									<Rail position="right">
 										<Sticky context={contextRef}>
-											<button id="start-scroll-button" onClick={startPageScroll}>start auto-scroll</button>
+											<button id="start-scroll-button" onClick={scroll}>start auto-scroll</button>
 											<button id="stop-scroll-button" onClick={stopPageScroll}>stop auto-scroll</button>
 										</Sticky>
 									</Rail>

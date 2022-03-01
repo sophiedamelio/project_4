@@ -81,7 +81,7 @@ export default function Composition(props) {
 											</Modal.Content>
 										</Modal>
 										{/* I use .bind so that I can pass an argument into the handleDeleteComposition function inline */}
-										<button id="delete-comp-btn" onClick={props.handleDeleteComposition.bind(null, props.selectedComposition._id)}>delete Song</button>
+										<button id="delete-comp-btn" onClick={props.handleDeleteComposition.bind(null, props.selectedComposition._id)}>delete song</button>
 									</div>
 								</Grid.Column>
 								<Grid.Column>

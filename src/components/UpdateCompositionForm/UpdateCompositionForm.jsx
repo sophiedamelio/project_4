@@ -45,7 +45,7 @@ export default function UpdateCompositionForm(props) {
 								<Form.TextArea id="text-input" rows={20} placeholder="Text" className="form-control" name="text" value={state.text} onChange={handleChange} required />
 								<Form.Input id="form-input" placeholder="Notes" className="form-control" name="notes" value={state.notes} onChange={handleChange} />
 								<button type="submit" className="btn">
-									Update Composition
+									update song
 								</button>
 							</Form>
 						</Segment>

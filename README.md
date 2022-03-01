@@ -1,39 +1,51 @@
-## Setup 
+# songSpace
 
-1. Clone the repo
-2. Rename the folder to your Project, you can use the `mv` command like `mv mern-boilerplate yourprojectname`
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+This app serves as a hub for all the songs you want to play and practice. You can use it as a library for ease of access and paste in other folks' songs, or use it as a space to keep track of all the songs you have written yourself. You can add songs, edit songs, and select songs to display as you play along.
 
+----
 
-#### Setup your git repo
+screenshots here
 
-1. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-2.  Then follow the directions on github that says ```…or create a new repository on the command line```
+----
 
-it should look like this
+### The technologies we used to build this app are:
+- Node.js
+- Express
+- React
+- HTML/CSS
+- MongoDB
+- Semantic-ui-react
+- JWT for authentication
+- Heroku
 
-```
-git init
-git add .
-git commit -m "first commit"
-git remote add origin git@git.generalassemb.ly:SEI-CC/test.git // this will be whatever your address will be
-git push -u origin master
-```
+#### Planning, wireframes, ERD, and user stories are on [this Trello board](https://trello.com/b/oihGIH7K/p4)
+---
+### Getting started:
 
-#### Setup the App
+Once you click the link and launch the app you will be directed to a login page. If you would like to see a demo of the app, you can login with this information:
 
-```npm install```
+username: demo@demo.com
+password: demo
 
-*DOTENV*
+If you would like to personally use the app, you can click signup and create an account. 
 
-`touch .env`
+Once you are logged in, you can click on the song you wish to view from the menu on the left, and you will see the full song details displayed.
 
-add your variables
+### Launch the app and create your own songSpace: [here](https://songspace-app.herokuapp.com/)
 
-```
-DATABASE_URL=mongodb://localhost:27017/testagramV2
-BUCKET_NAME=catcollectorone
-SECRET=mysecretforjwt
-```
+----
 
-The app is configured, to use those respective key names for the database, jwt secret and aws bucket, of course you'll have your own values
+### Planned future enhancements:
+- AAU, I want to click button when viewing a composition, that will 'auto scroll' the page
+
+- AAU, I want click 'share' on a composition and be given options of links, etc to share outside of app
+
+- AAU, select 'current work' on a composition, that one is the default display on index (replacing the first composition as default. Only one 'current work' at a time)
+
+- AAU, I want to be able to add Tags on songs for what instrument they are with (guitar, ukulele, vocal/melody only, piano, bass, other)
+
+- AAU, when I add or update a song, have it scroll up to the top of the page
+
+- AAU, I want to see an about page, linked in the footer for both logged in and logged out views
+
+- AAU, have a toggle where I can change from 'dark mode' to 'light mode'

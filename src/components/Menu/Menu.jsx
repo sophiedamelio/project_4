@@ -12,35 +12,6 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 	const [open, setOpen] = useState(false)
 	const [state, setState] = useState('')
 
-	// should the re-render be happening here ?
-	// to update the view for Comp Button and for Composition
-	//useEffect(() => {
-	//	getCompositions()
-	//}, [])
-
-	//selectComposition(selectedComposition)
-
-
-	//console.log("log from menu on reload?")
-
-	//function getComps() {
-	//	console.log("getcomps invoked")
-	//	getCompositions()
-
-	//	let newSelectedComposition = compositions.filter(composition => selectedComposition._id === composition._id)
-	//	setState({ newSelectedComposition })
-	//}
-
-	//const firstComposition = compositions[0];
-	//console.log(firstComposition, "<--- first comp")
-	//selectComposition(firstComposition)
-	//setSelectedComposition(firstComposition);
-
-	//useEffect(() => {
-	//	selectComposition(firstComposition)
-	//}, [])
-
-	//console.log(selectedComposition, "<-- selected Comp")
 
 	return (
 		<div className="whole-page">
@@ -73,7 +44,7 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 								trigger={<button id="add-comp-btn">Add composition</button>}>
 								<Modal.Header className="modal-header" style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>add a Composition</Modal.Header>
 								<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
-									<AddCompositionForm handleAddComposition={handleAddComposition}></AddCompositionForm>
+									<AddCompositionForm selectComposition={selectComposition} handleAddComposition={handleAddComposition}></AddCompositionForm>
 									<Modal.Actions>
 										<button content="Close Create Mode" id="close-modal-btn" onClick={() => { setOpen(false); }} >Close Create Mode</button>
 									</Modal.Actions>

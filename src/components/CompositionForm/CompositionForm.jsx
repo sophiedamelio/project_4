@@ -22,6 +22,7 @@ export default function AddCompositionForm(props) {
 	function handleSubmit(e) {
 		e.preventDefault()
 		//console.log(state, "<---- state in add comp form") // this is correct
+		props.selectComposition(state)
 		props.handleAddComposition(state)
 	}
 

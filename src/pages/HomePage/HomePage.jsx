@@ -13,35 +13,6 @@ export default function HomePage({ user, handleLogout, }) {
 
 	const [selectedComposition, setSelectedComposition] = useState('')
 
-
-
-	//document.getElementById('').addEventListener('keypress', function (event) {
-	//	if (event.which == 13 || event.keyCode == 13) {
-	//		// It's the 'Enter' key
-	//		if (paused == true) {
-	//			scrollerID = startScroll();
-	//			paused = false;
-	//		}
-	//		else {
-	//			stopScroll();
-	//			paused = true;
-	//		}
-	//	}
-	//}, true);
-
-
-
-	//function startPageScroll() {
-	//	window.scrollBy(0, 1);
-	//	let scrolldelay = setTimeout(startPageScroll, 10);
-	//}
-
-	//function stopPageScroll() {
-	//	window.scrollBy(0, 0)
-	//	let scrolldelay = setTimeout(stopPageScroll, 10);
-	//	//window.onscroll
-	//}
-
 	// set selected composition state here, then send to composition component
 	function selectComposition(composition) {
 		setSelectedComposition(composition) // comp that was clicked on

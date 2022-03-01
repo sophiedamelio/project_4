@@ -1,5 +1,5 @@
 import React, { useState, createRef } from 'react';
-import { Modal, Rail, Ref, Segment, Sticky, Grid } from 'semantic-ui-react';
+import { Modal, Rail, Ref, Segment, Sticky, Grid, Icon } from 'semantic-ui-react';
 
 import UpdateComposition from '../UpdateCompositionForm/UpdateCompositionForm';
 
@@ -12,25 +12,6 @@ export default function Composition(props) {
 	console.log(props, "<--- props in composition component")
 
 	//============================================
-	//	let scrollerID;
-	//let paused = true;
-	//let speed = 2; // 1 - Fast | 2 - Medium | 3 - Slow
-	//let interval = speed * 5;
-
-	//function startScroll(){
-	//    let id = setInterval(function() {
-	//        window.scrollBy(0, 2);
-	//        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-	//            // Reached end of page
-	//            stopScroll();
-	//        }
-	//    }, interval);
-	//    return id;
-	//}
-
-	//function stopScroll() {
-	//    clearInterval(scrollerID);
-	//}
 
 	let scrollerID;
 	let paused = true;
@@ -52,11 +33,6 @@ export default function Composition(props) {
 		clearInterval(scrollerID);
 	}
 
-	//const scrollButton = document.getElementById('start-scroll-button')
-
-	//scrollButton.addEventListener('click', function (event) {
-	//if (event.which == 13 || event.keyCode == 13) {
-	// It's the 'Enter' key
 	function scroll() {
 		if (paused == true) {
 			scrollerID = startPageScroll();
@@ -67,18 +43,8 @@ export default function Composition(props) {
 			paused = true;
 		}
 	}
-	//}
-	//}, true);
-
 	//============================================
 
-	// use state for autoscroll ?
-	// initial is false
-	// onclick of start button set to true, vice versa
-	// when scroll = false call stopScroll(), vice versa
-
-	// or if keep like this, the startscroll() needs to be stopped somehow
-	// currently stopScroll() never gets hit (return statement?)
 	const contextRef = createRef()
 
 	// this creates a default selected composition, if there are compositions
@@ -121,8 +87,8 @@ export default function Composition(props) {
 								<Grid.Column>
 									<Rail position="right">
 										<Sticky context={contextRef}>
-											<button id="start-scroll-button" onClick={scroll}>start auto-scroll</button>
-											<button id="stop-scroll-button" onClick={stopPageScroll}>stop auto-scroll</button>
+											{paused === true ? <Icon name="play"></Icon> : <Icon name="pause"></Icon>}
+											<button id="start-scroll-button" onClick={scroll}>auto-scroll</button>
 										</Sticky>
 									</Rail>
 								</Grid.Column>

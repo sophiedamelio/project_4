@@ -40,7 +40,7 @@ font-family: 'Major Mono Display', monospace;*/
 #add-comp-btn {
 	background-color: var(--periwink);
 	color: var(--bg-gray);
-	padding: 2vh 8vh;
+	padding: 2vh;
 	border-radius: 500px;
 	border: none;
 	margin-top: 1vh;

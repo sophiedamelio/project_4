@@ -7,7 +7,7 @@ import AddCompositionForm from "../CompositionForm/CompositionForm";
 
 import "./Menu.css"
 
-export default function Menu({ user, stopPageScroll, startPageScroll, getCompositions, selectComposition, selectedComposition, handleAddComposition, compositions, handleUpdateComposition, handleDeleteComposition }) {
+export default function Menu({ user, getCompositions, selectComposition, selectedComposition, handleAddComposition, compositions, handleUpdateComposition, handleDeleteComposition }) {
 
 	const [open, setOpen] = useState(false)
 
@@ -46,7 +46,7 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 						</div>
 					</Grid.Column>
 					<Grid.Column width="12">
-						<Composition stopPageScroll={stopPageScroll} startPageScroll={startPageScroll} selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} getCompositions={getCompositions} />
+						<Composition selectComposition={selectComposition} selectedComposition={selectedComposition} user={user} compositions={compositions} handleUpdateComposition={handleUpdateComposition} handleDeleteComposition={handleDeleteComposition} getCompositions={getCompositions} />
 					</Grid.Column>
 				</Grid.Row>
 			</Grid>

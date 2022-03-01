@@ -31,11 +31,16 @@ export default function Menu({ user, stopPageScroll, startPageScroll, getComposi
 	//	setState({ newSelectedComposition })
 	//}
 
-	//selectComposition(selectedComposition)
+	//const firstComposition = compositions[0];
+	//console.log(firstComposition, "<--- first comp")
+	//selectComposition(firstComposition)
+	//setSelectedComposition(firstComposition);
 
 	//useEffect(() => {
-	//	getCompositions()
+	//	selectComposition(firstComposition)
 	//}, [])
+
+	//console.log(selectedComposition, "<-- selected Comp")
 
 	return (
 		<div className="whole-page">

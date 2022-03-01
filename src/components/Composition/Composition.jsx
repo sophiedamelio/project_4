@@ -1,4 +1,4 @@
-import React, { useState, createRef } from 'react';
+import React, { useState, createRef, useEffect } from 'react';
 import { Modal, Rail, Ref, Segment, Sticky, Grid } from 'semantic-ui-react';
 import "./Composition.css";
 import _ from 'lodash'
@@ -21,6 +21,9 @@ export default function Composition(props) {
 	// currently stopScroll() never gets hit (return statement?)
 	const contextRef = createRef()
 
+	if (!props.selectedComposition && props.compositions) {
+		props.selectComposition(props.compositions[0])
+	}
 
 	if (props.selectedComposition) {
 		return (

@@ -25,7 +25,7 @@ export default function HomePage({ user, handleLogout, }) {
 	//text: firstComposition.text,
 	//notes: firstComposition.notes
 	//compositions[0]
-	//})
+	//}
 
 	console.log(selectedComposition, "<--- initial selected comp")
 
@@ -93,6 +93,7 @@ export default function HomePage({ user, handleLogout, }) {
 		try {
 			const data = await compositionApi.getAll()
 			setCompositions([...data.compositions])
+
 		} catch (err) {
 			console.log(err.message, "<-- this is the error")
 			setError(err.message)

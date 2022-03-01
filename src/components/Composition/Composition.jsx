@@ -40,10 +40,10 @@ export default function Composition(props) {
 	function startPageScroll() {
 		let id = setInterval(function () {
 			window.scrollBy(0, 2);
-			if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-				// Reached end of page
-				stopPageScroll();
-			}
+			//if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+			//	// Reached end of page
+			//	stopPageScroll();
+			//}
 		}, interval);
 		return id;
 	}

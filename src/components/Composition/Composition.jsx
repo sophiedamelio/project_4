@@ -74,14 +74,14 @@ export default function Composition(props) {
 											onClose={() => setOpen(false)}
 											onOpen={() => setOpen(true)}
 											open={open}
-											trigger={<button id="edit-comp-btn">edit composition</button>}>
+											trigger={<button id="edit-comp-btn">edit song</button>}>
 											<Modal.Header style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>Edit - {props.selectedComposition.title}</Modal.Header>
 											<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 												<UpdateComposition setOpen={setOpen} {...props}></UpdateComposition>
 											</Modal.Content>
 										</Modal>
 										{/* I use .bind so that I can pass an argument into the handleDeleteComposition function inline */}
-										<button id="delete-comp-btn" onClick={props.handleDeleteComposition.bind(null, props.selectedComposition._id)}>Delete Composition</button>
+										<button id="delete-comp-btn" onClick={props.handleDeleteComposition.bind(null, props.selectedComposition._id)}>Delete Song</button>
 									</div>
 								</Grid.Column>
 								<Grid.Column>

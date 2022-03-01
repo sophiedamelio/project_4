@@ -11,7 +11,6 @@ export default function Menu({ user, getCompositions, selectComposition, selecte
 
 	const [open, setOpen] = useState(false)
 
-
 	return (
 		<div className="whole-page">
 			<Grid columns="two" divided>
@@ -37,8 +36,8 @@ export default function Menu({ user, getCompositions, selectComposition, selecte
 								onClose={() => setOpen(false)}
 								onOpen={() => setOpen(true)}
 								open={open}
-								trigger={<button id="add-comp-btn">Add composition</button>}>
-								<Modal.Header className="modal-header" style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>add a Composition</Modal.Header>
+								trigger={<button id="add-comp-btn">add song</button>}>
+								<Modal.Header className="modal-header" style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>add a song</Modal.Header>
 								<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
 									<AddCompositionForm setOpen={setOpen} selectComposition={selectComposition} handleAddComposition={handleAddComposition}></AddCompositionForm>
 								</Modal.Content>

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.DATABASE_URL,
+  'mongodb+srv://sophiedameSummerAllergies15@cluster0.stz8e.mongodb.net/songSpace?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true,
   }

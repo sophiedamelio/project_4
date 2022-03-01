@@ -36,7 +36,7 @@ Once you are logged in, you can click on the song you wish to view from the menu
 ----
 
 ### Planned future enhancements:
-- AAU, I want to click button when viewing a composition, that will 'auto scroll' the page
+- AAU, I want to choose how fast my autoscroll is
 
 - AAU, I want click 'share' on a composition and be given options of links, etc to share outside of app
 

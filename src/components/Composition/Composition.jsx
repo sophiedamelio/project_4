@@ -15,13 +15,14 @@ export default function Composition(props) {
 
 	let scrollerID;
 	let paused = true;
-	let speed = 2; // 1 - Fast | 2 - Medium | 3 - Slow
+	let speed = 3; // 1 - Fast | 2 - Medium | 3 - Slow
 	let interval = speed * 5;
 
 	function startPageScroll() {
 		let id = setInterval(function () {
 			window.scrollBy(0, 2);
-			//if ((window.innerHeight + window.scrollY) >= Composition.offsetHeight) {
+			// refactor this to work
+			//if ((window.innerHeight + window.scrollY) >= Menu.offsetHeight) {
 			//	// Reached end of page
 			//	stopPageScroll();
 			//}
@@ -43,9 +44,6 @@ export default function Composition(props) {
 			paused = true;
 		}
 	}
-
-	//console.log(iconName, "<--- icon name")
-	//============================================
 
 	const contextRef = createRef()
 
@@ -90,10 +88,7 @@ export default function Composition(props) {
 									<Rail position="right">
 										<Sticky context={contextRef}>
 											<button id="start-scroll-button" onClick={scroll}>
-												{paused === true ?
-													<Icon name="play"></Icon>
-													: <Icon name="pause"></Icon>}
-												auto-scroll
+												{paused === true ? <Icon name="play"></Icon> : <Icon name="pause"></Icon>}												auto-scroll
 											</button>
 										</Sticky>
 									</Rail>

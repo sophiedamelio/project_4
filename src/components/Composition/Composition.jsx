@@ -18,8 +18,6 @@ export default function Composition(props) {
 	let speed = 2; // 1 - Fast | 2 - Medium | 3 - Slow
 	let interval = speed * 5;
 
-	let iconName;
-
 	function startPageScroll() {
 		let id = setInterval(function () {
 			window.scrollBy(0, 2);
@@ -36,21 +34,17 @@ export default function Composition(props) {
 	}
 
 	function scroll() {
-		if (paused == true) {
+		if (paused === true) {
 			scrollerID = startPageScroll();
 			paused = false;
-			iconName = "play";
-			console.log(iconName, "<--- icon name on start")
 		}
 		else {
 			stopPageScroll();
 			paused = true;
-			iconName = "pause";
-			console.log(iconName, "<--- icon name on stop")
 		}
 	}
 
-	console.log(iconName, "<--- icon name")
+	//console.log(iconName, "<--- icon name")
 	//============================================
 
 	const contextRef = createRef()
@@ -96,7 +90,9 @@ export default function Composition(props) {
 									<Rail position="right">
 										<Sticky context={contextRef}>
 											<button id="start-scroll-button" onClick={scroll}>
-												<Icon name={'"' + { iconName } + '"'}></Icon>
+												{paused === true ?
+													<Icon name="play"></Icon>
+													: <Icon name="pause"></Icon>}
 												auto-scroll
 											</button>
 										</Sticky>

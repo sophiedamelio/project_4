@@ -21,6 +21,7 @@ font-family: 'Major Mono Display', monospace;*/
 	color: white;
 	font-family: var(--body-ft);
 	text-align: center;
+	padding-top: 5vh;
 }
 
 .whole-page {

@@ -1,6 +1,6 @@
 # songSpace
 
-This app serves as a hub for all the songs you want to play and practice. You can use it as a library for ease of access and paste in other folks' songs, or use it as a space to keep track of all the songs you have written yourself. You can add songs, edit songs, and select songs to display as you play along.
+This app serves as a hub for all the songs you want to play and practice. You can use it as a library for ease of access and paste in other folks' songs, and use it like a digital songbook. Or, you can use it as a space to keep track of all the songs you have written yourself. You can add songs, edit songs, and select songs to display as you play along.
 
 ----
 

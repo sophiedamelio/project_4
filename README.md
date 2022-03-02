@@ -4,7 +4,17 @@ This app serves as a hub for all the songs you want to play and practice. You ca
 
 ----
 
-screenshots here
+![signup page](https://i.imgur.com/SfU4epo.png)
+Signup page.
+
+![home page](https://i.imgur.com/wMQZb5C.png)
+Home page, only accessible after logging in, content is completely private to each user.
+
+![add song form](https://i.imgur.com/iBbhMVj.png)
+Add song form, only accessible after logging in.
+
+![update song form](https://i.imgur.com/R5hGX3y.png)
+Add song form, only accessible after logging in.
 
 ----
 

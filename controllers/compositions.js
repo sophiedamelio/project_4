@@ -28,8 +28,6 @@ async function create(req, res) {
 
 
 async function update(req, res){
-	//console.log(req.body, "<--- req.body in the update controller function")
-	//console.log(req.file, "<--- req.file in the update ctrl")
 
 	try {
 		const updatedComposition = await Composition.findByIdAndUpdate(
@@ -41,7 +39,6 @@ async function update(req, res){
 			notes: req.body.notes
 		}).exec()
 
-		//console.log(updatedComposition, "<-- composition in update ctrl")
 		res.status(201).json(updatedComposition)
 
 	} catch(err){

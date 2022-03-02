@@ -1,6 +1,6 @@
 # songSpace
 
-This app serves as a hub for all the songs you want to play and practice. You can use it as a library for ease of access and paste in other folks' songs, and use it like a digital songbook. Or, you can use it as a space to keep track of all the songs you have written yourself. You can add songs, edit songs, and select songs to display as you play along.
+This app serves as a hub for all the songs you want to play and practice. You can use it as a library and paste in other folks' songs, like a digital songbook. Or, you can use it as a space to keep track of all the songs you have written yourself. You can add songs, edit songs, and select songs to display as you play along.
 
 ----
 
@@ -21,7 +21,7 @@ Update song form, only accessible after logging in
 
 ----
 
-### The technologies we used to build this app are:
+### The technologies I used to build this app are:
 - Node.js
 - Express
 - React
@@ -44,7 +44,7 @@ If you would like to personally use the app, you can click signup and create an 
 
 Once you are logged in, you can click on the song you wish to view from the menu on the left, and you will see the full song details displayed.
 
-### Launch the app and create your own songSpace: [here](https://songspace-app.herokuapp.com/){:target="\_blank"}
+### Launch the app and create your own songSpace: [here](https://songspace-app.herokuapp.com/)
 
 ----
 
@@ -53,7 +53,7 @@ Once you are logged in, you can click on the song you wish to view from the menu
 
 - AAU, I want click 'share' on a composition and be given options of links, etc to share outside of app
 
-- AAU, select 'current work' on a composition, that one is the default display on index (replacing the first composition as default. Only one 'current work' at a time)
+- AAU, select 'current work' on a composition, that one is the default display on the home page (replacing the first composition as default. Only one 'current work' at a time)
 
 - AAU, I want to be able to add Tags on songs for what instrument they are with (guitar, ukulele, vocal/melody only, piano, bass, other)
 

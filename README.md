@@ -31,7 +31,7 @@ If you would like to personally use the app, you can click signup and create an 
 
 Once you are logged in, you can click on the song you wish to view from the menu on the left, and you will see the full song details displayed.
 
-### Launch the app and create your own songSpace: [here](https://songspace-app.herokuapp.com/)
+### Launch the app and create your own songSpace: [here](https://songspace-app.herokuapp.com/){:target="\_blank"}
 
 ----
 

@@ -91,11 +91,6 @@ export default function Composition(props) {
 												<Icon name="play"></Icon>
 												auto-scroll
 											</button>
-											<button id="stop-scroll-button" onClick={scroll}>
-												<Icon name="pause"></Icon>
-												pause auto-scroll
-											</button>
-
 										</Sticky>
 									</Rail>
 								</Grid.Column>

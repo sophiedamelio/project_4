@@ -5,13 +5,11 @@ import UpdateComposition from '../UpdateCompositionForm/UpdateCompositionForm';
 
 import "./Composition.css";
 
+// this is a test for the dev branch
+
 export default function Composition(props) {
 
 	const [open, setOpen] = useState(false)
-
-	console.log(props, "<--- props in composition component")
-
-	//============================================
 
 	let scrollerID;
 	let paused = true;

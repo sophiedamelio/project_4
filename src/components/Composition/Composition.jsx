@@ -1,5 +1,5 @@
 import React, { useState, createRef } from 'react';
-import { Modal, Rail, Ref, Segment, Sticky, Grid, Icon } from 'semantic-ui-react';
+import { Modal, Rail, Ref, Segment, Sticky, Grid, Icon, Radio, Form, Message } from 'semantic-ui-react';
 
 import UpdateComposition from '../UpdateCompositionForm/UpdateCompositionForm';
 
@@ -11,15 +11,18 @@ export default function Composition(props) {
 
 	const [open, setOpen] = useState(false)
 
+	const [speedModalOpen, setSpeedModalOpen] = useState(false)
+
+	const [state, setState] = useState(2)
+
 	let scrollerID;
 	let paused = true;
-	let speed = 3; // 1 - Fast | 2 - Medium | 3 - Slow
+	let speed = state.value; // 1 - Fast | 2 - Medium | 3 - Slow
 	let interval = speed * 25;
 
 	function startPageScroll() {
 		let id = setInterval(function (s) {
 			window.scrollBy(0, s || 1);
-
 			//javascript:setInterval(function(s){scrollBy(0,s||1)},75)
 			// refactor this to work
 			//if ((window.innerHeight + window.scrollY) >= Menu.offsetHeight) {
@@ -46,6 +49,13 @@ export default function Composition(props) {
 	}
 
 	const contextRef = createRef()
+
+	// form things for the speed of sutoscroll 'form' elem
+	function handleChange(e, { value }) {
+		setState({ value })
+	}
+	// end speed of autoscroll stuff
+
 
 	// this creates a default selected composition, if there are compositions
 	if (!props.selectedComposition && props.compositions) {
@@ -91,6 +101,49 @@ export default function Composition(props) {
 												<Icon name="play"></Icon>
 												auto-scroll
 											</button>
+											<Modal
+												onClose={() => setSpeedModalOpen(false)}
+												onOpen={() => setSpeedModalOpen(true)}
+												speedModalOpen={speedModalOpen}
+												dimmer={false}
+												trigger={<button>speed</button>}
+											>
+												<Form>
+													<Form.Field>
+														current speed: <b>{state.value}</b>
+													</Form.Field>
+													<Form.Field>
+														<Radio
+															label="fast"
+															name="radioGroup"
+															value="1"
+															checked={state.value === "1"}
+															onChange={handleChange}
+														/>
+													</Form.Field>
+													<Form.Field>
+														<Radio
+															label="medium"
+															name="radioGroup"
+															value="2"
+															checked={state.value === "2"}
+															onChange={handleChange}
+														/>
+													</Form.Field>
+													<Form.Field>
+														<Radio
+															label="slow"
+															name="radioGroup"
+															value="3"
+															checked={state.value === "3"}
+															onChange={handleChange}
+														/>
+													</Form.Field>
+													{/*fast <Radio toggle onClick={() => speed = 1} />
+												medium <Radio toggle onClick={() => speed = 2} />
+												slow <Radio toggle onClick={() => speed = 3} />*/}
+												</Form>
+											</Modal>
 										</Sticky>
 									</Rail>
 								</Grid.Column>

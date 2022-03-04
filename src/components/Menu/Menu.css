@@ -46,7 +46,8 @@ font-family: 'Major Mono Display', monospace;*/
 	border: none;
 	margin-top: 1vh;
 	width: 100%;
-	font-family: var(--body-ft)
+	font-family: var(--body-ft);
+	font-weight: 700;
 }
 
 #close-modal-btn {

@@ -56,7 +56,7 @@ export default function Composition(props) {
 				<Grid columns={2}>
 					<Grid.Row style={{ paddingBottom: "10vh" }}>
 						<Ref innerRef={contextRef}>
-							<Segment id="segment-composition" style={{ backgroundColor: '#3a3b42', border: 'none' }}>
+							<Segment id="segment-composition" style={{ backgroundColor: '#3a3b42', border: 'none', boxShadow: 'none' }}>
 								<Grid.Column>
 									<div key={props.selectedComposition._id}>
 										<div id="comp-header">

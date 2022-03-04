@@ -14,11 +14,13 @@ export default function Composition(props) {
 	let scrollerID;
 	let paused = true;
 	let speed = 3; // 1 - Fast | 2 - Medium | 3 - Slow
-	let interval = speed * 5;
+	let interval = speed * 25;
 
 	function startPageScroll() {
-		let id = setInterval(function () {
-			window.scrollBy(0, 2);
+		let id = setInterval(function (s) {
+			window.scrollBy(0, s || 1);
+
+			//javascript:setInterval(function(s){scrollBy(0,s||1)},75)
 			// refactor this to work
 			//if ((window.innerHeight + window.scrollY) >= Menu.offsetHeight) {
 			//	// Reached end of page

@@ -52,7 +52,8 @@ export default function Composition(props) {
 
 	// form things for the speed of sutoscroll 'form' elem
 	function handleChange(e, { value }) {
-		setState({ value })
+		setState({ value });
+		setOpen(false);
 	}
 	// end speed of autoscroll stuff
 
@@ -100,50 +101,59 @@ export default function Composition(props) {
 											<button id="start-scroll-button" onClick={scroll}>
 												<Icon name="play"></Icon>
 												auto-scroll
-											</button>
-											<Modal
-												onClose={() => setSpeedModalOpen(false)}
-												onOpen={() => setSpeedModalOpen(true)}
-												speedModalOpen={speedModalOpen}
-												dimmer={false}
-												trigger={<button>speed</button>}
-											>
-												<Form>
-													<Form.Field>
-														current speed: <b>{state.value}</b>
-													</Form.Field>
-													<Form.Field>
-														<Radio
-															label="fast"
-															name="radioGroup"
-															value="1"
-															checked={state.value === "1"}
-															onChange={handleChange}
-														/>
-													</Form.Field>
-													<Form.Field>
-														<Radio
-															label="medium"
-															name="radioGroup"
-															value="2"
-															checked={state.value === "2"}
-															onChange={handleChange}
-														/>
-													</Form.Field>
-													<Form.Field>
-														<Radio
-															label="slow"
-															name="radioGroup"
-															value="3"
-															checked={state.value === "3"}
-															onChange={handleChange}
-														/>
-													</Form.Field>
-													{/*fast <Radio toggle onClick={() => speed = 1} />
+												<br></br>
+												<br></br>
+												<Modal
+													onClose={() => setSpeedModalOpen(false)}
+													onOpen={() => setSpeedModalOpen(true)}
+													speedModalOpen={speedModalOpen}
+													dimmer={false}
+													trigger={<a id="speed-btn">speed</a>}
+												>
+													<Form>
+														<Form.Field id="speed-form-title">
+															current speed: <b>
+																{state.value === 1 ? <b>fast</b> : null}
+																{state.value === 2 ? <b>medium</b> : null}
+																{state.value === 3 ? <b>slow</b> : null}
+															</b>
+														</Form.Field>
+														<Form.Field>
+															<Radio
+																style={{ color: 'white' }}
+																label="fast"
+																name="radioGroup"
+																value="1"
+																checked={state.value === "1"}
+																onChange={handleChange}
+															/>
+														</Form.Field>
+														<Form.Field>
+															<Radio
+																style={{ color: 'white' }}
+																label="medium"
+																name="radioGroup"
+																value="2"
+																checked={state.value === "2"}
+																onChange={handleChange}
+															/>
+														</Form.Field>
+														<Form.Field>
+															<Radio
+																style={{ color: 'white' }}
+																label="slow"
+																name="radioGroup"
+																value="3"
+																checked={state.value === "3"}
+																onChange={handleChange}
+															/>
+														</Form.Field>
+														{/*fast <Radio toggle onClick={() => speed = 1} />
 												medium <Radio toggle onClick={() => speed = 2} />
 												slow <Radio toggle onClick={() => speed = 3} />*/}
-												</Form>
-											</Modal>
+													</Form>
+												</Modal>
+											</button>
 										</Sticky>
 									</Rail>
 								</Grid.Column>

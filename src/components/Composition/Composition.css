@@ -24,21 +24,6 @@ font-family: 'Major Mono Display', monospace;*/
 	width: 100%;
 }
 
-#speed-btn {
-	color: var(--bg-gray);
-	font-size: smaller;
-}
-
-#speed-btn:hover {
-	color: var(--off-black);
-	font-size: smaller;
-}
-
-#speed-form-title {
-	color: white;
-	font-family: var(--body-ft);
-}
-
 p {
 	padding-left: 5vh;
 }

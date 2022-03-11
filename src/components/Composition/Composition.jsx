@@ -1,29 +1,26 @@
 import React, { useState, createRef } from 'react';
-import { Modal, Rail, Ref, Segment, Sticky, Grid, Icon, Radio, Form, Message } from 'semantic-ui-react';
+import { Modal, Rail, Ref, Segment, Sticky, Grid, Icon } from 'semantic-ui-react';
 
 import UpdateComposition from '../UpdateCompositionForm/UpdateCompositionForm';
 
 import "./Composition.css";
 
-// this is a test for the dev branch
-
 export default function Composition(props) {
 
 	const [open, setOpen] = useState(false)
 
-	const [speedModalOpen, setSpeedModalOpen] = useState(false)
+	console.log(props, "<--- props in composition component")
 
-	const [state, setState] = useState(2)
+	//============================================
 
 	let scrollerID;
 	let paused = true;
-	let speed = state.value; // 1 - Fast | 2 - Medium | 3 - Slow
-	let interval = speed * 25;
+	let speed = 3; // 1 - Fast | 2 - Medium | 3 - Slow
+	let interval = speed * 5;
 
 	function startPageScroll() {
-		let id = setInterval(function (s) {
-			window.scrollBy(0, s || 1);
-			//javascript:setInterval(function(s){scrollBy(0,s||1)},75)
+		let id = setInterval(function () {
+			window.scrollBy(0, 2);
 			// refactor this to work
 			//if ((window.innerHeight + window.scrollY) >= Menu.offsetHeight) {
 			//	// Reached end of page
@@ -49,14 +46,6 @@ export default function Composition(props) {
 	}
 
 	const contextRef = createRef()
-
-	// form things for the speed of sutoscroll 'form' elem
-	function handleChange(e, { value }) {
-		setState({ value });
-		setOpen(false);
-	}
-	// end speed of autoscroll stuff
-
 
 	// this creates a default selected composition, if there are compositions
 	if (!props.selectedComposition && props.compositions) {
@@ -101,58 +90,6 @@ export default function Composition(props) {
 											<button id="start-scroll-button" onClick={scroll}>
 												<Icon name="play"></Icon>
 												auto-scroll
-												<br></br>
-												<br></br>
-												<Modal
-													onClose={() => setSpeedModalOpen(false)}
-													onOpen={() => setSpeedModalOpen(true)}
-													speedModalOpen={speedModalOpen}
-													dimmer={false}
-													trigger={<a id="speed-btn">speed</a>}
-												>
-													<Form>
-														<Form.Field id="speed-form-title">
-															current speed: <b>
-																{state.value === 1 ? <b>fast</b> : null}
-																{state.value === 2 ? <b>medium</b> : null}
-																{state.value === 3 ? <b>slow</b> : null}
-															</b>
-														</Form.Field>
-														<Form.Field>
-															<Radio
-																style={{ color: 'white' }}
-																label="fast"
-																name="radioGroup"
-																value="1"
-																checked={state.value === "1"}
-																onChange={handleChange}
-															/>
-														</Form.Field>
-														<Form.Field>
-															<Radio
-																style={{ color: 'white' }}
-																label="medium"
-																name="radioGroup"
-																value="2"
-																checked={state.value === "2"}
-																onChange={handleChange}
-															/>
-														</Form.Field>
-														<Form.Field>
-															<Radio
-																style={{ color: 'white' }}
-																label="slow"
-																name="radioGroup"
-																value="3"
-																checked={state.value === "3"}
-																onChange={handleChange}
-															/>
-														</Form.Field>
-														{/*fast <Radio toggle onClick={() => speed = 1} />
-												medium <Radio toggle onClick={() => speed = 2} />
-												slow <Radio toggle onClick={() => speed = 3} />*/}
-													</Form>
-												</Modal>
 											</button>
 										</Sticky>
 									</Rail>

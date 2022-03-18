@@ -103,6 +103,8 @@ export default function Composition(props) {
 												auto-scroll
 												<br></br>
 												<br></br>
+											</button>
+											<button>
 												<Modal
 													onClose={() => setSpeedModalOpen(false)}
 													onOpen={() => setSpeedModalOpen(true)}
@@ -111,42 +113,32 @@ export default function Composition(props) {
 													trigger={<a id="speed-btn">speed</a>}
 												>
 													<Form>
-														<Form.Field id="speed-form-title">
-															current speed: <b>
-																{state.value === 1 ? <b>fast</b> : null}
-																{state.value === 2 ? <b>medium</b> : null}
-																{state.value === 3 ? <b>slow</b> : null}
-															</b>
-														</Form.Field>
 														<Form.Field>
 															<Radio
-																style={{ color: 'white' }}
-																label="fast"
 																name="radioGroup"
 																value="1"
 																checked={state.value === "1"}
 																onChange={handleChange}
 															/>
+															<label style={{ color: "white" }}>fast</label>
 														</Form.Field>
 														<Form.Field>
 															<Radio
-																style={{ color: 'white' }}
-																label="medium"
 																name="radioGroup"
 																value="2"
 																checked={state.value === "2"}
 																onChange={handleChange}
 															/>
+															<label style={{ color: "white" }}>medium</label>
 														</Form.Field>
 														<Form.Field>
 															<Radio
-																style={{ color: 'white' }}
-																label="slow"
 																name="radioGroup"
 																value="3"
 																checked={state.value === "3"}
 																onChange={handleChange}
 															/>
+															<label style={{ color: "white" }}>slow</label>
 														</Form.Field>
 														{/*fast <Radio toggle onClick={() => speed = 1} />
 												medium <Radio toggle onClick={() => speed = 2} />

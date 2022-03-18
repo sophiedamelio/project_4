@@ -99,10 +99,10 @@ p {
 	font-weight: 900;
 }
 
-#stop-scroll-button {
+#speed-button {
 	background-color: var(--dark-peach);
 	color: var(--bg-gray);
-	padding: 2vh 4vh;
+	padding: 1vh 2vh;
 	border-radius: 500px;
 	border: none;
 	margin: 0vh 5vh;

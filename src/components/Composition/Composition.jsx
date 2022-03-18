@@ -55,7 +55,12 @@ export default function Composition(props) {
 		setState({ value });
 		setOpen(false);
 	}
+	function handleSubmit(e) {
+		e.preventDefault()
+		setSpeedModalOpen(false)
+	}
 	// end speed of autoscroll stuff
+
 
 
 	// this creates a default selected composition, if there are compositions
@@ -101,51 +106,58 @@ export default function Composition(props) {
 											<button id="start-scroll-button" onClick={scroll}>
 												<Icon name="play"></Icon>
 												auto-scroll
-												<br></br>
-												<br></br>
 											</button>
-											<button>
-												<Modal
-													onClose={() => setSpeedModalOpen(false)}
-													onOpen={() => setSpeedModalOpen(true)}
-													speedModalOpen={speedModalOpen}
-													dimmer={false}
-													trigger={<a id="speed-btn">speed</a>}
-												>
-													<Form>
+											{/*<button id="speed-button">*/}
+											<Modal
+												id="speed-modal"
+												onClose={() => setSpeedModalOpen(false)}
+												onOpen={() => setSpeedModalOpen(true)}
+												speedModalOpen={speedModalOpen}
+												dimmer={false}
+												trigger={<button id="speed-button">speed</button>}
+												style={{ borderRadius: "10px" }}
+											>
+												<Modal.Header style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>Auto-scroll speed:</Modal.Header>
+												<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
+													<Form onSubmit={handleSubmit}>
 														<Form.Field>
 															<Radio
+																class="radio"
 																name="radioGroup"
 																value="1"
 																checked={state.value === "1"}
 																onChange={handleChange}
 															/>
-															<label style={{ color: "white" }}>fast</label>
+															<label class="radio" style={{ color: "white" }}>fast</label>
 														</Form.Field>
 														<Form.Field>
 															<Radio
+																class="radio"
 																name="radioGroup"
 																value="2"
 																checked={state.value === "2"}
 																onChange={handleChange}
 															/>
-															<label style={{ color: "white" }}>medium</label>
+															<label class="radio" style={{ color: "white" }}>medium</label>
 														</Form.Field>
 														<Form.Field>
 															<Radio
+																class="radio"
 																name="radioGroup"
 																value="3"
 																checked={state.value === "3"}
 																onChange={handleChange}
 															/>
-															<label style={{ color: "white" }}>slow</label>
+															<label class="radio" style={{ color: "white" }}>slow</label>
 														</Form.Field>
 														{/*fast <Radio toggle onClick={() => speed = 1} />
 												medium <Radio toggle onClick={() => speed = 2} />
 												slow <Radio toggle onClick={() => speed = 3} />*/}
+														<button id="start-scroll-button" type="submit">Save</button>
 													</Form>
-												</Modal>
-											</button>
+												</Modal.Content>
+											</Modal>
+											{/*</button>*/}
 										</Sticky>
 									</Rail>
 								</Grid.Column>

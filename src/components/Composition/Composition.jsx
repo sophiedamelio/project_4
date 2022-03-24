@@ -153,7 +153,7 @@ export default function Composition(props) {
 														{/*fast <Radio toggle onClick={() => speed = 1} />
 												medium <Radio toggle onClick={() => speed = 2} />
 												slow <Radio toggle onClick={() => speed = 3} />*/}
-														<button id="start-scroll-button" type="submit">Save</button>
+														<button id="start-scroll-button" type="submit" onClick={setSpeedModalOpen(false)}>Save</button>
 													</Form>
 												</Modal.Content>
 											</Modal>

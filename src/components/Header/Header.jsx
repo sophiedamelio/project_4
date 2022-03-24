@@ -10,7 +10,7 @@ export default function PageHeader({ user, handleLogout }) {
 		<div className="whole-header">
 			<Header as="h3" floated="left">
 				<Link to="/">
-					<span id="logo"><img src="https://i.imgur.com/hFjKuuR.png" /></span>
+					<span id="logo"><img src="https://i.imgur.com/hFjKuuR.png" alt="songspace-logo" /></span>
 				</Link>
 			</Header>
 			<Header as="h3" floated="left">

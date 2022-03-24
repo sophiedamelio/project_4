@@ -9,7 +9,6 @@ import "./HomePage.css"
 
 export default function HomePage({ user, handleLogout, }) {
 	const [compositions, setCompositions] = useState([])
-	const [error, setError] = useState('')
 
 	const [selectedComposition, setSelectedComposition] = useState('')
 
@@ -19,25 +18,16 @@ export default function HomePage({ user, handleLogout, }) {
 	}
 
 
-	async function handleUpdateComposition(infoFromTheForm) {
-		try {
-			const data = await compositionApi.update(selectedComposition._id, infoFromTheForm);
-			// this line filters all the 'unchanged' compositions into a new array
-			let unchangedCompositions = (compositions.filter((comp) => comp._id !== selectedComposition._id))
-			setCompositions([data, ...unchangedCompositions]);
-		} catch (err) {
-			setError(err.messgae);
-		}
+	function handleUpdateComposition(infoFromTheForm) {
+		const data = compositionApi.update(selectedComposition._id, infoFromTheForm);
+		// this line filters all the 'unchanged' compositions into a new array
+		let unchangedCompositions = (compositions.filter((comp) => comp._id !== selectedComposition._id))
+		setCompositions([data, ...unchangedCompositions]);
 	}
 
-	async function handleDeleteComposition(selectedCompositionId) {
-		try {
-			const deletedComposition = await compositionApi.deleteComposition(selectedCompositionId)
-			setCompositions(compositions.filter((comp) => comp._id !== selectedCompositionId));
-			setSelectedComposition('');
-		} catch (err) {
-			setError(err.message)
-		}
+	function handleDeleteComposition(selectedCompositionId) {
+		setCompositions(compositions.filter((comp) => comp._id !== selectedCompositionId));
+		setSelectedComposition('');
 	}
 
 	async function handleAddComposition(composition) {

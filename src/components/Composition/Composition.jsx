@@ -1,5 +1,5 @@
 import React, { useState, createRef } from 'react';
-import { Modal, Rail, Ref, Segment, Sticky, Grid, Icon, Radio, Form, Message } from 'semantic-ui-react';
+import { Modal, Rail, Ref, Segment, Sticky, Grid, Icon, Radio, Form } from 'semantic-ui-react';
 
 import UpdateComposition from '../UpdateCompositionForm/UpdateCompositionForm';
 
@@ -78,7 +78,7 @@ export default function Composition(props) {
 								<Grid.Column>
 									<div key={props.selectedComposition._id}>
 										<div id="comp-header">
-											<span><h3 id="title">{props.selectedComposition.title}</h3></span>
+											<span><h3 id="title" style={{ backgroundColor: "red" }}>{props.selectedComposition.title}</h3></span>
 										</div>
 										{props.selectedComposition.capo ? <p>Capo: {props.selectedComposition.capo}</p> : null}
 										<p>{props.selectedComposition.text}</p>

@@ -11,7 +11,7 @@ export default function Composition(props) {
 
 	const [open, setOpen] = useState(false)
 
-	const [speedModalOpen, setSpeedModalOpen] = useState(false)
+	//const [speedModalOpen, setSpeedModalOpen] = useState(false)
 
 	const [state, setState] = useState(2)
 
@@ -57,7 +57,7 @@ export default function Composition(props) {
 	}
 	function handleSubmit(e) {
 		e.preventDefault()
-		setSpeedModalOpen(false)
+		//setSpeedModalOpen(false)
 	}
 	// end speed of autoscroll stuff
 
@@ -78,7 +78,7 @@ export default function Composition(props) {
 								<Grid.Column>
 									<div key={props.selectedComposition._id}>
 										<div id="comp-header">
-											<span><h3 id="title" style={{ backgroundColor: "red" }}>{props.selectedComposition.title}</h3></span>
+											<span><h3 id="title">{props.selectedComposition.title}</h3></span>
 										</div>
 										{props.selectedComposition.capo ? <p>Capo: {props.selectedComposition.capo}</p> : null}
 										<p>{props.selectedComposition.text}</p>
@@ -110,9 +110,9 @@ export default function Composition(props) {
 											{/*<button id="speed-button">*/}
 											<Modal
 												id="speed-modal"
-												onClose={() => setSpeedModalOpen(false)}
-												onOpen={() => setSpeedModalOpen(true)}
-												speedModalOpen={speedModalOpen}
+												//onClose={() => setSpeedModalOpen(false)}
+												//onOpen={() => setSpeedModalOpen(true)}
+												//speedModalOpen={speedModalOpen}
 												dimmer={false}
 												trigger={<button id="speed-button">speed</button>}
 												style={{ borderRadius: "10px" }}
@@ -153,7 +153,8 @@ export default function Composition(props) {
 														{/*fast <Radio toggle onClick={() => speed = 1} />
 												medium <Radio toggle onClick={() => speed = 2} />
 												slow <Radio toggle onClick={() => speed = 3} />*/}
-														<button id="start-scroll-button" type="submit" onClick={setSpeedModalOpen(false)}>Save</button>
+														<button id="start-scroll-button" type="submit">Save</button>
+														{/*onClick={setSpeedModalOpen(false)*/}
 													</Form>
 												</Modal.Content>
 											</Modal>

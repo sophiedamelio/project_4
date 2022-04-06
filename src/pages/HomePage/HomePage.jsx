@@ -34,9 +34,10 @@ export default function HomePage({ user, handleLogout, }) {
 		try {
 			const data = await compositionApi.create(composition);
 			setCompositions([data.composition, ...compositions]);
-		} catch (err) {
-			console.log(err.message, "<-- this is the error, from handleAppComposition")
-			setError(err.messgae);
+		} catch {
+			//} catch (err) {
+			//console.log(err.message, "<-- this is the error, from handleAppComposition")
+			//setError(err.messgae);
 		}
 	}
 
@@ -45,9 +46,10 @@ export default function HomePage({ user, handleLogout, }) {
 			const data = await compositionApi.getAll()
 			setCompositions([...data.compositions])
 
-		} catch (err) {
-			console.log(err.message, "<-- this is the error, from getCompositions")
-			setError(err.message)
+		} catch {
+			//} catch (err) {
+			//console.log(err.message, "<-- this is the error, from getCompositions")
+			//setError(err.message)
 		}
 	}
 

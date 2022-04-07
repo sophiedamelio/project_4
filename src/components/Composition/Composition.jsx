@@ -54,13 +54,17 @@ export default function Composition(props) {
 	function handleChange(e, { value }) {
 		setState({ value });
 		setOpen(false);
+		stopPageScroll();
+		paused = true;
 	}
+
 	function handleSubmit(e) {
-		e.preventDefault()
+		e.preventDefault();
+		startPageScroll();
+		paused = false;
 		//setSpeedModalOpen(false)
 	}
 	// end speed of autoscroll stuff
-
 
 
 	// this creates a default selected composition, if there are compositions
@@ -108,56 +112,56 @@ export default function Composition(props) {
 												auto-scroll
 											</button>
 											{/*<button id="speed-button">*/}
-											<Modal
+											{/*<Modal
 												id="speed-modal"
-												//onClose={() => setSpeedModalOpen(false)}
-												//onOpen={() => setSpeedModalOpen(true)}
+												onClose={() => setSpeedModalOpen(false)}
+												onOpen={() => setSpeedModalOpen(true)}
 												//speedModalOpen={speedModalOpen}
 												dimmer={false}
 												trigger={<button id="speed-button">speed</button>}
 												style={{ borderRadius: "10px" }}
 											>
 												<Modal.Header style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>Auto-scroll speed:</Modal.Header>
-												<Modal.Content style={{ backgroundColor: "#3a3b42" }}>
-													<Form onSubmit={handleSubmit}>
-														<Form.Field>
-															<Radio
-																class="radio"
-																name="radioGroup"
-																value="1"
-																checked={state.value === "1"}
-																onChange={handleChange}
-															/>
-															<label class="radio" style={{ color: "white" }}>fast</label>
-														</Form.Field>
-														<Form.Field>
-															<Radio
-																class="radio"
-																name="radioGroup"
-																value="2"
-																checked={state.value === "2"}
-																onChange={handleChange}
-															/>
-															<label class="radio" style={{ color: "white" }}>medium</label>
-														</Form.Field>
-														<Form.Field>
-															<Radio
-																class="radio"
-																name="radioGroup"
-																value="3"
-																checked={state.value === "3"}
-																onChange={handleChange}
-															/>
-															<label class="radio" style={{ color: "white" }}>slow</label>
-														</Form.Field>
-														{/*fast <Radio toggle onClick={() => speed = 1} />
+												<Modal.Content style={{ backgroundColor: "#3a3b42" }}>*/}
+											<Form onSubmit={handleSubmit} style={{ padding: '2rem', width: '20vh', margin: '2vh 2vh 2vh 5vh' }}>
+												<Form.Field>
+													<Radio
+														class="radio"
+														name="radioGroup"
+														value="1"
+														checked={state.value === "1"}
+														onChange={handleChange}
+													/>
+													<label class="radio" style={{ color: "white" }}>fast</label>
+												</Form.Field>
+												<Form.Field>
+													<Radio
+														class="radio"
+														name="radioGroup"
+														value="2"
+														checked={state.value === "2"}
+														onChange={handleChange}
+													/>
+													<label class="radio" style={{ color: "white" }}>medium</label>
+												</Form.Field>
+												<Form.Field>
+													<Radio
+														class="radio"
+														name="radioGroup"
+														value="3"
+														checked={state.value === "3"}
+														onChange={handleChange}
+													/>
+													<label class="radio" style={{ color: "white" }}>slow</label>
+												</Form.Field>
+												{/*fast <Radio toggle onClick={() => speed = 1} />
 												medium <Radio toggle onClick={() => speed = 2} />
 												slow <Radio toggle onClick={() => speed = 3} />*/}
-														<button id="start-scroll-button" type="submit">Save</button>
-														{/*onClick={setSpeedModalOpen(false)*/}
-													</Form>
-												</Modal.Content>
-											</Modal>
+												<button id="speed-button" type="submit">Save</button>
+												{/*onClick={setSpeedModalOpen(false)*/}
+											</Form>
+											{/*</Modal.Content>*/}
+											{/*</Modal>*/}
 											{/*</button>*/}
 										</Sticky>
 									</Rail>

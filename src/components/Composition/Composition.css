@@ -100,12 +100,11 @@ p {
 }
 
 #speed-button {
-	background-color: var(--dark-peach);
+	background-color: var(--periwink);
 	color: var(--bg-gray);
 	padding: 1vh 2vh;
 	border-radius: 500px;
 	border: none;
-	margin: 0vh 5vh;
 	font-family: var(--body-ft);
 	font-weight: 900;
 }

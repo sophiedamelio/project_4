@@ -55,13 +55,13 @@ export default function Composition(props) {
 		setState({ value });
 		setOpen(false);
 		stopPageScroll();
-		paused = true;
+		//paused = true;
 	}
 
 	function handleSubmit(e) {
 		e.preventDefault();
 		startPageScroll();
-		paused = false;
+		//paused = false;
 		//setSpeedModalOpen(false)
 	}
 	// end speed of autoscroll stuff
@@ -123,8 +123,8 @@ export default function Composition(props) {
 											>
 												<Modal.Header style={{ backgroundColor: "#1f2024", color: "white", fontFamily: "'Major Mono Display', monospace" }}>Auto-scroll speed:</Modal.Header>
 												<Modal.Content style={{ backgroundColor: "#3a3b42" }}>*/}
-											<Form onSubmit={handleSubmit} style={{ padding: '2rem', width: '20vh', margin: '2vh 2vh 2vh 5vh' }}>
-												<Form.Field>
+											<Form onSubmit={handleSubmit} style={{ padding: '2rem', width: '40vh', height: '10vh', margin: '2vh 2vh 2vh 5vh', display: 'flex', alignItems: 'center', backgroundColor: '#41424a', justifyContent: 'center' }}>
+												<Form.Field style={{ padding: '2vh', margin: '0vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 													<Radio
 														class="radio"
 														name="radioGroup"
@@ -134,7 +134,7 @@ export default function Composition(props) {
 													/>
 													<label class="radio" style={{ color: "white" }}>fast</label>
 												</Form.Field>
-												<Form.Field>
+												<Form.Field style={{ padding: '2vh', margin: '0vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 													<Radio
 														class="radio"
 														name="radioGroup"
@@ -144,7 +144,7 @@ export default function Composition(props) {
 													/>
 													<label class="radio" style={{ color: "white" }}>medium</label>
 												</Form.Field>
-												<Form.Field>
+												<Form.Field style={{ padding: '2vh', margin: '0vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 													<Radio
 														class="radio"
 														name="radioGroup"

@@ -15,54 +15,68 @@ export default function Composition(props) {
 
 	const [state, setState] = useState(2)
 
+	const [paused, setPaused] = useState(true)
+
+	//name speed state
+	// 0 == stopped, another value of state
+	// pause play button is like a speed button --> 0
+	// if paused == true, set 
+
+	// need to keep state, maybe two states (speed, and lastSpeed)
+	//pause play, and speed states
+
+
 	let scrollerID;
-	let paused = true;
+	//setPaused(true)
 	let speed = state.value; // 1 - Fast | 2 - Medium | 3 - Slow
 	let interval = speed * 25;
 
 	function startPageScroll() {
 		let id = setInterval(function (s) {
 			window.scrollBy(0, s || 1);
+			//window.scrollBy(0, 2);
 			//javascript:setInterval(function(s){scrollBy(0,s||1)},75)
 			// refactor this to work
 			//if ((window.innerHeight + window.scrollY) >= Menu.offsetHeight) {
 			//	// Reached end of page
 			//	stopPageScroll();
 			//}
+			//setPaused(false);
 		}, interval);
 		return id;
 	}
 
 	function stopPageScroll() {
 		clearInterval(scrollerID);
+		//setState(10)
+		console.log("stop page scroll called")
+		//setPaused(true);
 	}
 
 	function scroll() {
 		if (paused === true) {
+			//console.log(paused, "<-----paused")
 			scrollerID = startPageScroll();
-			paused = false;
+			setPaused(false);
 		}
 		else {
 			stopPageScroll();
-			paused = true;
+			setPaused(true);
 		}
 	}
 
 	const contextRef = createRef()
 
 	// form things for the speed of sutoscroll 'form' elem
+
 	function handleChange(e, { value }) {
 		setState({ value });
 		setOpen(false);
-		stopPageScroll();
-		//paused = true;
 	}
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		startPageScroll();
-		//paused = false;
-		//setSpeedModalOpen(false)
+		setPaused(false)
 	}
 	// end speed of autoscroll stuff
 
@@ -126,33 +140,33 @@ export default function Composition(props) {
 											<Form onSubmit={handleSubmit} style={{ padding: '2rem', width: '40vh', height: '10vh', margin: '2vh 2vh 2vh 5vh', display: 'flex', alignItems: 'center', backgroundColor: '#41424a', justifyContent: 'center' }}>
 												<Form.Field style={{ padding: '2vh', margin: '0vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 													<Radio
-														class="radio"
+														className="radio"
 														name="radioGroup"
 														value="1"
 														checked={state.value === "1"}
 														onChange={handleChange}
 													/>
-													<label class="radio" style={{ color: "white" }}>fast</label>
+													<label className="radio" style={{ color: "white" }}>fast</label>
 												</Form.Field>
 												<Form.Field style={{ padding: '2vh', margin: '0vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 													<Radio
-														class="radio"
+														className="radio"
 														name="radioGroup"
 														value="2"
 														checked={state.value === "2"}
 														onChange={handleChange}
 													/>
-													<label class="radio" style={{ color: "white" }}>medium</label>
+													<label className="radio" style={{ color: "white" }}>medium</label>
 												</Form.Field>
 												<Form.Field style={{ padding: '2vh', margin: '0vh', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 													<Radio
-														class="radio"
+														className="radio"
 														name="radioGroup"
 														value="3"
 														checked={state.value === "3"}
 														onChange={handleChange}
 													/>
-													<label class="radio" style={{ color: "white" }}>slow</label>
+													<label className="radio" style={{ color: "white" }}>slow</label>
 												</Form.Field>
 												{/*fast <Radio toggle onClick={() => speed = 1} />
 												medium <Radio toggle onClick={() => speed = 2} />

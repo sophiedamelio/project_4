@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
+const connectionString = process.env.MONGODB_URI;
+
 mongoose.connect(
-  'mongodb+srv://sophiedamelio:SummerAllergies15@cluster0.stz8e.mongodb.net/songSpace?retryWrites=true&w=majority',
+  connectionString,
   { useNewUrlParser: true,
     useUnifiedTopology: true,
   }

@@ -3,21 +3,18 @@ import tokenService from "./tokenService"
 const BASE_URL = '/api/compositions'
 
 export function create(infoFromTheForm){
-	// Make a post request to the server
 	return fetch(BASE_URL, {
 		method: 'POST',
-		// We are sending over a picture
-		// multipart/form-data < - is the content type
-		body: JSON.stringify(infoFromTheForm), // <- postInfoFromTheForm has to be formData
+		body: JSON.stringify(infoFromTheForm), // <- infoFromTheForm has to be json
 		headers: {
-			'Authorization': 'Bearer ' + tokenService.getToken(),
+			'Authorization': 'Bearer ' + tokenService.getToken(), // including the JWT in the header
 			'Content-Type': 'application/json',
 			'Accept': 'application/json'
 		}
 	}).then(res => {
 		// Valid login if we have a status of 2xx (res.ok)
 		if (res.ok) return res.json();
-		throw new Error('Error submitting the Form! Hey Check the Express Terminal');
+		throw new Error('Error submitting the Form! Hey Check the Express Terminal'); // for development purposes
 	})
 }
 
@@ -38,8 +35,6 @@ export function update(compId, infoFromTheForm){
 
 
 export function getAll() {
-	console.log("get all invoked")
-	
 	return fetch(BASE_URL, {
 		headers: {
 		'Authorization': 'Bearer ' + tokenService.getToken()

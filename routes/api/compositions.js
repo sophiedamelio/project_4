@@ -9,11 +9,11 @@ router.put('/:compId', isAuthenticated, compositionsCtrl.update);
 router.delete('/:compId', isAuthenticated, compositionsCtrl.deleteComposition);
 
 function isAuthenticated(req, res, next){
-	if(req.user){
-		next()
-	} else {
-		res.status(401).json({data: 'Not Authorized!'})
-	}
+  if(req.user){
+    next()
+  } else {
+    res.status(401).json({data: 'Not Authorized!'})
+  }
 }
 
 

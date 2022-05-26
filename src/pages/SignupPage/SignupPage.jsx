@@ -8,7 +8,6 @@ import userService from "../../utils/userService";
 import "./SignupPage.css"
 
 export default function SignUpPage(props) {
-  console.log(props, "<---- props on signup ")
 
   const [error, setError] = useState('')
   const [state, setState] = useState({
@@ -29,7 +28,7 @@ export default function SignUpPage(props) {
   }
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
     try {
       await userService.signup(state)
       props.handleSignUpOrLogin()
